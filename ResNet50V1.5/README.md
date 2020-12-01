@@ -36,6 +36,11 @@ Docker使用Paddle官方公布的 `paddlepaddle/paddle:latest-dev-cuda11.0-cudnn
 - FP32/AMP
 - XLA
 
+网络结构：
+
+优化器：
+
+
 ## 环境搭建&测试
 
 请参考如下脚本搭建环境：
@@ -52,13 +57,37 @@ Docker使用Paddle官方公布的 `paddlepaddle/paddle:latest-dev-cuda11.0-cudnn
 
 ## 测试结果
 
+- 训练吞吐率(images/sec)如下:
+
+|卡数 | FP32(BS=128) | FP32(BS=160) | AMP(BS=128) | AMP(BS=208)|
+|-----|-----|-----|-----|-----|
+|1 | - | - | - | -|
+|8 | - | - | - | -|
+|32 | - | - | - | -|
+
+多卡加速比如下：
+
+|卡数 | FP32(BS=128) | FP32(BS=160) | AMP(BS=128) | AMP(BS=208)|
+|-----|-----|-----|-----|-----|
+|1 | - | - | - | -|
+|8 | - | - | - | -|
+|32 | - | - | - | -|
+
 ## 与业内其它框架的数据对比
+
+说明：
+- 同等执行环境下测试
+- 单位：images/sec
+- 对于支持DALI/XLA的框架，以下测试为开启DALI/XLA的数据
+- BatchSize选用各框架支持的最大BatchSize
 
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet | OneFlow |
 |-----|-----|-----|-----|-----|-----|
-| FP32 GPU=1,BS=128 | - | - | - | - | - |
-| AMP GPU=1,BS=256 | - | - | - | - | - |
-| FP32 GPU=8,BS=128 | - | - | - | - | - |
-| AMP GPU=8,BS=256 | - | - | - | - | - |
-| FP32 GPU=32,BS=128 | - | - | - | - | - |
-| AMP GPU=32,BS=256 | - | - | - | - | - |
+| FP32 GPU=1,BS=max | - | - | - | - | - |
+| AMP GPU=1,BS=max | - | - | - | - | - |
+| FP32 GPU=8,BS=max | - | - | - | - | - |
+| AMP GPU=8,BS=max | - | - | - | - | - |
+| FP32 GPU=32,BS=max | - | - | - | - | - |
+| AMP GPU=32,BS=max | - | - | - | - | - |
+
+# 日志数据

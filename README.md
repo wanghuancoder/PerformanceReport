@@ -25,15 +25,18 @@
 ## 测试结果
 
 ### ResNet50V1.5
+
+说明：
 - GPU型号：V100-SXM2-16GB
 - 单位：images/sec
 - 对于支持DALI/XLA的框架，以下测试为开启DALI/XLA的数据
+- BatchSize选用各框架支持的最大BatchSize
 
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet | OneFlow |
 |-----|-----|-----|-----|-----|-----|
-| FP32 GPU=1,BS=128 | - | - | - | - | - |
-| AMP GPU=1,BS=256 | - | - | - | - | - |
-| FP32 GPU=8,BS=128 | - | - | - | - | - |
-| AMP GPU=8,BS=256 | - | - | - | - | - |
-| FP32 GPU=32,BS=128 | - | - | - | - | - |
-| AMP GPU=32,BS=256 | - | - | - | - | - |
+| FP32 GPU=1,BS=max | - | - | - | - | - |
+| AMP GPU=1,BS=max | - | - | - | - | - |
+| FP32 GPU=8,BS=max | - | - | - | - | - |
+| AMP GPU=8,BS=max | - | - | - | - | - |
+| FP32 GPU=32,BS=max | - | - | - | - | - |
+| AMP GPU=32,BS=max | - | - | - | - | - |
