@@ -62,7 +62,6 @@
 
 ### Bert Base Pre-Training
 
-
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | OneFlow |
 |-----|-----|-----|-----|-----|-----|
 | FP32 GPU=1,BS=max | - | - | - | - | - |
