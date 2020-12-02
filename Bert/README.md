@@ -101,12 +101,12 @@ Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数
 - BatchSize 选用各框架支持的最大 BatchSize
 
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | OneFlow |
-|-----|-----|-----|-----|-----|-----|
-| FP32 GPU=1,BS=max | - | - | - | - | - |
-| AMP GPU=1,BS=max | - | - | - | - | - |
-| FP32 GPU=8,BS=max | - | - | - | - | - |
-| AMP GPU=8,BS=max | - | - | - | - | - |
-| FP32 GPU=32,BS=max | - | - | - | - | - |
-| AMP GPU=32,BS=max | - | - | - | - | - |
+|-----|-----|-----|-----|-----|
+| FP32 GPU=1,BS=max | - | - | - | - |
+| AMP GPU=1,BS=max | - | - | - | - |
+| FP32 GPU=8,BS=max | - | - | - | - |
+| AMP GPU=8,BS=max | - | - | - | - |
+| FP32 GPU=32,BS=max | - | - | - | - |
+| AMP GPU=32,BS=max | - | - | - | - |
 
 ## 五、日志数据
