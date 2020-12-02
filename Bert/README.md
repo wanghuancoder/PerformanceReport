@@ -1,8 +1,9 @@
-# Paddle ResNet50V1.5 性能测试报告
+# Paddle Bert Base 性能测试报告
 
-这里给出了Paddle ResNet50V1.5的测试报告，包括执行环境、Paddle版本、环境搭建方法、复现脚本、测试结果和测试日志。
+这里给出了基于Paddle实现 Bert Base Pre-Training 任务的详细测试报告，包括执行环境、Paddle版本、环境搭建方法、复现脚本、测试结果和测试日志。
 
-同时，给出了在同等执行环境下，业内几个知名框架在ResNet50V1.5模型下的性能数据，和测试报告。
+同时，给出了在相同执行环境下，业内几个知名框架的性能数据。
+
 
 ## 执行环境
 
@@ -13,15 +14,14 @@
 - cuDNN：8.0.4
 - 内存：64 GB
 
-
 多数框架提供了包含完整测试环境的docker images，如下是各框架的基础环境配置：
 
 |配置 | Paddle | NGC TensorFlow | NGC PyTorch | OneFlow|
 |-----|-----|-----|-----|-----|
 | 框架版本 | 2.0 | 1.15.2+nv | 1.6.0a0+9907a3e | 0.2.0 |
-| docker镜像 |  paddlepaddle/paddle:latest-dev-cuda11.0-cudnn8-gcc82 | - | - | - |
-| 模型代码 | | | |
-|CUDA |  |  |  |  |
+| docker镜像 |  paddlepaddle/paddle:latest-dev-cuda11.0-cudnn8-gcc82   | nvcr.io/nvidia/tritonserver:20.09-py3 | nvcr.io/nvidia/pytorch:20.06-py3 | -
+|模型代码| | [NVIDIA/DeepLearningExamples](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/LanguageModeling/BERT) | [NVIDIA/DeepLearningExamples](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/LanguageModeling/BERT)| [Oneflow-Inc/OneFlow-Benchmark](https://github.com/Oneflow-Inc/OneFlow-Benchmark/tree/637bb9cdb4cc1582f13bcc171acbc8a8089d9435/LanguageModeling/BERT) |
+|CUDA | 11 | 11 | 11 | 11 |
 |cuDNN | 8.0.4 | 8.0.1 | 8.0.1 | - |
 
 ## 环境搭建&测试
@@ -52,31 +52,24 @@
 
 ## 测试结果
 
-- 训练吞吐率(images/sec)如下:
+- 训练吞吐率(sentences/sec)如下:
 
-|卡数 | FP32(BS=128) | FP32(BS=160) | AMP(BS=128) | AMP(BS=208)|
+|卡数 | FP32(BS=32) | AMP(BS=64) | FP32(BS=max) | AMP(BS=max) |
 |-----|-----|-----|-----|-----|
-|1 | - | - | - | -|
-|8 | - | - | - | -|
-|32 | - | - | - | -|
+|1 | - | - | - | - |
+|8 | - | - | - | - |
+|32 | - | - | - | - |
 
-多卡加速比如下：
-
-|卡数 | FP32(BS=128) | FP32(BS=160) | AMP(BS=128) | AMP(BS=208)|
-|-----|-----|-----|-----|-----|
-|1 | - | - | - | -|
-|8 | - | - | - | -|
-|32 | - | - | - | -|
 
 ## 与业内其它框架的数据对比
 
 说明：
 - 同等执行环境下测试
-- 单位：`images/sec`
+- 单位：`sentences/sec`
 - 对于支持 `DALI/XLA` 的框架，以下测试为开启 `DALI/XLA` 的数据
 - BatchSize 选用各框架支持的最大 BatchSize
 
-| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet | OneFlow |
+| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | OneFlow |
 |-----|-----|-----|-----|-----|-----|
 | FP32 GPU=1,BS=max | - | - | - | - | - |
 | AMP GPU=1,BS=max | - | - | - | - | - |
