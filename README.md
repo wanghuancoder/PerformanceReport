@@ -59,14 +59,17 @@
 | FP32 GPU=32,BS=max | - | - | - | - | - |
 | AMP GPU=32,BS=max | - | - | - | - | - |
 
+详细数据请见[《Paddle ResNet50V1.5 性能测试报告》](./ResNet50V1.5)
 
 ### Bert Base Pre-Training
 
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | OneFlow |
-|-----|-----|-----|-----|-----|-----|
-| FP32 GPU=1,BS=max | - | - | - | - | - |
-| AMP GPU=1,BS=max | - | - | - | - | - |
-| FP32 GPU=8,BS=max | - | - | - | - | - |
-| AMP GPU=8,BS=max | - | - | - | - | - |
-| FP32 GPU=32,BS=max | - | - | - | - | - |
-| AMP GPU=32,BS=max | - | - | - | - | - |
+|-----|-----|-----|-----|-----|
+| FP32 GPU=1,BS=max | - | - | - | - |
+| AMP GPU=1,BS=max | - | - | - | - |
+| FP32 GPU=8,BS=max | - | - | - | - |
+| AMP GPU=8,BS=max | - | - | - | - |
+| FP32 GPU=32,BS=max | - | - | - | - |
+| AMP GPU=32,BS=max | - | - | - | - |
+
+详细数据请见[《Paddle Bert Base 性能测试报告》](./Bert)
