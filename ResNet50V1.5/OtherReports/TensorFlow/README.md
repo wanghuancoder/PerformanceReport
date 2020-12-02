@@ -3,7 +3,8 @@
 这里给出 NGC TensorFlow ResNet50V1.5的性能复现报告。
 对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码、脚本未做改动。其公开的测试报告请见：[《ResNet-50 v1.5 for TensorFlow》](https://github.com/Oneflow-Inc/DLPerf/tree/master/NVIDIADeepLearningExamples/TensorFlow/Classification/ConvNets/resnet50v1.5)
 
-对于32卡性能测试，由于NGC并未提供测试环境和测试方法，我们参考（XXX比如TF的说明文档）`TODO分布式`搭建了测试环境，完成了测试。
+对于32卡性能测试，由于NGC并未提供测试环境和测试方法，我们参考（XXX比如TF的说明文档）`TODO 分布式`搭建了测试环境，完成了测试。
+`TODO 分布式`：分布式同学找到一个TF或NGC官方的、关于分布式使用的文档，放在XXX位置，并提供链接。后续的测试，也真正参考这个文档进行测试。
 
 ## 执行环境
 
@@ -63,6 +64,11 @@ bash resnet50v1.5/training/training_perf.sh
 - 32卡的测试
 
 `TODO分布式`
+`TODO分布式说明`：
+ 1. 这里最好先确定是否能够使用NGC提供的官方docker，完成分布式测试。否则，需要详细给出环境的搭建方法。
+ 2. 之后，进行测试，给出测试脚本。测试脚本最好是一键执行的。可参考NGC提供的`resnet50v1.5/training/training_perf.sh`脚本。
+ 3. 得出32卡数据，并保留日志文件。
+
 请参考如下脚本搭建环境：
 ```
 ```
