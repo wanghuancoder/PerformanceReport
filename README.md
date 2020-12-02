@@ -41,6 +41,7 @@
 ## 测试结果
 
 说明：
+
 - GPU型号：`V100-SXM2-16GB`
 - 单位：`images/sec`
 - 对于支持 `DALI/XLA` 的框架，以下测试为开启 `DALI/XLA` 的数据
