@@ -43,12 +43,13 @@
 说明：
 
 - GPU型号：`V100-SXM2-16GB`
-- 单位：`images/sec`
-- 对于支持 `DALI/XLA` 的框架，以下测试为开启 `DALI/XLA` 的数据
-- BatchSize 选用各框架支持的最大 BatchSize（下简称：BS）
+- 测试中，我们尽可能复现不同框架的最好极限值，因此以下测试结果默认打来了各个框架的各种加速功能/选项，如：
+   - 对于支持 `DALI/XLA` 的框架，以下测试为开启 `DALI/XLA` 的数据
+   - BatchSize 选用各框架支持的最大 BatchSize（下简称：BS）
 
 ### ResNet50V1.5
 
+- 单位：`images/sec`
 
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet | OneFlow |
 |-----|-----|-----|-----|-----|-----|
@@ -63,6 +64,7 @@
 
 ### Bert Base Pre-Training
 
+- 单位：`sequences/sec`
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | OneFlow |
 |-----|-----|-----|-----|-----|
 | FP32 GPU=1,BS=max | - | - | - | - |
