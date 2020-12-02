@@ -16,6 +16,8 @@
 
 多数框架提供了包含完整测试环境的docker images，如下是各框架的基础环境配置：
 
+`TODO wanghuancoder` 完成以下信息整理
+
 |配置 | Paddle | NGC TensorFlow | NGC PyTorch | OneFlow|
 |-----|-----|-----|-----|-----|
 | 框架版本 | 2.0 | 1.15.2+nv | 1.6.0a0+9907a3e | 0.2.0 |
@@ -26,6 +28,8 @@
 
 
 ## 测试说明
+
+`TODO wanghuancoder` 完成以下信息整理
 
 - Node
 - BatchSize
@@ -39,6 +43,11 @@
 ## 环境搭建&测试
 
 ### 单机单卡&单机8卡
+
+`TODO wanghuancoder`
+1. 制作Docker镜像，完成主要环境安装，如：CUDA、Python、Paddle、DALI等等
+2. 编写一键测试脚本
+3. 完成以下复现说明编写
 
 请参考如下脚本搭建环境：
 ```
