@@ -24,7 +24,21 @@
 |CUDA |  |  |  |  |
 |cuDNN | 8.0.4 | 8.0.1 | 8.0.1 | - |
 
+
+## 测试说明
+
+- Node
+- BatchSize
+- FP32/AMP
+- XLA
+
+网络结构：
+
+优化器：
+
 ## 环境搭建&测试
+
+### 单机单卡&单机8卡
 
 请参考如下脚本搭建环境：
 ```
@@ -38,17 +52,16 @@
 ```
 执行测试脚本后，即可获得性能数据，如下图所示：
 
-
-## 测试说明
-
-- Node
-- BatchSize
-- FP32/AMP
-- XLA
-
-网络结构：
-
-优化器：
+### 4机32卡
+`TODO Distribute`
+1. 使用PaddleClas中的Resnet50测试32卡分布式性能数据。
+2. 提供分布式测试环境搭建的详细方法，可参考OneFlow的报告：
+https://github.com/Oneflow-Inc/DLPerf/tree/master/PaddlePaddle/resnet50v1.5#nccl
+https://github.com/Oneflow-Inc/DLPerf/tree/master/NVIDIADeepLearningExamples/TensorFlow/Classification/ConvNets/resnet50v1.5#ssh%E9%85%8D%E7%BD%AE%E5%8F%AF%E9%80%89
+3. 注意：咱们Paddle也计划制作Docker镜像，将必要的环境安装在镜像中，如果分布式的环境搭建可以预安装到Docker中，请分布式同学联系王欢，共同制作Docker。而能够在Docker中预安装好的环境，可以在文档的环境搭建介绍中不提供具体安装方法。
+4. 编写一键执行的测试脚本，可参考：
+https://github.com/Oneflow-Inc/DLPerf#benchmark-test-scopes
+https://github.com/Oneflow-Inc/DLPerf#benchmark-test-scopes
 
 ## 测试结果
 
@@ -60,13 +73,8 @@
 |8 | - | - | - | -|
 |32 | - | - | - | -|
 
-多卡加速比如下：
-
-|卡数 | FP32(BS=128) | FP32(BS=160) | AMP(BS=128) | AMP(BS=208)|
-|-----|-----|-----|-----|-----|
-|1 | - | - | - | -|
-|8 | - | - | - | -|
-|32 | - | - | - | -|
+`TODO wanghuancoder` 完成测试，将1卡、8卡数据填入表格
+`TODO Distribute` 完成测试，将32卡数据填入表格
 
 ## 与业内其它框架的数据对比
 
@@ -85,4 +93,13 @@
 | FP32 GPU=32,BS=max | - | - | - | - | - |
 | AMP GPU=32,BS=max | - | - | - | - | - |
 
+`TODO wanghuancoder` 完成测试，将1卡、8卡数据填入表格
+`TODO Distribute` 完成测试，将32卡数据填入表格
+
 # 日志数据
+- [1卡 FP32 BS=128 日志](./log/)
+- [1卡 FP32 BS=160 日志](./log/)
+- ...
+
+`TODO wanghuancoder` 完成测试，将1卡、8卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
+`TODO Distribute` 完成测试，将32卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
