@@ -3,8 +3,8 @@
 这里给出 NGC TensorFlow ResNet50V1.5的性能复现报告。
 对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码、脚本未做改动。其公开的测试报告请见：[《ResNet-50 v1.5 for TensorFlow》](https://github.com/Oneflow-Inc/DLPerf/tree/master/NVIDIADeepLearningExamples/TensorFlow/Classification/ConvNets/resnet50v1.5)
 
-对于32卡性能测试，由于NGC并未提供测试环境和测试方法，我们参考（XXX比如TF的说明文档）`TODO 分布式`搭建了测试环境，完成了测试。
-`TODO 分布式`：分布式同学找到一个TF或NGC官方的、关于分布式使用的文档，放在XXX位置，并提供链接。后续的测试，也真正参考这个文档进行测试。
+对于32卡性能测试，由于NGC并未提供测试环境和测试方法，我们参考[XXX](www.baidu.com)搭建了测试环境，完成了测试。
+`TODO Distribute` 找到一个TF或NGC官方的、关于分布式使用的文档，放在XXX位置，并提供链接。后续的测试，也真正参考这个文档进行测试。
 
 ## 执行环境
 
@@ -30,7 +30,6 @@
 
 ## 测试说明
 
-测试过程严格按照[NGC官网](https://github.com/Oneflow-Inc/DLPerf/tree/master/NVIDIADeepLearningExamples/TensorFlow/Classification/ConvNets/resnet50v1.5)公开的报告执行，对齐提供的代码、脚本未做改动。具体测试内容说明如下：
 - Node
 - BatchSize
 - FP32/AMP
@@ -39,6 +38,10 @@
 ## 环境搭建&测试
 
 - 1卡、8卡的测试
+
+`TODO wanghuancoder`
+1. 严格按以下脚本复现
+2. TF AMP慢问题的分析
 
 请参考如下脚本搭建环境：
 ```
@@ -63,11 +66,22 @@ bash resnet50v1.5/training/training_perf.sh
 
 - 32卡的测试
 
-`TODO分布式`
-`TODO分布式说明`：
- 1. 这里最好先确定是否能够使用NGC提供的官方docker，完成分布式测试。否则，需要详细给出环境的搭建方法。
- 2. 之后，进行测试，给出测试脚本。测试脚本最好是一键执行的。可参考NGC提供的`resnet50v1.5/training/training_perf.sh`脚本。
+`TODO Distribute`
+ 1. 提供分布式测试环境搭建的详细方法，这里最好先确定是否能够使用NGC提供的官方docker `NGC 20.03`，完成分布式测试。否则，需要详细给出环境的搭建方法。参考材料如下：
+ 
+https://github.com/Oneflow-Inc/DLPerf/tree/master/PaddlePaddle/resnet50v1.5#nccl
+
+https://github.com/Oneflow-Inc/DLPerf/tree/master/NVIDIADeepLearningExamples/TensorFlow/Classification/ConvNets/resnet50v1.5#ssh%E9%85%8D%E7%BD%AE%E5%8F%AF%E9%80%89
+
+ 2. 之后，进行测试，给出测试脚本。测试脚本最好是一键执行的。可参考NGC提供的`resnet50v1.5/training/training_perf.sh`脚本。也可以参考：
+
+https://github.com/Oneflow-Inc/DLPerf#benchmark-test-scopes
+
+https://github.com/Oneflow-Inc/DLPerf#benchmark-test-scopes
+ 
  3. 得出32卡数据，并保留日志文件。
+ 4. 最好能够找到NGC/TF官方公布的多卡性能数据做对比，原则上我们复现的性能数据该与对方公布的数据基本接近，否则应认真检查我们的复现是否存在问题。OneFlow公开的TF 32卡数据参考如下：
+ https://github.com/Oneflow-Inc/DLPerf/tree/master/NVIDIADeepLearningExamples/TensorFlow/Classification/ConvNets/resnet50v1.5#resnet50-v15-fp32
 
 请参考如下脚本搭建环境：
 ```
@@ -77,18 +91,18 @@ bash resnet50v1.5/training/training_perf.sh
 
 - 训练吞吐率(images/sec)如下:
 
-|卡数 | FP32(BS=128) | FP32(BS=160) | AMP(BS=128) | AMP(BS=208)|
+|卡数 | FP32(BS=128) | FP32(BS=128) | AMP(BS=128) | AMP(BS=256)|
 |-----|-----|-----|-----|-----|
 |1 | - | - | - | -|
 |8 | - | - | - | -|
 |32 | - | - | - | -|
 
-多卡加速比如下：
-
-|卡数 | FP32(BS=128) | FP32(BS=160) | AMP(BS=128) | AMP(BS=208) |
-|-----|-----|-----|-----|-----|
-|1 | - | - | - | - |
-|8 | - | - | - | - |
-|32 | - | - | - | - |
+`TODO wanghuancoder` 完成测试，将1卡、8卡数据填入表格
+`TODO Distribute` 完成测试，将32卡数据填入表格
 
 # 日志数据
+- [1卡 FP32 BS=128 日志](./log/)
+- ...
+
+`TODO wanghuancoder` 完成测试，将1卡、8卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
+`TODO Distribute` 完成测试，将32卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
