@@ -1,3 +1,4 @@
+<!-- omit in toc -->
 # Paddle Performance Report——Paddle框架性能测试报告
 
 
@@ -5,21 +6,20 @@
 
 同时，我们也在相同的硬件执行环境下，按照业内其它知名深度学习框架公开的代码和教程，测试了对应模型的性能数据，并记录具体日志和数据。
 
+<!-- omit in toc -->
 ## 目录
 
 - [一、测试模型](#一测试模型)
-    * [1. 计算机视觉](#1计算机视觉)
-    * [2. 自然语言处理](#2自然语言处理)
-
+  - [1.计算机视觉](#1计算机视觉)
+  - [2.自然语言处理](#2自然语言处理)
 - [二、供对比的业内深度学习框架](#二供对比的业内深度学习框架)
-    * [1. NGC TensorFlow 1.15](#1-ngc-tensorflow-115)
-    * [2. NGC PyTorch](#2-ngc-pytorch)
-    * [3. NGC MxNet](#3-ngc-mxnet)
-    * [4. OneFlow](#4-oneflow)
-
+  - [1. NGC TensorFlow 1.15](#1-ngc-tensorflow-115)
+  - [2. NGC PyTorch](#2-ngc-pytorch)
+  - [3. NGC MxNet](#3-ngc-mxnet)
+  - [4. OneFlow](#4-oneflow)
 - [三、测试结果](#三测试结果)
-    * [1. ResNet50V1.5](#1-resnet50v15)
-    * [2. Bert Base Pre-Training](#2-bert-base-pre-training)
+  - [1. ResNet50V1.5](#1-resnet50v15)
+  - [2. Bert Base Pre-Training](#2-bert-base-pre-training)
 
 ## 一、测试模型
 
