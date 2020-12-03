@@ -95,7 +95,7 @@ bash resnet50v1.5/training/training_perf.sh
 
 - 训练吞吐率(images/sec)如下:
 
-|卡数 | FP32(BS=128) | FP32(BS=128) | AMP(BS=128) | AMP(BS=256)|
+|卡数 | FP32(BS=128) | FP32(BS=max_128) | AMP(BS=128) | AMP(BS=max_256)|
 |-----|-----|-----|-----|-----|
 |1 | - | - | - | -|
 |8 | - | - | - | -|
