@@ -12,23 +12,23 @@
     * [2. 自然语言处理](#2自然语言处理)
 
 - [二、供对比的业内深度学习框架](#二供对比的业内深度学习框架)
-    * [1. NGC TensorFlow 1.15](#1NGCTensorFlow115)
-    * [2. NGC PyTorch](#2NGCPyTorch)
-    * [3. NGC MxNet](#3NGCMxNet)
-    * [4. OneFlow](#4OneFlow)
+    * [1. NGC TensorFlow 1.15](#1-ngc-tensorflow-115)
+    * [2. NGC PyTorch](#2-ngc-pytorch)
+    * [3. NGC MxNet](#3-ngc-mxnet)
+    * [4. OneFlow](#4-oneflow)
 
 - [三、测试结果](#三测试结果)
-    * [1. ResNet50V1.5](#1ResNet50V15)
-    * [2. Bert Base Pre-Training](#2BertBasePreTraining)
+    * [1. ResNet50V1.5](#1-resnet50v15)
+    * [2. Bert Base Pre-Training](#2-bert-base-pre-training)
 
 ## 一、测试模型
 
 目前我们公开了**计算机视觉**和**自然语言处理**领域的两个典型模型的性能对比数据：
 
-### 1. 计算机视觉
+### 1.计算机视觉
 - [ResNet50V1.5](./ResNet50V1.5)
 
-### 2. 自然语言处理
+### 2.自然语言处理
 - [Bert Base Pre-Training](./Bert)
 
 我们将持续开展性能测试工作，后续将逐步公开更多性能数据，敬请期待。
