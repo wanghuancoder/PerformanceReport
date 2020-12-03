@@ -11,7 +11,9 @@
 
 ## 一、环境介绍
 环境介绍（物理机环境及Docker环境）在[《Paddle ResNet50V1.5 性能测试》](../../)中已经给出。
+
 所有测试物理机环境完全一致，Docker环境使用NVIDIA官方提供的`NGC 20.03`镜像。
+
 > TODO(wanghuancoder):<br>
 > 确认一下最终是否使用NGC 20.03
 
