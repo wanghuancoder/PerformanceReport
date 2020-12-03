@@ -164,3 +164,9 @@ Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数
 | AMP GPU=32,BS=max | - | - | - | - |
 
 ## 六、日志数据
+
+> TODO(Aurelius84):<br>
+> 完成测试，将1卡、8卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
+
+> TODO(Distribute):<br>
+> 完成测试，将32卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
