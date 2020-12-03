@@ -22,10 +22,10 @@
 
 - 系统：Ubuntu 18.04.4 LTS
 - GPU：NVIDIA V100-SXM2-16GB
-- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz
+- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
 - CUDA：11
 - cuDNN：8.0.4
-- 内存：64 GB
+- 内存：448 GB
 
 ### 2.Docker 镜像
 
