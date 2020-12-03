@@ -3,7 +3,7 @@
 这里给出 NGC TensorFlow ResNet50V1.5的性能测试报告。
 对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码、脚本未做改动。其公开的测试报告请见：[《ResNet-50 v1.5 for TensorFlow》](https://github.com/Oneflow-Inc/DLPerf/tree/master/NVIDIADeepLearningExamples/TensorFlow/Classification/ConvNets/resnet50v1.5)
 
-对于32卡性能测试，由于NGC并未提供测试环境和测试方法，我们参考[XXX](www.baidu.com)搭建了测试环境，完成了测试。
+对于32卡性能测试，由于NGC并未提供测试环境和测试方法，我们参考[XXX]()搭建了测试环境，完成了测试。
 > TODO(Distribute):<br>
 > 找到一个TF或NGC官方的、关于分布式使用的文档，放在XXX位置，并提供链接。后续的测试，也真正参考这个文档进行测试。
 
@@ -108,7 +108,7 @@ bash resnet50v1.5/training/training_perf.sh
 > 完成测试，将32卡数据填入表格
 
 ## 五、日志数据
-- [1卡 FP32 BS=128 日志](./log/)
+- [1卡 FP32 BS=128 日志](./logs/)
 - ...
 
 > TODO(wanghuancoder):<br>
