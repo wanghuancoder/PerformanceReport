@@ -6,41 +6,56 @@
 同时，我们也在相同的硬件执行环境下，按照业内其它知名深度学习框架公开的代码和教程，测试了对应模型的性能数据，并记录具体日志和数据。
 
 ## 目录
-`TODO Aurelius84` 在最终发布前，需要check一遍目录索引及链接
 
-- [测试模型](#测试模型)
-    * [ResNet50V1.5](./ResNet50V1.5)
-    * [Bert Base Pre-Training](./Bert)
+- [一、测试模型](#一测试模型)
+    * [1. 计算机视觉](#1计算机视觉)
+    * [2. 自然语言处理](#2自然语言处理)
 
-- [供对比的业内深度学习框架](#供对比的业内深度学习框架)
-    * [NGC TensorFlow 1.15](https://ngc.nvidia.com/catalog/containers/nvidia:tensorflow/tags)
-    * [NGC PyTorch](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch/tags)
-    * [NGC MxNet](https://ngc.nvidia.com/catalog/containers/nvidia:mxnet/tags)
-    * [OneFlow](https://github.com/Oneflow-Inc/oneflow/tree/v0.2.0)
+- [二、供对比的业内深度学习框架](#二供对比的业内深度学习框架)
+    * [1. NGC TensorFlow 1.15](#1NGCTensorFlow115)
+    * [2. NGC PyTorch](#2NGCPyTorch)
+    * [3. NGC MxNet](#3NGCMxNet)
+    * [4. OneFlow](#4OneFlow)
 
-- [测试结果](#测试结果)
-    * [ResNet50V1.5](#ResNet50V1.5)
-    * [Bert Base Pre-Training](#Bert-Base-Pre-Training)
+- [三、测试结果](#三测试结果)
+    * [1. ResNet50V1.5](#1ResNet50V15)
+    * [2. Bert Base Pre-Training](#2BertBasePreTraining)
 
-## 测试模型
+## 一、测试模型
 
+目前我们公开了**计算机视觉**和**自然语言处理**领域的两个典型模型的性能对比数据：
+
+### 1. 计算机视觉
 - [ResNet50V1.5](./ResNet50V1.5)
+
+### 2. 自然语言处理
 - [Bert Base Pre-Training](./Bert)
 
-我们将持续开展性能测试工作，后续将逐步公开更多性能数据。
+我们将持续开展性能测试工作，后续将逐步公开更多性能数据，敬请期待。
 
-## 供对比的业内深度学习框架
+## 二、供对比的业内深度学习框架
 
 我们选择了 NGC 优化后的 TensorFlow 、PyTorch、MxNet，以及国内优秀的深度学习框架 OneFlow 等代码实现，作为性能的参考。
 
 对这些框架的性能测试，我们选用相同的物理机执行，并严格参照各框架官网公布的测试方法进行复现。
 
-- [NGC TensorFlow 1.15](https://ngc.nvidia.com/catalog/containers/nvidia:tensorflow/tags)
-- [NGC PyTorch](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch/tags)
-- [NGC MxNet](https://ngc.nvidia.com/catalog/containers/nvidia:mxnet/tags)
-- [OneFlow](https://github.com/Oneflow-Inc/oneflow/tree/v0.2.0)
+### 1. [NGC TensorFlow 1.15](https://ngc.nvidia.com/catalog/containers/nvidia:tensorflow/tags)
 
-## 测试结果
+- 代码库：[DeepLearningExamples/TensorFlow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow)
+
+### 2. [NGC PyTorch](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch/tags)
+
+- 代码库：[DeepLearningExamples/PyTorch](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch)
+### 3. [NGC MxNet](https://ngc.nvidia.com/catalog/containers/nvidia:mxnet/tags)
+
+- 代码库：[DeepLearningExamples/MxNet](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet)
+
+### 4. [OneFlow](https://github.com/Oneflow-Inc/oneflow/tree/v0.2.0)
+
+- 代码库：[Oneflow-Inc/DLPerf/OneFlow/](https://github.com/Oneflow-Inc/DLPerf/tree/master/OneFlow)
+
+
+## 三、测试结果
 
 说明：
 
@@ -49,7 +64,7 @@
    - 对于支持 `DALI/XLA` 的框架，以下测试为开启 `DALI/XLA` 的数据
    - BatchSize 选用各框架支持的最大 BatchSize（下简称：BS）
 
-### ResNet50V1.5
+### 1. ResNet50V1.5
 
 > 详细数据请见[《Paddle ResNet50V1.5 性能测试报告》](./ResNet50V1.5)
 
@@ -64,11 +79,11 @@
 | FP32 GPU=32,BS=max | - | - | - | - | - |
 | AMP GPU=32,BS=max | - | - | - | - | - |
 
-### Bert Base Pre-Training
+### 2. Bert Base Pre-Training
 > 详细数据请见[《Paddle Bert Base 性能测试报告》](./Bert)
 
 
-- 单位：`sequences/sec`
+- 单位：`sentences/sec`
 
 
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | OneFlow |
