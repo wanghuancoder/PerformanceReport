@@ -87,10 +87,10 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 |配置 | Paddle | NGC TensorFlow | NGC PyTorch | OneFlow|
 |-----|-----|-----|-----|-----|
 | 框架版本 | 2.0 | 1.15.2+nv | 1.6.0a0+9907a3e | 0.2.0 |
-| docker镜像 |  paddlepaddle/paddle:latest-dev-cuda11.0-cudnn8-gcc82 | - | - | - |
+| docker镜像 |  hub.baidubce.com/paddlepaddle/paddle:latest-dev-cuda10.1-cudnn7-gcc82 | - | - | - |
 | 模型代码 | | | |
-|CUDA |  |  |  |  |
-|cuDNN | 8.0.4 | 8.0.1 | 8.0.1 | - |
+|CUDA | 10.1 |  |  |  |
+|cuDNN | 7.6 | 8.0.1 | 8.0.1 | - |
 
 ## 三、环境搭建
 
