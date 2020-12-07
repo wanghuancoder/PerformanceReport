@@ -129,7 +129,7 @@ bash scripts/run_benchmark.sh 32 1 fp32
 bash scripts/run_benchmark.sh 64 8 fp16
 ```
 
-|卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96)|
+|卡数 | FP32(BS=32) | FP32(BS=64) | AMP(BS=64) | AMP(BS=128)|
 |-----|-----|-----|-----|-----|
 |1 | - | - | - | -|
 |8 | - | - | - | -|
