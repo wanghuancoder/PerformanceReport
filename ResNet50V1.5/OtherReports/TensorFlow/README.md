@@ -1,7 +1,7 @@
 # NGC TensorFlow ResNet50V1.5 性能测试
 
 这里给出 NGC TensorFlow ResNet50V1.5的性能测试报告。
-对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码、脚本未做改动。其公开的测试报告请见：[《ResNet-50 v1.5 for TensorFlow》](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)
+对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码未做改动，并严格按照NGC测试使用的参数配置测试。其公开的测试报告请见：[《ResNet-50 v1.5 for TensorFlow》](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)
 
 对于32卡性能测试，由于NGC并未提供测试环境和测试方法，我们参考[XXX]()搭建了测试环境，完成了测试。
 > TODO(Distribute):<br>
