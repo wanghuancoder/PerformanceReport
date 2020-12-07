@@ -76,14 +76,10 @@ bash test_all.sh
 
 - 执行后将得到如下日志文件：
 ```
-/data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu1_fp32_bs128.txt
-/data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu1_fp32_bs256.txt
-/data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu1_amp_bs128.txt
-/data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu1_amp_bs256.txt
-/data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu8_fp32_bs128.txt
-/data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu8_fp32_bs256.txt
-/data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu8_amp_bs128.txt
-/data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu8_amp_bs256.txt
+/data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu1_gpu8_fp32_bs128.txt
+/data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu1_gpu8_fp32_bs256.txt
+/data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu1_gpu8_amp_bs128.txt
+/data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu1_gpu8_amp_bs256.txt
 ```
 
 在NGC报告的[Training performance: NVIDIA DGX-2 (16x V100 32G)](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet/Classification/RN50v1.5#training-performance-nvidia-dgx-2-16x-v100-32g)小节，提供了其测试的参数配置。因此，我们提供的`test_all.sh`是参考了其文档中的配置。
