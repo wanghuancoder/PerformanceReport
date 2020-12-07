@@ -25,8 +25,3 @@
         files: \.md$
     -   id: remove-tabs
         files: \.md$
--   repo: https://github.com/gruntwork-io/pre-commit
-    sha: v0.1.9
-    hooks:
-    -   id: markdown-link-check
-        files: \.md$
