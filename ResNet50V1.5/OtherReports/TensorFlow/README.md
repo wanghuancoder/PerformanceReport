@@ -21,51 +21,31 @@
 ## 一、环境介绍
 环境介绍（物理机环境及Docker环境）在[《Paddle ResNet50V1.5 性能测试》](../../)中已经给出。
 
-所有测试物理机环境完全一致，Docker环境使用NVIDIA官方提供的`NGC 20.03`镜像。
-
-> TODO(wanghuancoder):<br>
-> 确认一下最终是否使用NGC 20.03
+所有测试物理机环境完全一致，Docker环境使用NVIDIA官方提供的`NGC 20.06`镜像。
 
 ## 二、环境搭建
 
 ### 1.单机（单卡、8卡）环境搭建
 
-> TODO(wanghuancoder):<br>
-> 1. 严格按以下脚本复现
-> 2. TF AMP慢问题的分析
+- 已ImageNet2012为基础制作TF_Record格式的数据
+这部分不在本报告中详细展开，可参考NGC提供的[文档](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5#quick-start-guide)制作。
 
-- 安装docker
+- 下载NGC TensorFlow repo,并进入目录
 ```
-docker pull xxxx
-```
-
-- 启动docker
-```
-nvidia-docker ...
-```
-
-- 下载数据
-
-请参考如下脚本搭建环境：
-```
-# 1. 准备最新测试代码，进入测试代码所在目录
 git clone https://github.com/NVIDIA/DeepLearningExamples
 cd DeepLearningExamples/TensorFlow/Classification/ConvNets
-# 2. 下载数据，并处理数据
-mkdir train && mv ILSVRC2012_img_train.tar train/ && cd train
-tar -xvf ILSVRC2012_img_train.tar && rm -f ILSVRC2012_img_train.tar
-find . -name "*.tar" | while read NAME ; do mkdir -p "${NAME%.tar}"; tar -xvf "${NAME}" -C "${NAME%.tar}"; rm -f "${NAME}"; done
-cd ..
-mkdir val && mv ILSVRC2012_img_val.tar val/ && cd val && tar -xvf ILSVRC2012_img_val.tar
-# 3. 创建并执行docker
-docker build . -t nvidia_rn50
-sudo nvidia-docker run --rm -it -v /ssd2/wanghuan29/ILSVRC2012_tf_records/tf_records/train_val:/data/tfrecords --ipc=host nvidia_rn50
-# 4. 生成dali数据
-bash ./utils/dali_index.sh /data/tfrecords /data/tfrecords/dali_idx
-# 5. 执行training_perf.sh进行测试
-bash resnet50v1.5/training/training_perf.sh
 ```
-执行测试脚本后，即可获得性能数据，如下图所示：
+
+- 制作Docker镜像
+```
+docker build . -t nvidia_rn50_tf
+```
+
+- 启动Docker
+```
+# 假设制作好的TF_Record数据放在<path to tfrecords data>目录下
+nvidia-docker run --rm -it -v <path to tfrecords data>:/data/tfrecords --ipc=host nvidia_rn50_tf
+```
 
 ### 2.多机（32卡）环境搭建
 
@@ -82,9 +62,28 @@ bash resnet50v1.5/training/training_perf.sh
 
 ### 1.单机（单卡、8卡）测试
 
+- 下载我们编写的测试脚本，并执行该脚本
+```
+wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/test_all.sh
+bash test_all.sh
+```
+
+- 执行后将得到如下日志文件：
+```
+/data/tfrecords/log/tf_gpu1_fp32_bs128.txt
+/data/tfrecords/log/tf_gpu1_fp32_bs256.txt
+/data/tfrecords/log/tf_gpu1_amp_bs128.txt
+/data/tfrecords/log/tf_gpu1_amp_bs256.txt
+/data/tfrecords/log/tf_gpu8_fp32_bs128.txt
+/data/tfrecords/log/tf_gpu8_fp32_bs256.txt
+/data/tfrecords/log/tf_gpu8_amp_bs128.txt
+/data/tfrecords/log/tf_gpu8_amp_bs256.txt
+```
+
+由于NGC TensorFlow的测试使用的是`training_perf.sh`，因此我们提供的`test_all.sh`是参考了`training_perf.sh`的参数设置方法。
+
 > TODO(wanghuancoder):<br>
-> 1. 严格按以下脚本复现
-> 2. TF AMP慢问题的分析
+> 脚本路径
 
 ### 2.多机（32卡）测试
 
