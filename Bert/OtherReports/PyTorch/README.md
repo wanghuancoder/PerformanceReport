@@ -69,7 +69,7 @@ nvidia-docker run --name test_bert_torch -it  \
 
 ### 3. 准备数据
 
-NGC PyTorch 提供单独的数据下载和预处理脚本 [data/create_datasets_from_start.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/LanguageModeling/BERT/data/create_datasets_from_start.sh)。在容器中执行如下命令，可以下载和制作 `wikipedia` 的 hdf5 数据集。
+NGC PyTorch 提供单独的数据下载和预处理脚本 [data/create_datasets_from_start.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/LanguageModeling/BERT/data/create_datasets_from_start.sh)。在容器中执行如下命令，可以下载和制作 `wikicorpus_en` 的 hdf5 数据集。
 
 ```bash
 bash data/create_datasets_from_start.sh wiki_only
@@ -134,9 +134,9 @@ bash data/create_datasets_from_start.sh wiki_only
   # echo "finished phase2"
   ```
 
-同时，为了更方便地测试 batch_size、num_gpus、precision不同组合下的 Pre-Training 性能，我们单独编写了 `run_benchmark.sh` 脚本，放在`scripts`目录下。
+同时，为了更方便地测试不同 batch_size、num_gpus、precision组合下的 Pre-Training 性能，我们单独编写了 `run_benchmark.sh` 脚本，并放在`scripts`目录下。
 
-shell 文件内容如下：
+shell 脚本内容如下：
 ```bash
 #!/bin/bash
 
@@ -157,13 +157,17 @@ bash scripts/run_pretraining.sh $train_batch_size 6e-3 $precision $num_gpus 0.28
 ### 1.单机（单卡、8卡）测试
 
 **单卡启动脚本：**
+
 若测试单机单卡 batch_size=32、FP32 的训练性能，执行如下命令：
+
 ```bash
 bash scripts/run_benchmark.sh 32 1 fp32
 ```
 
 **8卡启动脚本：**
+
 若测试单机8卡 batch_size=64、FP16 的训练性能，执行如下命令：
+
 ```bash
 bash scripts/run_benchmark.sh 64 8 fp16
 ```
