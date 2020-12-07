@@ -27,7 +27,7 @@
 
 ### 1.单机（单卡、8卡）环境搭建
 
-- 下载NGC TensorFlow repo,并进入目录
+- 下载NGC PyTorch repo,并进入目录
 ```
 git clone https://github.com/NVIDIA/DeepLearningExamples
 cd DeepLearningExamples/PyTorch/Classification/ConvNets
@@ -40,8 +40,8 @@ docker build . -t nvidia_rn50_pytorch
 
 - 启动Docker
 ```
-# 假设imagenet数据放在<path to tfrecords data>目录下
-nvidia-docker run --rm -it -v <path to imagenet data>:/imagenet --ipc=host nvidia_rn50_pytorch
+# 假设imagenet数据放在<path to data>目录下
+nvidia-docker run --rm -it -v <path to data>:/imagenet --ipc=host nvidia_rn50_pytorch
 ```
 
 ### 2.多机（32卡）环境搭建
