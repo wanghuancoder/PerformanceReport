@@ -29,7 +29,7 @@
 
 NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚本](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/docker/build.sh)，
 
-- 镜像版本：`nvcr.io/nvidia/tritonserver:20.09-py3`
+- 镜像版本：`nvcr.io/nvidia/tensorflow:20.06-tf1-py3`
 
 ## 二、环境搭建
 
@@ -79,29 +79,50 @@ bash data/create_datasets_from_start.sh wiki_only
 
 ## 三、测试步骤
 
-为了更准确的复现 NGC TensorFlow 公布的 [NVIDIA DGX-1 (8x V100 16GB)](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/LanguageModeling/BERT#training-performance-nvidia-dgx-1-8x-v100-16GB) 性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
+为了更准确的复现 NGC TensorFlow 公布的 [NVIDIA DGX-1 (8x V100 32GB)](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/LanguageModeling/BERT#pre-training-training-performance-single-node-on-dgx-1-32GB) 性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
 
-官方提供的 [scripts/run_pretraining_lamb.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb.sh) 执行脚本中，默认配置的是两阶段训练，我们此处统一仅执行 **第一阶段训练**，并根据日志中的输出的数据计算吞吐。
+官方提供的 [scripts/run_pretraining_lamb.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb.sh) 执行脚本中，默认配置的是两阶段训练。我们此处统一仅执行 **第一阶段训练**，并根据日志中的输出的数据计算吞吐。
 
 **重要的配置参数：**
 
-- **train_batch_size_phase1**: 用于指定每张卡上的 batch_size
+- **train_batch_size_phase1**: 用于指定每张卡上的 batch_size 数目
 - **precision**: 用于指定精度训练模式，fp32 或 fp16
 - **use_xla**: 是否开启 XLA 加速，我们统一开启此选项
 - **num_gpus**: 用于指定 GPU 卡数
 - **bert_model**: 用于指定 Bert 模型，我们统一指定为 **base**
 
+为了更方便地测试 batch_size、num_gpus、precision不同组合下的 Pre-Training 性能，我们单独编写了 `run_benchmark.sh` 脚本，放在`scripts`目录下。
+
+shell 文件内容如下：
+```bash
+#!/bin/bash
+
+set -x
+
+batch_size=$1  # batch size per gpu
+num_gpus=$2    # number of gpu
+precision=$3   # fp32 | fp16
+num_accumulation_steps_phase1=$(expr 65536 \/ $batch_size \/ $num_gpus)
+train_steps=${4:-200}        # max train steps
+bert_model=${5:-"base"}      # base | large
+
+# run pre-training
+bash scripts/run_pretraining_lamb.sh $batch_size 64 8 7.5e-4 5e-4 $precision true $num_gpus 2000 200 $train_steps 200 $num_accumulation_steps_phase1 512 $bert_model
+```
+
 ## 四、测试结果
 ### 1.单机（单卡、8卡）测试
 
 **单卡启动脚本：**
+若测试单机单卡 batch_size=32、FP32 的训练性能，执行如下命令：
 ```bash
-bash scripts/run_pretraining_lamb.sh 32 8 8 3.75e-4 2.5e-4 fp32 true 1 2000 200 250 100 2048 256 base
+bash scripts/run_benchmark.sh 32 1 fp32
 ```
 
 **8卡启动脚本：**
+若测试单机8卡 batch_size=64、FP16 的训练性能，执行如下命令：
 ```bash
-bash scripts/run_pretraining_lamb.sh 32 8 8 3.75e-4 2.5e-4 fp32 true 8 2000 200 250 100 256 256 base
+bash scripts/run_benchmark.sh 64 8 fp16
 ```
 
 |卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96)|
