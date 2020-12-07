@@ -1,7 +1,7 @@
 # NGC PyTorch ResNet50V1.5 性能测试
 
 这里给出 NGC PyTorch ResNet50V1.5的性能测试报告。
-对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码、脚本未做改动。其公开的测试报告请见：[《ResNet50 v1.5 For PyTorch》](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)
+对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码未做改动，并严格按照NGC测试使用的参数配置测试。其公开的测试报告请见：[《ResNet50 v1.5 For PyTorch》](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)
 
 对于32卡性能测试，由于NGC并未提供测试环境和测试方法，我们参考[XXX]()搭建了测试环境，完成了测试。
 > TODO(Distribute):<br>
@@ -21,50 +21,28 @@
 ## 一、环境介绍
 环境介绍（物理机环境及Docker环境）在[《Paddle ResNet50V1.5 性能测试》](../../)中已经给出。
 
-所有测试物理机环境完全一致，Docker环境使用NVIDIA官方提供的`NGC 20.03`镜像。
-
-> TODO(wanghuancoder):<br>
-> 确认一下最终是否使用NGC 20.03
+所有测试物理机环境完全一致，Docker环境使用NVIDIA官方提供的`NGC 20.07`镜像。
 
 ## 二、环境搭建
 
 ### 1.单机（单卡、8卡）环境搭建
 
-> TODO(wanghuancoder):<br>
-> 1. 严格按以下脚本复现
-
-- 安装docker
+- 下载NGC TensorFlow repo,并进入目录
 ```
-docker pull xxxx
-```
-
-- 启动docker
-```
-nvidia-docker ...
-```
-
-- 下载数据
-
-请参考如下脚本搭建环境：
-```
-# 1. 准备最新测试代码，进入测试代码所在目录
 git clone https://github.com/NVIDIA/DeepLearningExamples
-cd DeepLearningExamples/TensorFlow/Classification/ConvNets
-# 2. 下载数据，并处理数据
-mkdir train && mv ILSVRC2012_img_train.tar train/ && cd train
-tar -xvf ILSVRC2012_img_train.tar && rm -f ILSVRC2012_img_train.tar
-find . -name "*.tar" | while read NAME ; do mkdir -p "${NAME%.tar}"; tar -xvf "${NAME}" -C "${NAME%.tar}"; rm -f "${NAME}"; done
-cd ..
-mkdir val && mv ILSVRC2012_img_val.tar val/ && cd val && tar -xvf ILSVRC2012_img_val.tar
-# 3. 创建并执行docker
-docker build . -t nvidia_rn50
-sudo nvidia-docker run --rm -it -v /ssd2/wanghuan29/ILSVRC2012_tf_records/tf_records/train_val:/data/tfrecords --ipc=host nvidia_rn50
-# 4. 生成dali数据
-bash ./utils/dali_index.sh /data/tfrecords /data/tfrecords/dali_idx
-# 5. 执行training_perf.sh进行测试
-bash resnet50v1.5/training/training_perf.sh
+cd DeepLearningExamples/PyTorch/Classification/ConvNets
 ```
-执行测试脚本后，即可获得性能数据，如下图所示：
+
+- 制作Docker镜像
+```
+docker build . -t nvidia_rn50_pytorch
+```
+
+- 启动Docker
+```
+# 假设imagenet数据放在<path to tfrecords data>目录下
+nvidia-docker run --rm -it -v <path to imagenet data>:/imagenet --ipc=host nvidia_rn50_pytorch
+```
 
 ### 2.多机（32卡）环境搭建
 
@@ -81,8 +59,28 @@ bash resnet50v1.5/training/training_perf.sh
 
 ### 1.单机（单卡、8卡）测试
 
+- 下载我们编写的测试脚本，并执行该脚本
+```
+wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/test_all.sh
+bash test_all.sh
+```
+
+- 执行后将得到如下日志文件：
+```
+/imagenet/log/pytorch_gpu1_fp32_bs128.txt
+/imagenet/log/pytorch_gpu1_fp32_bs256.txt
+/imagenet/log/pytorch_gpu1_amp_bs128.txt
+/imagenet/log/pytorch_gpu1_amp_bs256.txt
+/imagenet/log/pytorch_gpu8_fp32_bs128.txt
+/imagenet/log/pytorch_gpu8_fp32_bs256.txt
+/imagenet/log/pytorch_gpu8_amp_bs128.txt
+/imagenet/log/pytorch_gpu8_amp_bs256.txt
+```
+
+在NGC报告的[Training performance benchmark](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5#training-performance-benchmark)小节，提供了其测试的参数配置。因此，我们提供的`test_all.sh`是参考了其文档中的配置。
+
 > TODO(wanghuancoder):<br>
-> 1. 严格按以下脚本复现
+> 脚本路径
 
 ### 2.多机（32卡）测试
 
