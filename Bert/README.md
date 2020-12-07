@@ -80,12 +80,12 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 多数框架提供了包含完整测试环境的docker images，如下是各框架的基础环境配置：
 
 |配置 | Paddle | NGC TensorFlow | NGC PyTorch
-|-----|-----|-----|-----|-----|
+|-----|-----|-----|-----|
 | 框架版本 | 2.0rc1 | 1.15.2+nv | 1.6.0a0+9907a3e |
 | docker镜像 |  paddlepaddle/paddle:latest-dev-cuda10.1-cudnn7-gcc82  | nvcr.io/nvidia/tensorflow:20.06-tf1-py3 | nvcr.io/nvidia/pytorch:20.06-py3 |
 |模型代码| | [NVIDIA/DeepLearningExamples](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/LanguageModeling/BERT) | [NVIDIA/DeepLearningExamples](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/LanguageModeling/BERT)|
 |CUDA | 10.1 | 11 | 11 |
-|cuDNN | 7.6.5 | 8.0.1 | 8.0.1
+|cuDNN | 7.6.5 | 8.0.1 | 8.0.1 |
 
 ## 三、环境搭建
 
