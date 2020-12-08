@@ -83,7 +83,7 @@
 > 详细数据请见[《Paddle Bert Base 性能测试报告》](./Bert)
 
 
-- 单位：`sentences/sec`
+- 单位：`sequences/sec`
 
 
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch |

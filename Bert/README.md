@@ -152,7 +152,7 @@ Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数
 
 说明：
 - 同等执行环境下测试
-- 单位：`sentences/sec`
+- 单位：`sequences/sec`
 - 对于支持 `DALI/XLA` 的框架，以下测试为开启 `DALI/XLA` 的数据
 - BatchSize 选用各框架支持的最大 BatchSize
 

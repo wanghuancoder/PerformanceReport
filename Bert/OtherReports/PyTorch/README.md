@@ -173,7 +173,7 @@ bash scripts/run_benchmark.sh 32 1 fp32
 bash scripts/run_benchmark.sh 64 8 fp16
 ```
 
-> 单位： sentences/s
+> 单位： sequences/sec
 
 |卡数 | FP32(BS=32) | FP32(BS=64) | AMP(BS=64) | AMP(BS=128)|
 |-----|-----|-----|-----|-----|
