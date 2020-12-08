@@ -141,7 +141,7 @@ Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数
 ### 1.Paddle训练性能
 - 训练吞吐率(sentences/sec)如下:
 
-|卡数 | FP32(BS=32) | AMP(BS=64) | FP32(BS=max) | AMP(BS=max) |
+|卡数 | FP32(BS=32) | AMP(BS=64) | FP32(BS=64) | AMP(BS=128) |
 |-----|-----|-----|-----|-----|
 |1 | - | - | - | - |
 |8 | - | - | - | - |
@@ -156,14 +156,14 @@ Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数
 - 对于支持 `DALI/XLA` 的框架，以下测试为开启 `DALI/XLA` 的数据
 - BatchSize 选用各框架支持的最大 BatchSize
 
-| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | OneFlow |
-|-----|-----|-----|-----|-----|
-| FP32 GPU=1,BS=max | - | - | - | - |
-| AMP GPU=1,BS=max | - | - | - | - |
-| FP32 GPU=8,BS=max | - | - | - | - |
-| AMP GPU=8,BS=max | - | - | - | - |
-| FP32 GPU=32,BS=max | - | - | - | - |
-| AMP GPU=32,BS=max | - | - | - | - |
+| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch |
+|-----|-----|-----|-----|
+| FP32 GPU=1,BS=64 | - | 153.94 | 127.02 |
+| AMP GPU=1,BS=128 | - | 538.29 | 527.38 |
+| FP32 GPU=8,BS=64 | - | - | - |
+| AMP GPU=8,BS=128 | - | - | - |
+| FP32 GPU=32,BS=64 | - | - | - |
+| AMP GPU=32,BS=128 | - | - | - |
 
 ## 六、日志数据
 

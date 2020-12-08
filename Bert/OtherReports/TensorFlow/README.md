@@ -129,11 +129,49 @@ bash scripts/run_benchmark.sh 32 1 fp32
 bash scripts/run_benchmark.sh 64 8 fp16
 ```
 
+> TODO: 待以 50个step 的日志替换
+
 |卡数 | FP32(BS=32) | FP32(BS=64) | AMP(BS=64) | AMP(BS=128)|
 |-----|-----|-----|-----|-----|
-|1 | - | - | - | -|
+|1 | 145.16 | 153.94 | 452.91 | 538.29|
 |8 | - | - | - | -|
 
 ### 2.多机（32卡）测试
 
 ## 五、日志数据
+
+> TODO: 待以 50个step 的日志替换
+
+- [单卡 bs=32、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs32_gpu1_gbs65536.log)
+```
+DLL 2020-12-07 20:04:34.092791 - Iteration: 16  throughput_train : 145.221 seq/s mlm_loss : 10.4521  nsp_loss : 0.6735  total_loss : 11.1256  avg_loss_step : 11.1381  learning_rate : 5.25e-06
+DLL 2020-12-07 20:12:05.701908 - Iteration: 17  throughput_train : 145.250 seq/s mlm_loss : 10.4404  nsp_loss : 0.6923  total_loss : 11.1327  avg_loss_step : 11.1358  learning_rate : 5.625e-06
+DLL 2020-12-07 20:19:37.382923 - Iteration: 18  throughput_train : 145.226 seq/s mlm_loss : 10.4118  nsp_loss : 0.6705  total_loss : 11.0823  avg_loss_step : 11.1347  learning_rate : 6e-06
+DLL 2020-12-07 20:27:10.659157 - Iteration: 19  throughput_train : 145.141 seq/s mlm_loss : 10.4407  nsp_loss : 0.6946  total_loss : 11.1353  avg_loss_step : 11.1318  learning_rate : 6.3750003e-06
+```
+
+- [单卡 bs=64、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs64_gpu1_gbs65536.log)
+```
+DLL 2020-12-07 16:52:48.807443 - Iteration: 43  throughput_train : 154.092 seq/s mlm_loss : 10.3343  nsp_loss : 0.6519  total_loss : 10.9862  avg_loss_step : 11.0371  learning_rate : 1.5375e-05
+DLL 2020-12-07 16:59:54.246930 - Iteration: 44  throughput_train : 154.124 seq/s mlm_loss : 10.3755  nsp_loss : 0.6641  total_loss : 11.0396  avg_loss_step : 11.0336  learning_rate : 1.575e-05
+DLL 2020-12-07 17:06:59.364339 - Iteration: 45  throughput_train : 154.241 seq/s mlm_loss : 10.2902  nsp_loss : 0.6710  total_loss : 10.9612  avg_loss_step : 11.0277  learning_rate : 1.6125001e-05
+DLL 2020-12-07 17:14:05.275813 - Iteration: 46  throughput_train : 154.217 seq/s mlm_loss : 10.3395  nsp_loss : 0.6534  total_loss : 10.9929  avg_loss_step : 11.0250  learning_rate : 1.65e-05
+DLL 2020-12-07 17:14:10.530985 -  throughput_train : 153.458 seq/s
+```
+
+- [单卡 bs=64、FP16](./logs/tf_bert_pretraining_lamb_base_fp16_bs64_gpu1_gbs65536.log)
+```
+DLL 2020-12-07 21:20:15.213285 - Iteration: 16  throughput_train : 452.515 seq/s mlm_loss : 10.4781  nsp_loss : 0.6814  total_loss : 11.1595  avg_loss_step : 11.1490  learning_rate : 5.25e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:22:40.396882 - Iteration: 17  throughput_train : 452.126 seq/s mlm_loss : 10.4795  nsp_loss : 0.6687  total_loss : 11.1482  avg_loss_step : 11.1474  learning_rate : 5.625e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:25:05.065196 - Iteration: 18  throughput_train : 453.729 seq/s mlm_loss : 10.4715  nsp_loss : 0.6940  total_loss : 11.1655  avg_loss_step : 11.1458  learning_rate : 6e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:27:30.365843 - Iteration: 19  throughput_train : 453.858 seq/s mlm_loss : 10.4725  nsp_loss : 0.6862  total_loss : 11.1588  avg_loss_step : 11.1437  learning_rate : 6.3750003e-06  loss_scaler : 134217728
+```
+
+- [单卡 bs=128、FP16](./logs/tf_bert_pretraining_lamb_base_fp16_bs128_gpu1_gbs65536.log)
+
+```
+DLL 2020-12-07 18:02:01.711027 - Iteration: 16  throughput_train : 539.905 seq/s mlm_loss : 10.4360  nsp_loss : 0.7037  total_loss : 11.1397  avg_loss_step : 11.1296  learning_rate : 5.25e-06  loss_scaler : 67108864
+DLL 2020-12-07 18:04:03.470654 - Iteration: 17  throughput_train : 538.696 seq/s mlm_loss : 10.4206  nsp_loss : 0.6961  total_loss : 11.1167  avg_loss_step : 11.1263  learning_rate : 5.625e-06  loss_scaler : 67108864
+DLL 2020-12-07 18:06:05.425436 - Iteration: 18  throughput_train : 537.847 seq/s mlm_loss : 10.4038  nsp_loss : 0.7048  total_loss : 11.1086  avg_loss_step : 11.1243  learning_rate : 6e-06  loss_scaler : 67108864
+DLL 2020-12-07 18:08:07.661224 - Iteration: 19  throughput_train : 538.043 seq/s mlm_loss : 10.3948  nsp_loss : 0.6946  total_loss : 11.0894  avg_loss_step : 11.1200  learning_rate : 6.3750003e-06  loss_scaler : 67108864
+```

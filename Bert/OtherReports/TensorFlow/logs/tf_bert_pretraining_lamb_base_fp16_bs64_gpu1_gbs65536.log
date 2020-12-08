@@ -1,0 +1,412 @@
+Container nvidia build =  13409399
+XLA activated
+2020-12-07 20:27:31.191513: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/horovod-0.19.1-py3.6-linux-x86_64.egg/horovod/tensorflow/__init__.py:152: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/horovod-0.19.1-py3.6-linux-x86_64.egg/horovod/tensorflow/__init__.py:178: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+W1207 20:27:32.928622 139824392259392 lazy_loader.py:50]
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From /workspace/bert/run_pretraining.py:587: The name tf.enable_resource_variables is deprecated. Please use tf.compat.v1.enable_resource_variables instead.
+
+W1207 20:27:33.583097 139824392259392 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:587: The name tf.enable_resource_variables is deprecated. Please use tf.compat.v1.enable_resource_variables instead.
+
+INFO:tensorflow:Using config: {'_model_dir': '/results/tf_bert_pretraining_lamb_base_fp16_gbs165536_gbs232768_201207202730/phase_1', '_tf_random_seed': None, '_save_summary_steps': 200, '_save_checkpoints_steps': 200, '_save_checkpoints_secs': None, '_session_config': graph_options {
+  optimizer_options {
+    global_jit_level: ON_1
+  }
+  rewrite_options {
+    memory_optimization: NO_MEM_OPT
+  }
+}
+, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 10000, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_service': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f29bf3f44e0>, '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+I1207 20:27:33.583715 139824392259392 estimator.py:212] Using config: {'_model_dir': '/results/tf_bert_pretraining_lamb_base_fp16_gbs165536_gbs232768_201207202730/phase_1', '_tf_random_seed': None, '_save_summary_steps': 200, '_save_checkpoints_steps': 200, '_save_checkpoints_secs': None, '_session_config': graph_options {
+  optimizer_options {
+    global_jit_level: ON_1
+  }
+  rewrite_options {
+    memory_optimization: NO_MEM_OPT
+  }
+}
+, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 10000, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_service': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f29bf3f44e0>, '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+WARNING:tensorflow:Estimator's model_fn (<function model_fn_builder.<locals>.model_fn at 0x7f29bf3ef158>) includes params argument, but params are not passed to Estimator.
+W1207 20:27:33.584392 139824392259392 model_fn.py:630] Estimator's model_fn (<function model_fn_builder.<locals>.model_fn at 0x7f29bf3ef158>) includes params argument, but params are not passed to Estimator.
+INFO:tensorflow:***** Running training *****
+I1207 20:27:33.584879 139824392259392 run_pretraining.py:623] ***** Running training *****
+INFO:tensorflow:  Batch size = 64
+I1207 20:27:33.584965 139824392259392 run_pretraining.py:624]   Batch size = 64
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/autograph/converters/directives.py:119: The name tf.parse_single_example is deprecated. Please use tf.io.parse_single_example instead.
+
+W1207 20:27:33.693605 139824392259392 module_wrapper.py:139] From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/autograph/converters/directives.py:119: The name tf.parse_single_example is deprecated. Please use tf.io.parse_single_example instead.
+
+INFO:tensorflow:Calling model_fn.
+I1207 20:27:33.819114 139824392259392 estimator.py:1148] Calling model_fn.
+INFO:tensorflow:*** Features ***
+I1207 20:27:33.819336 139824392259392 run_pretraining.py:257] *** Features ***
+INFO:tensorflow:  name = input_ids, shape = (64, 128)
+I1207 20:27:33.819442 139824392259392 run_pretraining.py:259]   name = input_ids, shape = (64, 128)
+INFO:tensorflow:  name = input_mask, shape = (64, 128)
+I1207 20:27:33.819528 139824392259392 run_pretraining.py:259]   name = input_mask, shape = (64, 128)
+INFO:tensorflow:  name = masked_lm_ids, shape = (64, 20)
+I1207 20:27:33.819602 139824392259392 run_pretraining.py:259]   name = masked_lm_ids, shape = (64, 20)
+INFO:tensorflow:  name = masked_lm_positions, shape = (64, 20)
+I1207 20:27:33.819672 139824392259392 run_pretraining.py:259]   name = masked_lm_positions, shape = (64, 20)
+INFO:tensorflow:  name = masked_lm_weights, shape = (64, 20)
+I1207 20:27:33.819738 139824392259392 run_pretraining.py:259]   name = masked_lm_weights, shape = (64, 20)
+INFO:tensorflow:  name = next_sentence_labels, shape = (64, 1)
+I1207 20:27:33.819804 139824392259392 run_pretraining.py:259]   name = next_sentence_labels, shape = (64, 1)
+INFO:tensorflow:  name = segment_ids, shape = (64, 128)
+I1207 20:27:33.819870 139824392259392 run_pretraining.py:259]   name = segment_ids, shape = (64, 128)
+WARNING:tensorflow:From /workspace/bert/modeling.py:176: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+
+W1207 20:27:33.820089 139824392259392 module_wrapper.py:139] From /workspace/bert/modeling.py:176: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+
+WARNING:tensorflow:From /workspace/bert/modeling.py:427: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
+
+W1207 20:27:33.821291 139824392259392 module_wrapper.py:139] From /workspace/bert/modeling.py:427: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
+
+WARNING:tensorflow:From /workspace/bert/run_pretraining.py:295: The name tf.trainable_variables is deprecated. Please use tf.compat.v1.trainable_variables instead.
+
+W1207 20:27:35.788123 139824392259392 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:295: The name tf.trainable_variables is deprecated. Please use tf.compat.v1.trainable_variables instead.
+
+WARNING:tensorflow:From /workspace/bert/optimization.py:130: The name tf.is_finite is deprecated. Please use tf.math.is_finite instead.
+
+W1207 20:27:39.678216 139824392259392 module_wrapper.py:139] From /workspace/bert/optimization.py:130: The name tf.is_finite is deprecated. Please use tf.math.is_finite instead.
+
+WARNING:tensorflow:From /workspace/bert/optimization.py:142: The name tf.global_norm is deprecated. Please use tf.linalg.global_norm instead.
+
+W1207 20:27:39.931641 139824392259392 module_wrapper.py:139] From /workspace/bert/optimization.py:142: The name tf.global_norm is deprecated. Please use tf.linalg.global_norm instead.
+
+INFO:tensorflow:Done calling model_fn.
+I1207 20:27:49.829289 139824392259392 estimator.py:1150] Done calling model_fn.
+INFO:tensorflow:Create CheckpointSaverHook.
+I1207 20:27:49.831746 139824392259392 basic_session_run_hooks.py:541] Create CheckpointSaverHook.
+INFO:tensorflow:Graph was finalized.
+I1207 20:27:54.314298 139824392259392 monitored_session.py:240] Graph was finalized.
+2020-12-07 20:27:54.326949: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2399490000 Hz
+2020-12-07 20:27:54.329040: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0xa2217d0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-12-07 20:27:54.329068: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-12-07 20:27:54.332438: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2020-12-07 20:27:54.670130: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x8eb63e0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-12-07 20:27:54.670178: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-32GB, Compute Capability 7.0
+2020-12-07 20:27:54.674853: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 0 with properties:
+name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:62:00.0
+2020-12-07 20:27:54.674916: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2020-12-07 20:27:54.680456: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2020-12-07 20:27:54.682984: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-12-07 20:27:54.683503: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-12-07 20:27:54.688688: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-12-07 20:27:54.689916: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.11
+2020-12-07 20:27:54.690206: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2020-12-07 20:27:54.700508: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1767] Adding visible gpu devices: 0
+2020-12-07 20:27:54.700562: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2020-12-07 20:27:55.210840: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1180] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-12-07 20:27:55.210878: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1186]      0
+2020-12-07 20:27:55.210889: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 0:   N
+2020-12-07 20:27:55.214683: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30168 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:62:00.0, compute capability: 7.0)
+2020-12-07 20:27:58.244813: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 20:27:58.257603: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2020-12-07 20:28:00.723008: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1648] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+2020-12-07 20:28:04.289859: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 20:28:04.297471: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+INFO:tensorflow:Running local_init_op.
+I1207 20:28:05.007719 139824392259392 session_manager.py:500] Running local_init_op.
+2020-12-07 20:28:05.487427: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 20:28:05.487691: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+INFO:tensorflow:Done running local_init_op.
+I1207 20:28:05.591686 139824392259392 session_manager.py:502] Done running local_init_op.
+2020-12-07 20:28:06.263739: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 20:28:06.276276: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2020-12-07 20:28:07.571212: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 20:28:07.571549: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+INFO:tensorflow:Saving checkpoints for 0 into /results/tf_bert_pretraining_lamb_base_fp16_gbs165536_gbs232768_201207202730/phase_1/model.ckpt.
+I1207 20:28:17.511246 139824392259392 basic_session_run_hooks.py:606] Saving checkpoints for 0 into /results/tf_bert_pretraining_lamb_base_fp16_gbs165536_gbs232768_201207202730/phase_1/model.ckpt.
+2020-12-07 20:28:18.326798: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 20:28:18.336202: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2020-12-07 20:28:24.611520: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 20:28:24.611904: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2020-12-07 20:28:24.616824: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2020-12-07 20:28:24.619028: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2020-12-07 20:28:24.622595: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+WARNING:tensorflow:From /workspace/bert/run_pretraining.py:146: The name tf.train.get_global_step is deprecated. Please use tf.compat.v1.train.get_global_step instead.
+
+W1207 20:28:24.812008 139824392259392 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:146: The name tf.train.get_global_step is deprecated. Please use tf.compat.v1.train.get_global_step instead.
+
+2020-12-07 20:28:25.341300: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 20:28:25.341607: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2020-12-07 20:28:37.505960: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 20:28:37.663400: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1035] Automatic Mixed Precision Grappler Pass Summary:
+
+Total processable nodes: 24313
+Recognized nodes available for conversion: 15663
+Total nodes converted: 599
+Total FP16 Cast ops used (excluding Const and Variable casts): 102
+Whitelisted nodes converted: 300
+Blacklisted nodes blocking conversion: 1401
+Nodes blocked from conversion by blacklisted nodes: 4428
+
+For more information regarding mixed precision training, including how to make automatic mixed precision aware of a custom op type, please see the documentation available here:
+https://docs.nvidia.com/deeplearning/frameworks/tensorflow-user-guide/index.html#tfamp
+
+
+2020-12-07 20:28:48.888430: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2020-12-07 20:28:49.564260: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2020-12-07 20:29:25.581822: I tensorflow/compiler/jit/xla_compilation_cache.cc:243] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+INFO:tensorflow:loss = 11.135952, step = 0
+I1207 20:29:27.872764 139824392259392 basic_session_run_hooks.py:262] loss = 11.135952, step = 0
+2020-12-07 20:29:40.043978: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 20:29:40.202828: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1035] Automatic Mixed Precision Grappler Pass Summary:
+
+Total processable nodes: 24313
+Recognized nodes available for conversion: 15663
+Total nodes converted: 599
+Total FP16 Cast ops used (excluding Const and Variable casts): 102
+Whitelisted nodes converted: 300
+Blacklisted nodes blocking conversion: 1401
+Nodes blocked from conversion by blacklisted nodes: 4428
+
+For more information regarding mixed precision training, including how to make automatic mixed precision aware of a custom op type, please see the documentation available here:
+https://docs.nvidia.com/deeplearning/frameworks/tensorflow-user-guide/index.html#tfamp
+
+
+WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1207 20:30:26.157741 139824392259392 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1207 20:30:26.306136 139824392259392 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1207 20:30:26.444128 139824392259392 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1207 20:30:26.585298 139824392259392 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1207 20:30:26.723767 139824392259392 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+2020-12-07 20:54:41.139660: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 20:54:41.294820: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1035] Automatic Mixed Precision Grappler Pass Summary:
+
+Total processable nodes: 24313
+Recognized nodes available for conversion: 15663
+Total nodes converted: 599
+Total FP16 Cast ops used (excluding Const and Variable casts): 102
+Whitelisted nodes converted: 300
+Blacklisted nodes blocking conversion: 1401
+Nodes blocked from conversion by blacklisted nodes: 4428
+
+For more information regarding mixed precision training, including how to make automatic mixed precision aware of a custom op type, please see the documentation available here:
+https://docs.nvidia.com/deeplearning/frameworks/tensorflow-user-guide/index.html#tfamp
+
+
+INFO:tensorflow:loss = 11.152384, step = 5 (1563.831 sec)
+I1207 20:55:31.704354 139824392259392 basic_session_run_hooks.py:260] loss = 11.152384, step = 5 (1563.831 sec)
+INFO:tensorflow:loss = 11.166322, step = 14 (1415.683 sec)
+I1207 21:19:07.387465 139824392259392 basic_session_run_hooks.py:260] loss = 11.166322, step = 14 (1415.683 sec)
+INFO:tensorflow:Saving checkpoints for 18 into /results/tf_bert_pretraining_lamb_base_fp16_gbs165536_gbs232768_201207202730/phase_1/model.ckpt.
+I1207 21:27:30.367852 139824392259392 basic_session_run_hooks.py:606] Saving checkpoints for 18 into /results/tf_bert_pretraining_lamb_base_fp16_gbs165536_gbs232768_201207202730/phase_1/model.ckpt.
+INFO:tensorflow:Loss for final step: 11.158752.
+I1207 21:27:35.278857 139824392259392 estimator.py:371] Loss for final step: 11.158752.
+INFO:tensorflow:-----------------------------
+I1207 21:27:35.281059 139824392259392 run_pretraining.py:642] -----------------------------
+INFO:tensorflow:Total Training Time = 3601.70 for Sentences = 1179648
+I1207 21:27:35.281200 139824392259392 run_pretraining.py:644] Total Training Time = 3601.70 for Sentences = 1179648
+INFO:tensorflow:Total Training Time W/O Overhead = 2089.24 for Sentences = 589824
+I1207 21:27:35.281328 139824392259392 run_pretraining.py:646] Total Training Time W/O Overhead = 2089.24 for Sentences = 589824
+INFO:tensorflow:Throughput Average (sentences/sec) with overhead = 327.53
+I1207 21:27:35.281431 139824392259392 run_pretraining.py:647] Throughput Average (sentences/sec) with overhead = 327.53
+INFO:tensorflow:Throughput Average (sentences/sec) = 282.32
+I1207 21:27:35.281554 139824392259392 run_pretraining.py:648] Throughput Average (sentences/sec) = 282.32
+INFO:tensorflow:-----------------------------
+I1207 21:27:35.281822 139824392259392 run_pretraining.py:650] -----------------------------
+INFO:tensorflow:***** Running evaluation *****
+I1207 21:27:35.281949 139824392259392 run_pretraining.py:653] ***** Running evaluation *****
+INFO:tensorflow:  Batch size = 8
+I1207 21:27:35.282053 139824392259392 run_pretraining.py:654]   Batch size = 8
+INFO:tensorflow:Calling model_fn.
+I1207 21:27:35.341086 139824392259392 estimator.py:1148] Calling model_fn.
+INFO:tensorflow:*** Features ***
+I1207 21:27:35.341310 139824392259392 run_pretraining.py:257] *** Features ***
+INFO:tensorflow:  name = input_ids, shape = (?, 128)
+I1207 21:27:35.341453 139824392259392 run_pretraining.py:259]   name = input_ids, shape = (?, 128)
+INFO:tensorflow:  name = input_mask, shape = (?, 128)
+I1207 21:27:35.341577 139824392259392 run_pretraining.py:259]   name = input_mask, shape = (?, 128)
+INFO:tensorflow:  name = masked_lm_ids, shape = (?, 20)
+I1207 21:27:35.341680 139824392259392 run_pretraining.py:259]   name = masked_lm_ids, shape = (?, 20)
+INFO:tensorflow:  name = masked_lm_positions, shape = (?, 20)
+I1207 21:27:35.341780 139824392259392 run_pretraining.py:259]   name = masked_lm_positions, shape = (?, 20)
+INFO:tensorflow:  name = masked_lm_weights, shape = (?, 20)
+I1207 21:27:35.341876 139824392259392 run_pretraining.py:259]   name = masked_lm_weights, shape = (?, 20)
+INFO:tensorflow:  name = next_sentence_labels, shape = (?, 1)
+I1207 21:27:35.341969 139824392259392 run_pretraining.py:259]   name = next_sentence_labels, shape = (?, 1)
+INFO:tensorflow:  name = segment_ids, shape = (?, 128)
+I1207 21:27:35.342061 139824392259392 run_pretraining.py:259]   name = segment_ids, shape = (?, 128)
+WARNING:tensorflow:From /workspace/bert/run_pretraining.py:337: The name tf.metrics.accuracy is deprecated. Please use tf.compat.v1.metrics.accuracy instead.
+
+W1207 21:27:37.532953 139824392259392 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:337: The name tf.metrics.accuracy is deprecated. Please use tf.compat.v1.metrics.accuracy instead.
+
+WARNING:tensorflow:From /workspace/bert/run_pretraining.py:341: The name tf.metrics.mean is deprecated. Please use tf.compat.v1.metrics.mean instead.
+
+W1207 21:27:37.576582 139824392259392 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:341: The name tf.metrics.mean is deprecated. Please use tf.compat.v1.metrics.mean instead.
+
+INFO:tensorflow:Done calling model_fn.
+I1207 21:27:37.645811 139824392259392 estimator.py:1150] Done calling model_fn.
+INFO:tensorflow:Starting evaluation at 2020-12-07T21:27:37Z
+I1207 21:27:37.663271 139824392259392 evaluation.py:255] Starting evaluation at 2020-12-07T21:27:37Z
+INFO:tensorflow:Graph was finalized.
+I1207 21:27:37.983710 139824392259392 monitored_session.py:240] Graph was finalized.
+2020-12-07 21:27:37.986759: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 0 with properties:
+name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:62:00.0
+2020-12-07 21:27:37.986821: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2020-12-07 21:27:37.986895: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2020-12-07 21:27:37.986914: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-12-07 21:27:37.986927: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-12-07 21:27:37.986943: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-12-07 21:27:37.986957: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.11
+2020-12-07 21:27:37.986971: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2020-12-07 21:27:37.992307: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1767] Adding visible gpu devices: 0
+2020-12-07 21:27:37.992352: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1180] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-12-07 21:27:37.992361: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1186]      0
+2020-12-07 21:27:37.992367: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 0:   N
+2020-12-07 21:27:37.997375: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30168 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:62:00.0, compute capability: 7.0)
+INFO:tensorflow:Restoring parameters from /results/tf_bert_pretraining_lamb_base_fp16_gbs165536_gbs232768_201207202730/phase_1/model.ckpt-18
+I1207 21:27:37.998443 139824392259392 saver.py:1284] Restoring parameters from /results/tf_bert_pretraining_lamb_base_fp16_gbs165536_gbs232768_201207202730/phase_1/model.ckpt-18
+2020-12-07 21:27:38.167410: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 21:27:38.170585: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2020-12-07 21:27:38.881661: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 21:27:38.884231: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+INFO:tensorflow:Running local_init_op.
+I1207 21:27:39.134268 139824392259392 session_manager.py:500] Running local_init_op.
+2020-12-07 21:27:39.189709: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 21:27:39.190188: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+INFO:tensorflow:Done running local_init_op.
+I1207 21:27:39.517975 139824392259392 session_manager.py:502] Done running local_init_op.
+2020-12-07 21:27:39.666267: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 21:27:39.668946: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2020-12-07 21:27:39.985795: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 21:27:39.986136: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2020-12-07 21:27:39.991405: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2020-12-07 21:27:39.994254: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2020-12-07 21:27:40.283101: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 21:27:40.294850: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1035] Automatic Mixed Precision Grappler Pass Summary:
+
+Total processable nodes: 2026
+Recognized nodes available for conversion: 1004
+Total nodes converted: 276
+Total FP16 Cast ops used (excluding Const and Variable casts): 39
+Whitelisted nodes converted: 100
+Blacklisted nodes blocking conversion: 139
+Nodes blocked from conversion by blacklisted nodes: 239
+
+For more information regarding mixed precision training, including how to make automatic mixed precision aware of a custom op type, please see the documentation available here:
+https://docs.nvidia.com/deeplearning/frameworks/tensorflow-user-guide/index.html#tfamp
+
+
+INFO:tensorflow:Evaluation [10/100]
+I1207 21:27:47.524625 139824392259392 evaluation.py:167] Evaluation [10/100]
+INFO:tensorflow:Evaluation [20/100]
+I1207 21:27:47.653741 139824392259392 evaluation.py:167] Evaluation [20/100]
+INFO:tensorflow:Evaluation [30/100]
+I1207 21:27:47.779408 139824392259392 evaluation.py:167] Evaluation [30/100]
+INFO:tensorflow:Evaluation [40/100]
+I1207 21:27:47.908129 139824392259392 evaluation.py:167] Evaluation [40/100]
+INFO:tensorflow:Evaluation [50/100]
+I1207 21:27:48.034221 139824392259392 evaluation.py:167] Evaluation [50/100]
+INFO:tensorflow:Evaluation [60/100]
+I1207 21:27:48.158432 139824392259392 evaluation.py:167] Evaluation [60/100]
+INFO:tensorflow:Evaluation [70/100]
+I1207 21:27:48.284853 139824392259392 evaluation.py:167] Evaluation [70/100]
+INFO:tensorflow:Evaluation [80/100]
+I1207 21:27:48.410789 139824392259392 evaluation.py:167] Evaluation [80/100]
+INFO:tensorflow:Evaluation [90/100]
+I1207 21:27:48.538172 139824392259392 evaluation.py:167] Evaluation [90/100]
+INFO:tensorflow:Evaluation [100/100]
+I1207 21:27:48.664952 139824392259392 evaluation.py:167] Evaluation [100/100]
+2020-12-07 21:27:48.768870: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2020-12-07 21:27:48.769462: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+INFO:tensorflow:Finished evaluation at 2020-12-07-21:27:49
+I1207 21:27:49.177350 139824392259392 evaluation.py:275] Finished evaluation at 2020-12-07-21:27:49
+INFO:tensorflow:Saving dict for global step 18: global_step = 18, loss = 11.147597, masked_lm_accuracy = 0.0, masked_lm_loss = 10.457264, next_sentence_accuracy = 0.54125, next_sentence_loss = 0.69008934
+I1207 21:27:49.177845 139824392259392 estimator.py:2049] Saving dict for global step 18: global_step = 18, loss = 11.147597, masked_lm_accuracy = 0.0, masked_lm_loss = 10.457264, next_sentence_accuracy = 0.54125, next_sentence_loss = 0.69008934
+INFO:tensorflow:Saving 'checkpoint_path' summary for global step 18: /results/tf_bert_pretraining_lamb_base_fp16_gbs165536_gbs232768_201207202730/phase_1/model.ckpt-18
+I1207 21:27:49.557631 139824392259392 estimator.py:2109] Saving 'checkpoint_path' summary for global step 18: /results/tf_bert_pretraining_lamb_base_fp16_gbs165536_gbs232768_201207202730/phase_1/model.ckpt-18
+INFO:tensorflow:-----------------------------
+I1207 21:27:49.558497 139824392259392 run_pretraining.py:682] -----------------------------
+INFO:tensorflow:Total Inference Time = 14.27 for Sentences = 800
+I1207 21:27:49.558619 139824392259392 run_pretraining.py:684] Total Inference Time = 14.27 for Sentences = 800
+INFO:tensorflow:Total Inference Time W/O Overhead = 1.25 for Sentences = 792
+I1207 21:27:49.558693 139824392259392 run_pretraining.py:686] Total Inference Time W/O Overhead = 1.25 for Sentences = 792
+INFO:tensorflow:Summary Inference Statistics on EVAL set
+I1207 21:27:49.558753 139824392259392 run_pretraining.py:687] Summary Inference Statistics on EVAL set
+INFO:tensorflow:Batch size = 8
+I1207 21:27:49.558808 139824392259392 run_pretraining.py:688] Batch size = 8
+INFO:tensorflow:Sequence Length = 128
+I1207 21:27:49.558898 139824392259392 run_pretraining.py:689] Sequence Length = 128
+INFO:tensorflow:Precision = fp16
+I1207 21:27:49.558957 139824392259392 run_pretraining.py:690] Precision = fp16
+INFO:tensorflow:Throughput Average (sentences/sec) = 635.04
+I1207 21:27:49.559010 139824392259392 run_pretraining.py:691] Throughput Average (sentences/sec) = 635.04
+INFO:tensorflow:-----------------------------
+I1207 21:27:49.559272 139824392259392 run_pretraining.py:693] -----------------------------
+INFO:tensorflow:***** Eval results *****
+I1207 21:27:49.559411 139824392259392 run_pretraining.py:697] ***** Eval results *****
+INFO:tensorflow:  global_step = 18
+I1207 21:27:49.559475 139824392259392 run_pretraining.py:699]   global_step = 18
+INFO:tensorflow:  loss = 11.147597
+I1207 21:27:49.559658 139824392259392 run_pretraining.py:699]   loss = 11.147597
+INFO:tensorflow:  masked_lm_accuracy = 0.0
+I1207 21:27:49.559726 139824392259392 run_pretraining.py:699]   masked_lm_accuracy = 0.0
+INFO:tensorflow:  masked_lm_loss = 10.457264
+I1207 21:27:49.559783 139824392259392 run_pretraining.py:699]   masked_lm_loss = 10.457264
+INFO:tensorflow:  next_sentence_accuracy = 0.54125
+I1207 21:27:49.559837 139824392259392 run_pretraining.py:699]   next_sentence_accuracy = 0.54125
+INFO:tensorflow:  next_sentence_loss = 0.69008934
+I1207 21:27:49.559891 139824392259392 run_pretraining.py:699]   next_sentence_loss = 0.69008934
+decayed_learning_rate_at_crossover_point = 7.500000e-04, adjusted_init_lr = 7.500000e-04
+Initializing LAMB Optimizer
+Skipping time record for  0  due to checkpoint-saving/warmup overhead
+DLL 2020-12-07 20:32:54.232939 - Iteration: 1  throughput_train : 244.082 seq/s mlm_loss : 10.4757  nsp_loss : 0.6869  total_loss : 11.1626  avg_loss_step : 11.1582  learning_rate : 0.0  loss_scaler : 4294967296
+Skipping time record for  0  due to checkpoint-saving/warmup overhead
+DLL 2020-12-07 20:35:14.883073 - Iteration: 1  throughput_train : 466.710 seq/s mlm_loss : 10.4715  nsp_loss : 0.6889  total_loss : 11.1603  avg_loss_step : 11.1586  learning_rate : 0.0  loss_scaler : 2147483648
+Skipping time record for  0  due to checkpoint-saving/warmup overhead
+DLL 2020-12-07 20:37:35.449414 - Iteration: 1  throughput_train : 466.984 seq/s mlm_loss : 10.4605  nsp_loss : 0.6933  total_loss : 11.1538  avg_loss_step : 11.1583  learning_rate : 0.0  loss_scaler : 1073741824
+Skipping time record for  0  due to checkpoint-saving/warmup overhead
+DLL 2020-12-07 20:40:02.271227 - Iteration: 1  throughput_train : 447.062 seq/s mlm_loss : 10.4466  nsp_loss : 0.6797  total_loss : 11.1263  avg_loss_step : 11.1588  learning_rate : 0.0  loss_scaler : 536870912
+Skipping time record for  1  due to checkpoint-saving/warmup overhead
+DLL 2020-12-07 20:42:57.191371 - Iteration: 2  throughput_train : 375.155 seq/s mlm_loss : 10.4936  nsp_loss : 0.6945  total_loss : 11.1881  avg_loss_step : 11.1584  learning_rate : 0.0  loss_scaler : 268435456
+Skipping time record for  2  due to checkpoint-saving/warmup overhead
+DLL 2020-12-07 20:45:22.390445 - Iteration: 3  throughput_train : 452.079 seq/s mlm_loss : 10.4731  nsp_loss : 0.6623  total_loss : 11.1353  avg_loss_step : 11.1585  learning_rate : 3.75e-07  loss_scaler : 268435456
+Skipping time record for  3  due to checkpoint-saving/warmup overhead
+DLL 2020-12-07 20:47:47.156802 - Iteration: 4  throughput_train : 453.408 seq/s mlm_loss : 10.4951  nsp_loss : 0.6865  total_loss : 11.1816  avg_loss_step : 11.1573  learning_rate : 7.5e-07  loss_scaler : 268435456
+Skipping time record for  4  due to checkpoint-saving/warmup overhead
+DLL 2020-12-07 20:50:12.318901 - Iteration: 5  throughput_train : 452.180 seq/s mlm_loss : 10.4347  nsp_loss : 0.6793  total_loss : 11.1139  avg_loss_step : 11.1582  learning_rate : 1.125e-06  loss_scaler : 268435456
+Skipping time record for  5  due to checkpoint-saving/warmup overhead
+DLL 2020-12-07 20:52:37.238073 - Iteration: 6  throughput_train : 452.943 seq/s mlm_loss : 10.4822  nsp_loss : 0.6872  total_loss : 11.1694  avg_loss_step : 11.1571  learning_rate : 1.5e-06  loss_scaler : 268435456
+DLL 2020-12-07 20:56:05.468483 - Iteration: 7  throughput_train : 315.080 seq/s mlm_loss : 10.4808  nsp_loss : 0.6962  total_loss : 11.1770  avg_loss_step : 11.1566  learning_rate : 1.8750001e-06  loss_scaler : 268435456
+DLL 2020-12-07 20:58:30.255384 - Iteration: 8  throughput_train : 453.360 seq/s mlm_loss : 10.4733  nsp_loss : 0.7035  total_loss : 11.1768  avg_loss_step : 11.1574  learning_rate : 2.25e-06  loss_scaler : 268435456
+DLL 2020-12-07 21:00:54.995395 - Iteration: 8  throughput_train : 453.498 seq/s mlm_loss : 10.4955  nsp_loss : 0.6830  total_loss : 11.1785  avg_loss_step : 11.1554  learning_rate : 2.625e-06  loss_scaler : 268435456
+DLL 2020-12-07 21:03:20.382801 - Iteration: 9  throughput_train : 451.481 seq/s mlm_loss : 10.4685  nsp_loss : 0.6712  total_loss : 11.1397  avg_loss_step : 11.1564  learning_rate : 2.625e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:05:45.311936 - Iteration: 10  throughput_train : 452.910 seq/s mlm_loss : 10.4678  nsp_loss : 0.6910  total_loss : 11.1588  avg_loss_step : 11.1554  learning_rate : 3e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:08:10.378949 - Iteration: 11  throughput_train : 452.479 seq/s mlm_loss : 10.4438  nsp_loss : 0.6857  total_loss : 11.1294  avg_loss_step : 11.1550  learning_rate : 3.3750002e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:10:35.624257 - Iteration: 12  throughput_train : 451.928 seq/s mlm_loss : 10.4820  nsp_loss : 0.6755  total_loss : 11.1575  avg_loss_step : 11.1532  learning_rate : 3.7500001e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:13:00.689082 - Iteration: 13  throughput_train : 452.485 seq/s mlm_loss : 10.4478  nsp_loss : 0.6628  total_loss : 11.1106  avg_loss_step : 11.1520  learning_rate : 4.125e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:15:25.515513 - Iteration: 14  throughput_train : 453.225 seq/s mlm_loss : 10.4628  nsp_loss : 0.6899  total_loss : 11.1527  avg_loss_step : 11.1512  learning_rate : 4.5e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:17:50.156341 - Iteration: 15  throughput_train : 453.807 seq/s mlm_loss : 10.4779  nsp_loss : 0.6900  total_loss : 11.1679  avg_loss_step : 11.1505  learning_rate : 4.8750003e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:20:15.213285 - Iteration: 16  throughput_train : 452.515 seq/s mlm_loss : 10.4781  nsp_loss : 0.6814  total_loss : 11.1595  avg_loss_step : 11.1490  learning_rate : 5.25e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:22:40.396882 - Iteration: 17  throughput_train : 452.126 seq/s mlm_loss : 10.4795  nsp_loss : 0.6687  total_loss : 11.1482  avg_loss_step : 11.1474  learning_rate : 5.625e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:25:05.065196 - Iteration: 18  throughput_train : 453.729 seq/s mlm_loss : 10.4715  nsp_loss : 0.6940  total_loss : 11.1655  avg_loss_step : 11.1458  learning_rate : 6e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:27:30.365843 - Iteration: 19  throughput_train : 453.858 seq/s mlm_loss : 10.4725  nsp_loss : 0.6862  total_loss : 11.1588  avg_loss_step : 11.1437  learning_rate : 6.3750003e-06  loss_scaler : 134217728
+DLL 2020-12-07 21:27:35.281649 -  throughput_train : 282.315 seq/s
+DLL 2020-12-07 21:27:49.559099 -  throughput_val : 635.0367687513215

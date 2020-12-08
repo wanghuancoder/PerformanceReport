@@ -86,11 +86,11 @@
 - 单位：`sentences/sec`
 
 
-| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | OneFlow |
-|-----|-----|-----|-----|-----|
-| FP32 GPU=1,BS=max | - | - | - | - |
-| AMP GPU=1,BS=max | - | - | - | - |
-| FP32 GPU=8,BS=max | - | - | - | - |
-| AMP GPU=8,BS=max | - | - | - | - |
-| FP32 GPU=32,BS=max | - | - | - | - |
-| AMP GPU=32,BS=max | - | - | - | - |
+| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch |
+|-----|-----|-----|-----|
+| FP32 GPU=1,BS=64 | - | 153.94 | 127.02 |
+| AMP GPU=1,BS=128 | - | 538.29 | 527.38 |
+| FP32 GPU=8,BS=64 | - | - | - |
+| AMP GPU=8,BS=128 | - | - | - |
+| FP32 GPU=32,BS=64 | - | - | - |
+| AMP GPU=32,BS=128 | - | - | - |

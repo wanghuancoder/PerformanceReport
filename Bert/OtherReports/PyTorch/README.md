@@ -18,6 +18,7 @@
   - [1.单机（单卡、8卡）测试](#1单机单卡8卡测试)
   - [2.多机（32卡）测试](#2多机32卡测试)
 - [五、日志数据](#五日志数据)
+  - [1.单机（单卡、8卡）日志](#1单机单卡8卡日志)
 
 
 ## 一、环境介绍
@@ -172,11 +173,34 @@ bash scripts/run_benchmark.sh 32 1 fp32
 bash scripts/run_benchmark.sh 64 8 fp16
 ```
 
+> 单位： sentences/s
+
 |卡数 | FP32(BS=32) | FP32(BS=64) | AMP(BS=64) | AMP(BS=128)|
 |-----|-----|-----|-----|-----|
-|1 | - | - | - | -|
+|1 | 125.59 | 127.02 | 488.47 | 527.38|
 |8 | - | - | - | -|
 
 ### 2.多机（32卡）测试
 
 ## 五、日志数据
+### 1.单机（单卡、8卡）日志
+
+- [单卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu1_gbs65536.log)
+```
+DLL 2020-12-07 22:44:09.988873 -  e2e_train_time : 10446.27070569992  training_sequences_per_second : 125.59499598892388  final_loss : 8.561482429504395  raw_train_time : 10436.084572315216
+```
+
+- [单卡 bs=64、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs64_gpu1_gbs65536.log)
+```
+DLL 2020-12-07 18:57:58.661625 -  e2e_train_time : 25807.294572353363  training_sequences_per_second : 127.02065199967637  final_loss : 7.978199005126953  raw_train_time : 25797.37978363037
+```
+
+- [单卡 bs=64、FP16](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu1_gbs65536.log)
+```
+DLL 2020-12-07 23:40:17.655191 -  e2e_train_time : 3363.891343355179  training_sequences_per_second : 488.4692734715151  final_loss : 8.557624816894531  raw_train_time : 3354.1516098976135
+```
+
+- [单卡 bs=128、FP16](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs128_gpu1_gbs65536.log)
+```
+DLL 2020-12-07 19:49:59.849225 -  e2e_train_time : 3117.3372247219086  training_sequences_per_second : 527.3885210665798  final_loss : 8.557418823242188  raw_train_time : 3106.6281015872955
+```
