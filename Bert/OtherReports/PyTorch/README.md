@@ -177,7 +177,7 @@ bash scripts/run_benchmark.sh 64 8 fp16
 
 |卡数 | FP32(BS=32) | FP32(BS=64) | AMP(BS=64) | AMP(BS=128)|
 |-----|-----|-----|-----|-----|
-|1 | 125.59 | 127.02 | 488.47 | 527.38|
+|1 | 126.43 | 127.02 | 490.92 | 529.46 |
 |8 | - | - | - | -|
 
 ### 2.多机（32卡）测试
@@ -187,7 +187,7 @@ bash scripts/run_benchmark.sh 64 8 fp16
 
 - [单卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu1_gbs65536.log)
 ```
-DLL 2020-12-07 22:44:09.988873 -  e2e_train_time : 10446.27070569992  training_sequences_per_second : 125.59499598892388  final_loss : 8.561482429504395  raw_train_time : 10436.084572315216
+DLL 2020-12-08 14:36:40.748894 -  e2e_train_time : 25926.463726758957  training_sequences_per_second : 126.43531785103046  final_loss : 7.978569030761719  raw_train_time : 25916.809129714966
 ```
 
 - [单卡 bs=64、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs64_gpu1_gbs65536.log)
@@ -197,10 +197,10 @@ DLL 2020-12-07 18:57:58.661625 -  e2e_train_time : 25807.294572353363  training_
 
 - [单卡 bs=64、FP16](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu1_gbs65536.log)
 ```
-DLL 2020-12-07 23:40:17.655191 -  e2e_train_time : 3363.891343355179  training_sequences_per_second : 488.4692734715151  final_loss : 8.557624816894531  raw_train_time : 3354.1516098976135
+DLL 2020-12-08 07:24:29.755215 -  e2e_train_time : 7353.040309429169  training_sequences_per_second : 490.92442421734717  final_loss : 7.986011505126953  raw_train_time : 7342.229928255081
 ```
 
 - [单卡 bs=128、FP16](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs128_gpu1_gbs65536.log)
 ```
-DLL 2020-12-07 19:49:59.849225 -  e2e_train_time : 3117.3372247219086  training_sequences_per_second : 527.3885210665798  final_loss : 8.557418823242188  raw_train_time : 3106.6281015872955
+DLL 2020-12-08 05:21:52.802881 -  e2e_train_time : 6817.991151809692  training_sequences_per_second : 529.4654194600259  final_loss : 7.988563537597656  raw_train_time : 6807.772269010544
 ```

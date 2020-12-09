@@ -89,7 +89,7 @@
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch |
 |-----|-----|-----|-----|
 | FP32 GPU=1,BS=64 | - | 153.94 | 127.02 |
-| AMP GPU=1,BS=128 | - | 538.29 | 527.38 |
+| AMP GPU=1,BS=128 | - | 537.82 | 529.46 |
 | FP32 GPU=8,BS=64 | - | - | - |
 | AMP GPU=8,BS=128 | - | - | - |
 | FP32 GPU=32,BS=64 | - | - | - |
