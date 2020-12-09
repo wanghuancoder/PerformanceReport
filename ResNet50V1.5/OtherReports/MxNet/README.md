@@ -34,6 +34,7 @@
 ```
 git clone https://github.com/NVIDIA/DeepLearningExamples
 cd DeepLearningExamples/MxNet/Classification/RN50v1.5
+git checkout 99b1c898cead5603c945721162270c2fe077b4a2
 ```
 
 - 制作Docker镜像
