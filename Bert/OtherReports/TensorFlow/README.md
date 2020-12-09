@@ -129,8 +129,6 @@ bash scripts/run_benchmark.sh 32 1 fp32
 bash scripts/run_benchmark.sh 64 8 fp16
 ```
 
-> TODO: 待以 50个step 的日志替换
-
 |卡数 | FP32(BS=32) | FP32(BS=64) | AMP(BS=64) | AMP(BS=128)|
 |-----|-----|-----|-----|-----|
 |1 | 141.73 | 153.94 | 452.53 | 537.82|
@@ -139,8 +137,6 @@ bash scripts/run_benchmark.sh 64 8 fp16
 ### 2.多机（32卡）测试
 
 ## 五、日志数据
-
-> TODO: 待以 50个step 的日志替换
 
 - [单卡 bs=32、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs32_gpu1_gbs65536.log)
 ```
