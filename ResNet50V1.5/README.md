@@ -88,7 +88,7 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 |-----|-----|-----|-----|-----|
 | 框架版本 | 2.0 | 1.15.2 | 1.6.0a0+9907a3e | 1.5.0 |
 | docker镜像 |  TODO hub.baidubce.com/paddlepaddle/paddle:latest-dev-cuda10.1-cudnn7-gcc82 | nvcr.io/nvidia/tensorflow:20.06-tf1-py3 | nvcr.io/nvidia/pytorch:20.07-py3 | nvcr.io/nvidia/mxnet:19.07-py3 |
-| 模型代码 |-|[NVIDIA/DeepLearningExamples/TensorFLow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)|[NVIDIA/DeepLearningExamples/PyTorch](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)|[NVIDIA/DeepLearningExamples/MxNet](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet/Classification/RN50v1.5)|
+| 模型代码 |[PaddleClas](https://github.com/PaddlePaddle/PaddleClas)|[NVIDIA/DeepLearningExamples/TensorFLow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)|[NVIDIA/DeepLearningExamples/PyTorch](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)|[NVIDIA/DeepLearningExamples/MxNet](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet/Classification/RN50v1.5)|
 |CUDA | 10.1 | 11 | 11 | 10.1 |
 |cuDNN | 7.6.5 | 8.0.1 | 8.0.1 | 7.6.1 |
 
