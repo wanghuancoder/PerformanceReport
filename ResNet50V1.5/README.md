@@ -175,16 +175,15 @@ nvidia-docker ...
 - 同等执行环境下测试
 - 单位：`images/sec`
 - 对于支持 `DALI/XLA` 的框架，以下测试为开启 `DALI/XLA` 的数据
-- BatchSize 选用各框架支持的最大 BatchSize
 
-| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet | OneFlow |
-|-----|-----|-----|-----|-----|-----|
-| FP32 GPU=1,BS=max | - | - | - | - | - |
-| AMP GPU=1,BS=max | - | - | - | - | - |
-| FP32 GPU=8,BS=max | - | - | - | - | - |
-| AMP GPU=8,BS=max | - | - | - | - | - |
-| FP32 GPU=32,BS=max | - | - | - | - | - |
-| AMP GPU=32,BS=max | - | - | - | - | - |
+| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
+|-----|-----|-----|-----|-----|
+| FP32 GPU=1,BS=128 | - | 398.257 | 355.69 | 376.18 |
+| AMP GPU=1,BS=256 | - | 985.466 | 797.38 | 1398.8 |
+| FP32 GPU=8,BS=128 | - | - | - | - |
+| AMP GPU=8,BS=256 | - | - | - | - |
+| FP32 GPU=32,BS=128 | - | - | - | - |
+| AMP GPU=32,BS=256 | - | - | - | - |
 
 > TODO(wanghuancoder):<br>
 > 完成测试，将1卡、8卡数据填入表格
