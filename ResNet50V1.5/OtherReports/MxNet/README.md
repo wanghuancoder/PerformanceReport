@@ -107,7 +107,7 @@ bash test_all.sh
 
 |卡数 | FP32(BS=128) | FP32(BS=max_96) | AMP(BS=128) | AMP(BS=max_192)|
 |-----|-----|-----|-----|-----|
-|1 | - | - | - | -|
+|1 | 376.18 | 381.62 | 1301.4 | 1398.8 |
 |8 | - | - | - | -|
 |32 | - | - | - | -|
 
@@ -119,8 +119,10 @@ bash test_all.sh
 > 注意：MxNet不需要测FP32 BS128，因为MxNet最大支持96
 
 ## 五、日志数据
-- [1卡 FP32 BS=128 日志](./logs/)
-- ...
+- [1卡 FP32 BS=128 日志](./logs/mxnet_gpu1_fp32_bs128.txt)
+- [1卡 FP32 BS=256 日志](./logs/mxnet_gpu1_fp32_bs256.txt)
+- [1卡 AMP BS=128 日志](./logs/mxnet_gpu1_amp_bs128.txt)
+- [1卡 AMP BS=256 日志](./logs/mxnet_gpu1_amp_bs256.txt)
 
 > TODO(wanghuancoder):<br>
 > 完成测试，将1卡、8卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
