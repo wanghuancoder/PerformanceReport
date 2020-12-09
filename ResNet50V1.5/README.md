@@ -62,12 +62,12 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 ## 二、环境介绍
 ### 1.物理机环境
 
-- 系统：Ubuntu 18.04.4 LTS
-- GPU：NVIDIA V100-SXM2-16GB
-- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
+- 系统：CentOS Linux release 7.5.1804
+- GPU：Tesla V100-SXM2-32GB * 8
+- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
 - CUDA：11
 - cuDNN：8.0.4
-- 内存：448 GB
+- 内存：502 GB
 
 ### 2.Docker 镜像
 
@@ -84,13 +84,13 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 > TODO(wanghuancoder):<br>
 > 完成以下信息整理
 
-|配置 | Paddle | NGC TensorFlow | NGC PyTorch | OneFlow|
+|配置 | Paddle | NGC TensorFlow | NGC PyTorch | NGC MxNet|
 |-----|-----|-----|-----|-----|
-| 框架版本 | 2.0 | 1.15.2+nv | 1.6.0a0+9907a3e | 0.2.0 |
-| docker镜像 |  hub.baidubce.com/paddlepaddle/paddle:latest-dev-cuda10.1-cudnn7-gcc82 | - | - | - |
-| 模型代码 | | | |
-|CUDA | 10.1 |  |  |  |
-|cuDNN | 7.6 | 8.0.1 | 8.0.1 | - |
+| 框架版本 | 2.0 | 1.15.2 | 1.6.0a0+9907a3e | 1.5.0 |
+| docker镜像 |  TODO hub.baidubce.com/paddlepaddle/paddle:latest-dev-cuda10.1-cudnn7-gcc82 | nvcr.io/nvidia/tensorflow:20.06-tf1-py3 | nvcr.io/nvidia/pytorch:20.07-py3 | nvcr.io/nvidia/mxnet:19.07-py3 |
+| 模型代码 |-|[NVIDIA/DeepLearningExamples/TensorFLow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)|[NVIDIA/DeepLearningExamples/PyTorch](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)|[NVIDIA/DeepLearningExamples/MxNet](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet/Classification/RN50v1.5)|
+|CUDA | 10.1 | 11 | 11 | 10.1 |
+|cuDNN | 7.6.5 | 8.0.1 | 8.0.1 | 7.6.1 |
 
 ## 三、环境搭建
 
