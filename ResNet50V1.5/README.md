@@ -163,7 +163,7 @@ Paddle Docker的基本信息如下：
 
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
 |-----|-----|-----|-----|-----|
-| FP32 GPU=1,BS=128 | - | 398.257 | 355.69 | 376.18 |
+| FP32 GPU=1,BS=128 | 337.5 | 398.257 | 355.69 | 376.18 |
 | AMP GPU=1,BS=256 | - | 985.466 | 797.38 | 1398.8 |
 | FP32 GPU=8,BS=128 | - | - | - | - |
 | AMP GPU=8,BS=256 | - | - | - | - |
