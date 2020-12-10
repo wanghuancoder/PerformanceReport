@@ -44,7 +44,7 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 
 - **BatchSize**
 
-   本次测试，测试了BatchSize=128和BatchSize=256时，模型的吞吐率。BatchSize=128和BatchSize=256是业内最常的两种BatchSize大小。
+   本次测试，测试了BatchSize=128和BatchSize=256时，模型的吞吐率。BatchSize=128和BatchSize=256是业内最常使用的两种BatchSize大小。
 
 关于其它一些参数的说明：
 - **DALI**
