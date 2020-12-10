@@ -111,17 +111,17 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 
 **重要的配置参数：**
 
-- **train_batch_size**: 用于第一阶段的单卡总 batch_size, 单卡每步有效 batch_size = train_batch_size / gradient_accumulation_steps
+- **train_batch_size**: 用于第一阶段的单卡总 batch_size, 单卡每步有效 `batch_size = train_batch_size / gradient_accumulation_steps`
 - **precision**: 用于指定精度训练模式，fp32 或 fp16
 - **use_xla**: 是否开启 XLA 加速，我们统一开启此选项
 - **num_gpus**: 用于指定 GPU 卡数
-- **gradient_accumulation_steps**: 每次执行optimizer前的梯度累加步数
+- **gradient_accumulation_steps**: 每次执行 optimizer 前的梯度累加步数
 - **BERT_CONFIG:** 用于指定 base 或 large 模型的参数配置文件 (line:49)
-- **--bert_model:** 用于指定模型类型，默认为`bert-large-uncased`
+- **bert_model:** 用于指定模型类型，默认为`bert-large-uncased`
 
 ### 1. 单机（单卡、8卡）测试
 
-由于官方默认给出的是支持两阶段训练的**Bert Large**模型的训练配置，若要测**Bert Base**模型，需要对 `run_pretraining.sh` 进行如下改动：
+由于官方默认给出的是支持两阶段训练的 **Bert Large** 模型的训练配置，若要测**Bert Base**模型，需要对 `run_pretraining.sh` 进行如下改动：
 
 - 在 `bert` 项目根目录新建一个 `bert_config_base.json` 配置文件，内容如下：
   ```
