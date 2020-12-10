@@ -27,13 +27,15 @@
 
 ### 1.单机（单卡、8卡）环境搭建
 
-- 以ImageNet2012为基础制作TF_Record格式的数据
+- 以ImageNet2012数据集为基础制作TF_Record格式的数据
+
 这部分不在本报告中详细展开，可参考NGC提供的[文档](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5#quick-start-guide)制作。
 
 - 下载NGC TensorFlow repo,并进入目录
 ```
 git clone https://github.com/NVIDIA/DeepLearningExamples
 cd DeepLearningExamples/TensorFlow/Classification/ConvNets
+# 本次测试是在如下版本下完成的：
 git checkout 99b1c898cead5603c945721162270c2fe077b4a2
 ```
 
