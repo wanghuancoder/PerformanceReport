@@ -1,7 +1,7 @@
 <!-- omit in toc -->
 # NGC TensorFlow Bert 性能复现
 
-此处给出了基于 [NGC TensorFlow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/LanguageModeling/BERT) 实现的 Bert Base Pre-Training 任务的详细复现流程，包括执行环境、Paddle版本、环境搭建、复现脚本、测试结果和测试日志。
+此处给出了基于 [NGC TensorFlow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/LanguageModeling/BERT) 实现的 Bert Base Pre-Training 任务的详细复现流程，包括执行环境、TensorFlow版本、环境搭建、复现脚本、测试结果和测试日志。
 
 <!-- omit in toc -->
 ## 目录
@@ -9,14 +9,14 @@
   - [1.物理机环境](#1物理机环境)
   - [2.Docker 镜像](#2docker-镜像)
 - [二、环境搭建](#二环境搭建)
-  - [1. 拉取代码](#1-拉取代码)
-  - [2. 构建镜像](#2-构建镜像)
-  - [3. 准备数据](#3-准备数据)
+  - [1. 单机（单卡、8卡）环境搭建](#1-单机单卡8卡环境搭建)
+  - [2. 多机（32卡）环境搭建](#2-多机32卡环境搭建)
 - [三、测试步骤](#三测试步骤)
+  - [1. 单机（单卡、8卡）测试](#1-单机单卡8卡测试)
+  - [2. 多机（32卡）测试](#2-多机32卡测试)
 - [四、测试结果](#四测试结果)
-  - [1.单机（单卡、8卡）测试](#1单机单卡8卡测试)
-  - [2.多机（32卡）测试](#2多机32卡测试)
 - [五、日志数据](#五日志数据)
+  - [1.单机（单卡、8卡）日志](#1单机单卡8卡日志)
 
 
 ## 一、环境介绍
@@ -30,52 +30,77 @@
 NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚本](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/docker/build.sh)，
 
 - 镜像版本：`nvcr.io/nvidia/tensorflow:20.06-tf1-py3`
+- TensorFlow 版本：`1.15.2+nv`
+- CUDA 版本：`11`
+- cuDnn 版本： `8.0.1`
 
 ## 二、环境搭建
 
+### 1. 单机（单卡、8卡）环境搭建
+
 我们遵循了 NGC TensorFlow 官网提供的 [Quick Start Guide](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/LanguageModeling/BERT#quick-start-guide) 教程成功搭建了测试环境，主要过程如下：
-### 1. 拉取代码
 
-```bash
-git clone https://github.com/NVIDIA/DeepLearningExamples
-cd DeepLearningExamples/TensorFlow/LanguageModeling/BERT
-```
+- **拉取代码**
 
-### 2. 构建镜像
-```bash
-bash scripts/docker/build.sh   # 构建镜像
-bash scripts/docker/launch.sh  # 启动容器
-```
+  ```bash
+  git clone https://github.com/NVIDIA/DeepLearningExamples
+  cd DeepLearningExamples/TensorFlow/LanguageModeling/BERT
+  # 本次测试是在如下版本下完成的：
+  git checkout 99b1c898cead5603c945721162270c2fe077b4a2
+  ```
 
-我们将 `launch.sh` 脚本中的 `docker` 命令换为了 `nvidia-docker` 启动的支持 GPU 的容器，其他均保持不变，脚本如下：
-```bash
-#!/bin/bash
+- **构建镜像**
 
-CMD=${@:-/bin/bash}
-NV_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES:-"all"}
+  ```bash
+  bash scripts/docker/build.sh   # 构建镜像
+  bash scripts/docker/launch.sh  # 启动容器
+  ```
 
-nvidia-docker run --name=test_tf_bert -it \
-    --net=host \
-    --shm-size=1g \
-    --ulimit memlock=-1 \
-    --ulimit stack=67108864 \
-    -e NVIDIA_VISIBLE_DEVICES=$NV_VISIBLE_DEVICES \
-    -v $PWD:/workspace/bert \
-    -v $PWD/results:/results \
-    bert $CMD
-```
+  我们将 `launch.sh` 脚本中的 `docker` 命令换为了 `nvidia-docker` 启动的支持 GPU 的容器，其他均保持不变，脚本如下：
+  ```bash
+  #!/bin/bash
 
-### 3. 准备数据
+  CMD=${@:-/bin/bash}
+  NV_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES:-"all"}
 
-NGC TensorFlow 提供单独的数据下载和预处理脚本 [data/create_datasets_from_start.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/data/create_datasets_from_start.sh)。在容器中执行如下命令，可以下载和制作 `wikicorpus_en` 的 tfrecord 数据集。
+  nvidia-docker run --name=test_tf_bert -it \
+      --net=host \
+      --shm-size=1g \
+      --ulimit memlock=-1 \
+      --ulimit stack=67108864 \
+      -e NVIDIA_VISIBLE_DEVICES=$NV_VISIBLE_DEVICES \
+      -v $PWD:/workspace/bert \
+      -v $PWD/results:/results \
+      bert $CMD
+  ```
 
-```bash
-bash data/create_datasets_from_start.sh wiki_only
-```
+- **准备数据**
 
-> TODO(Aurelius84): 确定是否要提供一份处理好的 wikipedia 的 tfrecord 样本数据集链接。
+  NGC TensorFlow 提供单独的数据下载和预处理脚本 [data/create_datasets_from_start.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/data/create_datasets_from_start.sh)。在容器中执行如下命令，可以下载和制作 `wikicorpus_en` 的 tfrecord 数据集。
 
-由于数据集比较大，且容易受网速的影响，上述命令执行时间较长。因此，为了更方便复现竞品的性能数据，我们提供了已经处理好的 tfrecord 格式[样本数据集]()。
+  ```bash
+  bash data/create_datasets_from_start.sh wiki_only
+  ```
+
+  > TODO(Aurelius84): 确定是否要提供一份处理好的 wikipedia 的 tfrecord 样本数据集链接。
+
+  由于数据集比较大，且容易受网速的影响，上述命令执行时间较长。因此，为了更方便复现竞品的性能数据，我们提供了已经处理好的 tfrecord 格式[样本数据集]()。
+
+### 2. 多机（32卡）环境搭建
+
+> TODO(分布式):<br>
+> 1. 提供分布式测试环境搭建的详细方法，可参考OneFlow的报告：<br>
+> https://github.com/Oneflow-Inc/DLPerf/tree/master/PaddlePaddle/resnet50v1.5#nccl <br>
+> https://github.com/Oneflow-Inc/DLPerf/tree/master/NVIDIADeepLearningExamples/TensorFlow/Classification/ConvNets/resnet50v1.5#ssh%E9%85%8D%E7%BD%AE%E5%8F%AF%E9%80%89 <br>
+> 2. 注意：咱们Paddle也计划制作Docker镜像，将必要的环境安装在镜像中，如果分布式的环境搭建可以预安装到Docker中，请分布式同学联系王欢，共同制作Docker。而能够在Docker中预安装好的环境，可以在文档的环境搭建介绍中不提供具体安装方法。
+
+- **多机网络部署**
+
+  > TODO(分布式)：待补充
+
+- **数据部署**
+
+  > TODO(分布式)：待补充
 
 ## 三、测试步骤
 
@@ -91,52 +116,61 @@ bash data/create_datasets_from_start.sh wiki_only
 - **num_gpus**: 用于指定 GPU 卡数
 - **bert_model**: 用于指定 Bert 模型，我们统一指定为 **base**
 
+### 1. 单机（单卡、8卡）测试
+
 为了更方便地测试不同 batch_size、num_gpus、precision组合下的 Pre-Training 性能，我们单独编写了 `run_benchmark.sh` 脚本，并放在`scripts`目录下。
 
-shell 脚本内容如下：
-```bash
-#!/bin/bash
+- **shell 脚本内容如下：**
+  ```bash
+  #!/bin/bash
 
-set -x
+  set -x
 
-batch_size=$1  # batch size per gpu
-num_gpus=$2    # number of gpu
-precision=$3   # fp32 | fp16
-num_accumulation_steps_phase1=$(expr 65536 \/ $batch_size \/ $num_gpus)
-train_steps=${4:-200}        # max train steps
-bert_model=${5:-"base"}      # base | large
+  batch_size=$1  # batch size per gpu
+  num_gpus=$2    # number of gpu
+  precision=$3   # fp32 | fp16
+  num_accumulation_steps_phase1=$(expr 65536 \/ $batch_size \/ $num_gpus)
+  train_steps=${4:-200}        # max train steps
+  bert_model=${5:-"base"}      # base | large
 
-# run pre-training
-bash scripts/run_pretraining_lamb.sh $batch_size 64 8 7.5e-4 5e-4 $precision true $num_gpus 2000 200 $train_steps 200 $num_accumulation_steps_phase1 512 $bert_model
-```
+  # run pre-training
+  bash scripts/run_pretraining_lamb.sh $batch_size 64 8 7.5e-4 5e-4 $precision true $num_gpus 2000 200 $train_steps 200 $num_accumulation_steps_phase1 512 $bert_model
+  ```
+
+- **单卡启动脚本：**
+
+  若测试单机单卡 batch_size=32、FP32 的训练性能，执行如下命令：
+
+  ```bash
+  bash scripts/run_benchmark.sh 32 1 fp32
+  ```
+
+- **8卡启动脚本：**
+
+  若测试单机8卡 batch_size=64、FP16 的训练性能，执行如下命令：
+
+  ```bash
+  bash scripts/run_benchmark.sh 64 8 fp16
+  ```
+
+### 2. 多机（32卡）测试
+
+> TODO(分布式):<br>
+> 1. 请给出详细的测试脚本内容
+> 2. 请给出执行脚本的具体命令
+> 3. 如果有对DeepLearningExamples仓库自带脚本有修改的地方，请逐一列举出来
+
 
 ## 四、测试结果
-### 1.单机（单卡、8卡）测试
-
-**单卡启动脚本：**
-
-若测试单机单卡 batch_size=32、FP32 的训练性能，执行如下命令：
-
-```bash
-bash scripts/run_benchmark.sh 32 1 fp32
-```
-
-**8卡启动脚本：**
-
-若测试单机8卡 batch_size=64、FP16 的训练性能，执行如下命令：
-
-```bash
-bash scripts/run_benchmark.sh 64 8 fp16
-```
 
 |卡数 | FP32(BS=32) | FP32(BS=64) | AMP(BS=64) | AMP(BS=128)|
 |-----|-----|-----|-----|-----|
 |1 | 141.73 | 153.94 | 452.53 | 537.82|
 |8 | - | - | - | -|
-
-### 2.多机（32卡）测试
+|32 | - | - | - | -|
 
 ## 五、日志数据
+### 1.单机（单卡、8卡）日志
 
 - [单卡 bs=32、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs32_gpu1_gbs65536.log)
 ```
