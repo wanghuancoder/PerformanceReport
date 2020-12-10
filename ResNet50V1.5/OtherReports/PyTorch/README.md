@@ -47,23 +47,23 @@
 
 
 - 下载NGC PyTorch repo,并进入目录
-```
-git clone https://github.com/NVIDIA/DeepLearningExamples
-cd DeepLearningExamples/PyTorch/Classification/ConvNets
-# 本次测试是在如下版本下完成的：
-git checkout 99b1c898cead5603c945721162270c2fe077b4a2
-```
+   ```bash
+   git clone https://github.com/NVIDIA/DeepLearningExamples
+   cd DeepLearningExamples/PyTorch/Classification/ConvNets
+   # 本次测试是在如下版本下完成的：
+   git checkout 99b1c898cead5603c945721162270c2fe077b4a2
+   ```
 
 - 制作Docker镜像
-```
-docker build . -t nvidia_rn50_pytorch
-```
+   ```bash
+   docker build . -t nvidia_rn50_pytorch
+   ```
 
 - 启动Docker
-```
-# 假设imagenet数据放在<path to data>目录下
-nvidia-docker run --rm -it -v <path to data>:/imagenet --ipc=host nvidia_rn50_pytorch
-```
+   ```bash
+   # 假设imagenet数据放在<path to data>目录下
+   nvidia-docker run --rm -it -v <path to data>:/imagenet --ipc=host nvidia_rn50_pytorch
+   ```
 
 ### 2.多机（32卡）环境搭建
 
@@ -88,22 +88,22 @@ nvidia-docker run --rm -it -v <path to data>:/imagenet --ipc=host nvidia_rn50_py
 对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码未做改动，并严格按照NGC测试使用的参数配置测试。其公开的测试报告请见：[《ResNet50 v1.5 For PyTorch》](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)
 
 - 下载我们编写的测试脚本，并执行该脚本
-```
-wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/test_all.sh
-bash test_all.sh
-```
+   ```bash
+   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/test_all.sh
+   bash test_all.sh
+   ```
 
 - 执行后将得到如下日志文件：
-```
-/imagenet/log/pytorch_gpu1_fp32_bs128.txt
-/imagenet/log/pytorch_gpu1_fp32_bs256.txt
-/imagenet/log/pytorch_gpu1_amp_bs128.txt
-/imagenet/log/pytorch_gpu1_amp_bs256.txt
-/imagenet/log/pytorch_gpu8_fp32_bs128.txt
-/imagenet/log/pytorch_gpu8_fp32_bs256.txt
-/imagenet/log/pytorch_gpu8_amp_bs128.txt
-/imagenet/log/pytorch_gpu8_amp_bs256.txt
-```
+   ```
+   /imagenet/log/pytorch_gpu1_fp32_bs128.txt
+   /imagenet/log/pytorch_gpu1_fp32_bs256.txt
+   /imagenet/log/pytorch_gpu1_amp_bs128.txt
+   /imagenet/log/pytorch_gpu1_amp_bs256.txt
+   /imagenet/log/pytorch_gpu8_fp32_bs128.txt
+   /imagenet/log/pytorch_gpu8_fp32_bs256.txt
+   /imagenet/log/pytorch_gpu8_amp_bs128.txt
+   /imagenet/log/pytorch_gpu8_amp_bs256.txt
+   ```
 
 在NGC报告的[Training performance benchmark](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5#training-performance-benchmark)小节，提供了其测试的参数配置。因此，我们提供的`test_all.sh`是参考了其文档中的配置。
 
