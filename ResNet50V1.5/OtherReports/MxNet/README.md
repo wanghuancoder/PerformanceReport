@@ -31,7 +31,7 @@
 
 ### 2.Docker 镜像
 
-我们使用 NGC TensorFlow 的代码仓库提供的Dockerfile制作镜像：
+我们使用 NGC MxNet 的代码仓库提供的Dockerfile制作镜像：
 
 - Docker: nvcr.io/nvidia/mxnet:19.07-py3
 - MxNet：1.5.0
