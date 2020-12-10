@@ -71,6 +71,7 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 
 Paddle Docker的基本信息如下：
 
+- Docker: hub.baidubce.com/paddlepaddle/paddle:latest-dev-cuda10.1-cudnn7-gcc82 TODO
 - Paddle：2.0.0
 - 模型代码：[PaddleClas](https://github.com/PaddlePaddle/PaddleClas)
 - CUDA：10.1
