@@ -44,9 +44,7 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 
 - **BatchSize**
 
-   经调研，大多框架的 Resnet50V1.5，无论 FP3 2还是 AMP 均支持BatchSize=128。因此分别测试 FP32、AMP 精度模式下，BatchSize为128时的吞吐性能。
-
-   此外，还测试了 Resnet50V1.5 在各框架 FP32、AMP 精度模式下支持的最大BatchSize，及对应的吞吐性能，这通常也代表了其最好的性能表现。
+   本次测试，测试了BatchSize=128和BatchSize=256时，模型的吞吐率。BatchSize=128和BatchSize=256是业内最常的两种BatchSize大小。
 
 关于其它一些参数的说明：
 - **DALI**
