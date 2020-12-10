@@ -50,23 +50,23 @@
 这部分不在本报告中详细展开，可参考NGC提供的[文档](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5#quick-start-guide)制作。
 
 - 下载NGC TensorFlow repo,并进入目录
-```
-git clone https://github.com/NVIDIA/DeepLearningExamples
-cd DeepLearningExamples/TensorFlow/Classification/ConvNets
-# 本次测试是在如下版本下完成的：
-git checkout 99b1c898cead5603c945721162270c2fe077b4a2
-```
+   ```bash
+   git clone https://github.com/NVIDIA/DeepLearningExamples
+   cd DeepLearningExamples/TensorFlow/Classification/ConvNets
+   # 本次测试是在如下版本下完成的：
+   git checkout 99b1c898cead5603c945721162270c2fe077b4a2
+   ```
 
 - 制作Docker镜像
-```
-docker build . -t nvidia_rn50_tf
-```
+   ```bash
+   docker build . -t nvidia_rn50_tf
+   ```
 
 - 启动Docker
-```
-# 假设制作好的TF_Record数据放在<path to tfrecords data>目录下
-nvidia-docker run --rm -it -v <path to tfrecords data>:/data/tfrecords --ipc=host nvidia_rn50_tf
-```
+   ```bash
+   # 假设制作好的TF_Record数据放在<path to tfrecords data>目录下
+   nvidia-docker run --rm -it -v <path to tfrecords data>:/data/tfrecords --ipc=host nvidia_rn50_tf
+   ```
 
 ### 2.多机（32卡）环境搭建
 
@@ -91,22 +91,22 @@ nvidia-docker run --rm -it -v <path to tfrecords data>:/data/tfrecords --ipc=hos
 对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码未做改动，并严格按照NGC测试使用的参数配置测试。其公开的测试报告请见：[《ResNet-50 v1.5 for TensorFlow》](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)
 
 - 下载我们编写的测试脚本，并执行该脚本
-```
-wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/test_all.sh
-bash test_all.sh
-```
+   ```bash
+   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/test_all.sh
+   bash test_all.sh
+   ```
 
 - 执行后将得到如下日志文件：
-```
-/data/tfrecords/log/tf_gpu1_fp32_bs128.txt
-/data/tfrecords/log/tf_gpu1_fp32_bs256.txt
-/data/tfrecords/log/tf_gpu1_amp_bs128.txt
-/data/tfrecords/log/tf_gpu1_amp_bs256.txt
-/data/tfrecords/log/tf_gpu8_fp32_bs128.txt
-/data/tfrecords/log/tf_gpu8_fp32_bs256.txt
-/data/tfrecords/log/tf_gpu8_amp_bs128.txt
-/data/tfrecords/log/tf_gpu8_amp_bs256.txt
-```
+   ```bash
+   /data/tfrecords/log/tf_gpu1_fp32_bs128.txt
+   /data/tfrecords/log/tf_gpu1_fp32_bs256.txt
+   /data/tfrecords/log/tf_gpu1_amp_bs128.txt
+   /data/tfrecords/log/tf_gpu1_amp_bs256.txt
+   /data/tfrecords/log/tf_gpu8_fp32_bs128.txt
+   /data/tfrecords/log/tf_gpu8_fp32_bs256.txt
+   /data/tfrecords/log/tf_gpu8_amp_bs128.txt
+   /data/tfrecords/log/tf_gpu8_amp_bs256.txt
+   ```
 
 由于NGC TensorFlow的测试使用的是`training_perf.sh`，因此我们提供的`test_all.sh`是参考了`training_perf.sh`的参数设置方法。
 
