@@ -85,14 +85,14 @@ Paddle Docker的基本信息如下：
 > 完成以下信息整理
 
 - 安装docker
-```
-docker pull xxxx
-```
+  ```bash
+  docker pull xxxx
+  ```
 
 - 启动docker
-```
-nvidia-docker ...
-```
+  ```bash
+  nvidia-docker ...
+  ```
 
 - 下载数据
 
