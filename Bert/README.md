@@ -47,8 +47,6 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 
    经调研，大多框架的 Bert Base Pre-Training 任务在第一阶段 max_seq_len=128的数据集训练时 ，均支持 FP32 模式下 BatchSize=32，AMP 模式下 BatchSize=64。因此我们分别测试了上述两种组合方式下的吞吐性能。
 
-   此外，还测试了 Bert Base 在各框架 FP32、AMP 精度模式下支持的最大BatchSize，及对应的吞吐性能，这通常也代表了其最好的性能表现。
-
 关于其它一些参数的说明：
 
 - **XLA**
@@ -67,12 +65,12 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 ## 二、环境介绍
 ### 1.物理机环境
 
-- 系统：Ubuntu 18.04.4 LTS
-- GPU：NVIDIA V100-SXM2-16GB
-- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
+- 系统：CentOS Linux release 7.5.1804
+- GPU：Tesla V100-SXM2-32GB * 8
+- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
 - CUDA：11
 - cuDNN：8.0.4
-- 内存：448 GB
+- 内存：502 GB
 
 ### 2.Docker 镜像
 > TODO(Aurelius84): 待更新Paddle开源出去的docker镜像tags
