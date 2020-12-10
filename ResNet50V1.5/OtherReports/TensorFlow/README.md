@@ -20,7 +20,7 @@
 
 ### 1.物理机环境
 
-我们使用了同一个物理机环境，对 [NGC TensorFlow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5) 的 ResNet50V1.5 模型进行了测试，详细物理机配置，见[Paddle ResNet50V1.5 性能测试](../../README.md#1物理机环境)。
+我们使用了与Paddle测试完全相同的物理机环境，对 [NGC TensorFlow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5) 的 ResNet50V1.5 模型进行了测试，详细物理机配置，见[Paddle ResNet50V1.5 性能测试](../../README.md#1物理机环境)。
 
 ### 2.Docker 镜像
 
