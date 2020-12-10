@@ -20,13 +20,24 @@
 
 ### 1.物理机环境
 
-我们使用了与Paddle测试完全相同的物理机环境，对 [NGC TensorFlow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5) 的 ResNet50V1.5 模型进行了测试，详细物理机配置，见[Paddle ResNet50V1.5 性能测试](../../README.md#1物理机环境)。
+我们使用了与Paddle测试完全相同的物理机环境：
+
+- 系统：CentOS Linux release 7.5.1804
+- GPU：Tesla V100-SXM2-32GB * 8
+- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
+- CUDA：11
+- cuDNN：8.0.4
+- 内存：502 GB
 
 ### 2.Docker 镜像
 
-我们使用 NGC TensorFlow 的代码仓库提供的Dockerfile制作镜像。
+我们使用 NGC TensorFlow 的代码仓库提供的Dockerfile制作镜像：
 
-- 镜像版本：`nvcr.io/nvidia/tensorflow:20.06-tf1-py3`
+- Docker: nvcr.io/nvidia/tensorflow:20.06-tf1-py3
+- TensorFlow：1.15.2
+- 模型代码：[NVIDIA/DeepLearningExamples/TensorFLow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)
+- CUDA：11
+- cuDNN：8.0.1
 
 ## 二、环境搭建
 
