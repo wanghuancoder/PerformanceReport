@@ -59,10 +59,9 @@
 
 说明：
 
-- GPU型号：`V100-SXM2-16GB`
+- GPU型号：`V100-SXM2-32GB`
 - 测试中，我们尽可能复现不同框架的最好极限值，因此以下测试结果默认打来了各个框架的各种加速功能/选项，如：
    - 对于支持 `DALI/XLA` 的框架，以下测试为开启 `DALI/XLA` 的数据
-   - BatchSize 选用各框架支持的最大 BatchSize（下简称：BS）
 
 ### 1. ResNet50V1.5
 
@@ -70,14 +69,14 @@
 
 - 单位：`images/sec`
 
-| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet | OneFlow |
-|-----|-----|-----|-----|-----|-----|
-| FP32 GPU=1,BS=max | - | - | - | - | - |
-| AMP GPU=1,BS=max | - | - | - | - | - |
-| FP32 GPU=8,BS=max | - | - | - | - | - |
-| AMP GPU=8,BS=max | - | - | - | - | - |
-| FP32 GPU=32,BS=max | - | - | - | - | - |
-| AMP GPU=32,BS=max | - | - | - | - | - |
+| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
+|-----|-----|-----|-----|-----|
+| FP32 GPU=1,BS=128 | - | 398.257 | 355.69 | 376.18 |
+| AMP GPU=1,BS=256 | - | 985.466 | 797.38 | 1398.8 |
+| FP32 GPU=8,BS=128 | - | - | - | - |
+| AMP GPU=8,BS=256 | - | - | - | - |
+| FP32 GPU=32,BS=128 | - | - | - | - |
+| AMP GPU=32,BS=256 | - | - | - | - |
 
 ### 2. Bert Base Pre-Training
 > 详细数据请见[《Paddle Bert Base 性能测试报告》](./Bert)

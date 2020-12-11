@@ -47,8 +47,6 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 
    经调研，大多框架的 Bert Base Pre-Training 任务在第一阶段 max_seq_len=128的数据集训练时 ，均支持 FP32 模式下 BatchSize=32，AMP 模式下 BatchSize=64。因此我们分别测试了上述两种组合方式下的吞吐性能。
 
-   此外，还测试了 Bert Base 在各框架 FP32、AMP 精度模式下支持的最大BatchSize，及对应的吞吐性能，这通常也代表了其最好的性能表现。
-
 关于其它一些参数的说明：
 
 - **XLA**
@@ -67,25 +65,21 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 ## 二、环境介绍
 ### 1.物理机环境
 
-- 系统：Ubuntu 18.04.4 LTS
-- GPU：NVIDIA V100-SXM2-16GB
-- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
+- 系统：CentOS Linux release 7.5.1804
+- GPU：Tesla V100-SXM2-32GB * 8
+- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
 - CUDA：11
 - cuDNN：8.0.4
-- 内存：448 GB
+- 内存：502 GB
 
 ### 2.Docker 镜像
 > TODO(Aurelius84): 待更新Paddle开源出去的docker镜像tags
 
-多数框架提供了包含完整测试环境的docker images，如下是各框架的基础环境配置：
+- 镜像版本：`paddlepaddle/paddle:latest-dev-cuda10.1-cudnn7-gcc82`
+- Paddle 版本：`2.0rc1`
+- CUDA 版本：`10`
+- cuDnn 版本： `7.6.5`
 
-|配置 | Paddle | NGC TensorFlow | NGC PyTorch
-|-----|-----|-----|-----|
-| 框架版本 | 2.0rc1 | 1.15.2+nv | 1.6.0a0+9907a3e |
-| docker镜像 |  paddlepaddle/paddle:latest-dev-cuda10.1-cudnn7-gcc82  | nvcr.io/nvidia/tensorflow:20.06-tf1-py3 | nvcr.io/nvidia/pytorch:20.06-py3 |
-|模型代码| | [NVIDIA/DeepLearningExamples](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/LanguageModeling/BERT) | [NVIDIA/DeepLearningExamples](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/LanguageModeling/BERT)|
-|CUDA | 10.1 | 11 | 11 |
-|cuDNN | 7.6.5 | 8.0.1 | 8.0.1 |
 
 ## 三、环境搭建
 
@@ -95,22 +89,22 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 
 ### 1.单机（单卡、8卡）环境搭建
 
-1. 安装docker
+- **拉取代码**
 
-```bash
-docker pull paddlepaddle/paddle:latest-dev-cuda11.0-cudnn8-gcc82
-```
 
-2. 启动docker
-```bash
-nvidia-docker ...
-```
+- **构建镜像**
 
-3. 下载数据
+   ```bash
+   docker pull paddlepaddle/paddle:latest-dev-cuda11.0-cudnn8-gcc82
 
-> TODO(Aurelius84): 待上传样本数据集，并给出下载链接和解压路径
+   nvidia-docker run ...
+   ```
 
-Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数据集进行的训练的，原始数据集比较大。我们提供了一份小的、且已处理好的[样本数据集]()，可以下载并解压到`XX`目录里。
+- **准备数据**
+
+   > TODO(Aurelius84): 待上传样本数据集，并给出下载链接和解压路径
+
+   Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数据集进行的训练的，原始数据集比较大。我们提供了一份小的、且已处理好的[样本数据集]()，可以下载并解压到`XX`目录里。
 
 
 ### 2.多机（32卡）环境搭建
@@ -139,7 +133,7 @@ Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数
 ## 五、测试结果
 
 ### 1.Paddle训练性能
-- 训练吞吐率(sentences/sec)如下:
+- 训练吞吐率(sequences/sec)如下:
 
 |卡数 | FP32(BS=32) | AMP(BS=64) | FP32(BS=64) | AMP(BS=128) |
 |-----|-----|-----|-----|-----|
