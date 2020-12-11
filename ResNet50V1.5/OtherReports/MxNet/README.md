@@ -96,7 +96,7 @@
 
 - 下载我们编写的测试脚本，并执行该脚本
    ```bash
-   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/test_all.sh
+   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/Mxnet/scripts/mxnet_test_all.sh
    bash test_all.sh
    ```
 
@@ -108,7 +108,7 @@
    /data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu1_gpu8_amp_bs256.txt
    ```
 
-在NGC报告的[Training performance: NVIDIA DGX-2 (16x V100 32G)](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet/Classification/RN50v1.5#training-performance-nvidia-dgx-2-16x-v100-32g)小节，提供了其测试的参数配置。因此，我们提供的`test_all.sh`是参考了其文档中的配置。
+在NGC报告的[Training performance: NVIDIA DGX-2 (16x V100 32G)](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet/Classification/RN50v1.5#training-performance-nvidia-dgx-2-16x-v100-32g)小节，提供了其测试的参数配置。因此，我们提供的`mxnet_test_all.sh`是参考了其文档中的配置。
 
 > TODO(wanghuancoder):<br>
 > 脚本路径
@@ -137,21 +137,15 @@
 |8 | - | - | - | -|
 |32 | - | - | - | -|
 
-> TODO(wanghuancoder):<br>
-> 完成测试，将1卡、8卡数据填入表格
-
 > TODO(Distribute):<br>
 > 完成测试，将32卡数据填入表格
 > 注意：MxNet不需要测FP32 BS128，因为MxNet最大支持96
 
 ## 五、日志数据
-- [1卡 FP32 BS=128 日志](./logs/mxnet_gpu1_fp32_bs128.txt)
-- [1卡 FP32 BS=256 日志](./logs/mxnet_gpu1_fp32_bs256.txt)
-- [1卡 AMP BS=128 日志](./logs/mxnet_gpu1_amp_bs128.txt)
-- [1卡 AMP BS=256 日志](./logs/mxnet_gpu1_amp_bs256.txt)
-
-> TODO(wanghuancoder):<br>
-> 完成测试，将1卡、8卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
+- [1卡、8卡 FP32 BS=128 日志](./logs/mxnet_gpu1_gpu8_fp32_bs128.txt)
+- [1卡、8卡 FP32 BS=256 日志](./logs/mxnet_gpu1_gpu8_fp32_bs256.txt)
+- [1卡、8卡 AMP BS=128 日志](./logs/mxnet_gpu1_gpu8_amp_bs128.txt)
+- [1卡、8卡 AMP BS=256 日志](./logs/mxnet_gpu1_gpu8_amp_bs256.txt)
 
 > TODO(Distribute):<br>
 > 完成测试，将32卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接

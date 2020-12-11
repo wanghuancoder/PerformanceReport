@@ -92,7 +92,7 @@
 
 - 下载我们编写的测试脚本，并执行该脚本
    ```bash
-   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/test_all.sh
+   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/tf_test_all.sh
    bash test_all.sh
    ```
 
@@ -108,7 +108,7 @@
    /data/tfrecords/log/tf_gpu8_amp_bs256.txt
    ```
 
-由于NGC TensorFlow的测试使用的是`training_perf.sh`，因此我们提供的`test_all.sh`是参考了`training_perf.sh`的参数设置方法。
+由于NGC TensorFlow的测试使用的是`training_perf.sh`，因此我们提供的`tf_test_all.sh`是参考了`training_perf.sh`的参数设置方法。
 
 > TODO(wanghuancoder):<br>
 > 脚本路径
@@ -137,9 +137,6 @@
 |8 | 3038.730 | 3210.793 | 7601.888 | 7799.018 |
 |32 | - | - | - | -|
 
-> TODO(wanghuancoder):<br>
-> 完成测试，将1卡、8卡数据填入表格
-
 > TODO(Distribute):<br>
 > 完成测试，将32卡数据填入表格
 
@@ -152,9 +149,6 @@
 - [8卡 FP32 BS=256 日志](./logs/tf_gpu8_fp32_bs256.txt)
 - [8卡 AMP BS=128 日志](./logs/tf_gpu8_amp_bs128.txt)
 - [8卡 AMP BS=256 日志](./logs/tf_gpu8_amp_bs256.txt)
-
-> TODO(wanghuancoder):<br>
-> 完成测试，将1卡、8卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
 
 > TODO(Distribute):<br>
 > 完成测试，将32卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
