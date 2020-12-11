@@ -92,7 +92,7 @@
 
 - 下载我们编写的测试脚本，并执行该脚本
    ```bash
-   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/test_all.sh
+   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/tf_test_all.sh
    bash test_all.sh
    ```
 
@@ -108,7 +108,7 @@
    /data/tfrecords/log/tf_gpu8_amp_bs256.txt
    ```
 
-由于NGC TensorFlow的测试使用的是`training_perf.sh`，因此我们提供的`test_all.sh`是参考了`training_perf.sh`的参数设置方法。
+由于NGC TensorFlow的测试使用的是`training_perf.sh`，因此我们提供的`tf_test_all.sh`是参考了`training_perf.sh`的参数设置方法。
 
 > TODO(wanghuancoder):<br>
 > 脚本路径
