@@ -90,21 +90,40 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 ### 1.单机（单卡、8卡）环境搭建
 
 - **拉取代码**
+  ```bash
+  git clone https://github.com/PaddlePaddle/models.git
+  cd models
+  ```
 
 
 - **构建镜像**
 
    ```bash
-   docker pull paddlepaddle/paddle:latest-dev-cuda11.0-cudnn8-gcc82
+   # 拉取镜像
+   docker pull hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
 
-   nvidia-docker run ...
+   # 创建并进入容器
+   nvidia-docker run --name=test_bert_paddle -it \
+    --net=host \
+    --shm-size=1g \
+    --ulimit memlock=-1 \
+    --ulimit stack=67108864 \
+    -e NVIDIA_VISIBLE_DEVICES=all \
+    -v $PWD:/workspace/models \
+    hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 /bin/bash
+   ```
+
+- **安装Paddle**
+   ```bash
+   # 安装paddle whl包 (todo: 待更新)
+   pip3.7 install -U paddlepaddle_gpu-0.0.0-cp37-cp37m-linux_x86_64.whl
    ```
 
 - **准备数据**
 
    > TODO(Aurelius84): 待上传样本数据集，并给出下载链接和解压路径
 
-   Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数据集进行的训练的，原始数据集比较大。我们提供了一份小的、且已处理好的[样本数据集]()，可以下载并解压到`XX`目录里。
+   Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数据集进行的训练的，原始数据集比较大。我们提供了一份小的、且已处理好的[样本数据集]()，可以下载并解压到`models/bert_data`目录里。
 
 
 ### 2.多机（32卡）环境搭建
@@ -117,11 +136,54 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 
 ## 四、测试步骤
 
+在 [benchmark/bert](https://github.com/PaddlePaddle/models/tree/develop/PaddleNLP/benchmark/bert) 目录下，我们提供了分别用于单机测试的 `run_pretrain_single.py` 脚本和用于多机测试的 `run_pretrain.py` 脚本。
+
+**重要参数：**
+- **model_type**: 训练模型的类型，此处统一指定为 `bert`
+- **model_name_or_path:** 预训练模型的名字或路径，此处统一指定为 `bert-base-uncased`
+- **batch_size:** 每张 GPU 上的 batch_size 大小
+- **use_amp:** 使用是否混合精度训练
+- **enable_addto:** 是否开启梯度的 `addto` 聚合策略，默认开启
+- **max_steps:** 设置训练的迭代次数，统一设置为5000
+- **logging_steps:** 日志打印的步长，统一设置为100
+
+
 ### 1.单机（单卡、8卡）测试
-> TODO(Aurelius84):(需包含)<br>
-> 1. 单机单卡、8卡公用的可修改配置的同一个执行shell脚本，给出脚本文件链接<br>
-> 2. 对重要参数进行逐一说明<br>
-> 3. 给出单机单卡、8卡的执行命令
+
+为了更方便的复现我们的测试结果，我们提供一键测试 benchmark 数据的脚本 `run_benchmark.sh` ，需放在 `benchmark/bert`目录下。
+
+- **脚本内容如下：**
+   ```bash
+   #!/bin/bash
+
+   export PYTHONPATH=/workspace/models/PaddleNLP
+   export DATA_DIR=/workspace/models/bert_data/
+   export CUDA_VISIBLE_DEVICES=0
+
+   batch_size=${1:-32}
+   use_amp=${2:-"True"}
+   max_steps=${3:-200}
+   logging_steps=${4:-100}
+
+   python3.7 ./run_pretrain_single.py \
+      --model_type bert \
+      --model_name_or_path bert-base-uncased \
+      --max_predictions_per_seq 20 \
+      --batch_size $batch_size   \
+      --learning_rate 1e-4 \
+      --weight_decay 1e-2 \
+      --adam_epsilon 1e-6 \
+      --warmup_steps 10000 \
+      --input_dir $DATA_DIR \
+      --output_dir ./tmp2/ \
+      --logging_steps $logging_steps \
+      --save_steps 50000 \
+      --max_steps $max_steps \
+      --use_amp $use_amp\
+      --enable_addto True
+   ````
+
+> TODO: 给出单机单卡、8卡的执行命令
 
 
 ### 2.多机（32卡）测试
