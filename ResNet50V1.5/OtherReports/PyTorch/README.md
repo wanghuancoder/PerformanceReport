@@ -130,12 +130,9 @@
 
 |卡数 | FP32(BS=128) | FP32(BS=max_144) | AMP(BS=128) | AMP(BS=max_256)|
 |-----|-----|-----|-----|-----|
-|1 | 355.69 | 368.89 | 780.48 | 797.38|
-|8 | - | - | - | -|
+|1 | 356.77 | 372.76 | 782.43 | 798.15 |
+|8 | 2742.41 | 2884.68 | 5715.58 | 6007.61 |
 |32 | - | - | - | -|
-
-> TODO(wanghuancoder):<br>
-> 完成测试，将1卡、8卡数据填入表格
 
 > TODO(Distribute):<br>
 > 完成测试，将32卡数据填入表格
@@ -145,9 +142,10 @@
 - [1卡 FP32 BS=256 日志](./logs/pytorch_gpu1_fp32_bs256.txt)
 - [1卡 AMP BS=128 日志](./logs/pytorch_gpu1_amp_bs128.txt)
 - [1卡 AMP BS=256 日志](./logs/pytorch_gpu1_amp_bs256.txt)
-
-> TODO(wanghuancoder):<br>
-> 完成测试，将1卡、8卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
+- [8卡 FP32 BS=128 日志](./logs/pytorch_gpu8_fp32_bs128.txt)
+- [8卡 FP32 BS=256 日志](./logs/pytorch_gpu8_fp32_bs256.txt)
+- [8卡 AMP BS=128 日志](./logs/pytorch_gpu8_amp_bs128.txt)
+- [8卡 AMP BS=256 日志](./logs/pytorch_gpu8_amp_bs256.txt)
 
 > TODO(Distribute):<br>
 > 完成测试，将32卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
