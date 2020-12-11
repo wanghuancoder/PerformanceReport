@@ -133,8 +133,8 @@
 
 |卡数 | FP32(BS=128) | FP32(BS=256) | AMP(BS=128) | AMP(BS=256)|
 |-----|-----|-----|-----|-----|
-|1 | 398.257 | 415.962 | 984.409 | 985.466 |
-|8 | - | - | - | -|
+|1 | 398.349 | 414.631 | 979.091 | 994.131 |
+|8 | 3038.730 | 3210.793 | 7601.888 | 7799.018 |
 |32 | - | - | - | -|
 
 > TODO(wanghuancoder):<br>
@@ -148,6 +148,10 @@
 - [1卡 FP32 BS=256 日志](./logs/tf_gpu1_fp32_bs256.txt)
 - [1卡 AMP BS=128 日志](./logs/tf_gpu1_amp_bs128.txt)
 - [1卡 AMP BS=256 日志](./logs/tf_gpu1_amp_bs256.txt)
+- [8卡 FP32 BS=128 日志](./logs/tf_gpu8_fp32_bs128.txt)
+- [8卡 FP32 BS=256 日志](./logs/tf_gpu8_fp32_bs256.txt)
+- [8卡 AMP BS=128 日志](./logs/tf_gpu8_amp_bs128.txt)
+- [8卡 AMP BS=256 日志](./logs/tf_gpu8_amp_bs256.txt)
 
 > TODO(wanghuancoder):<br>
 > 完成测试，将1卡、8卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
