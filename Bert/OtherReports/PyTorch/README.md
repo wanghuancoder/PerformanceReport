@@ -210,7 +210,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 |卡数 | FP32(BS=32) | FP32(BS=64) | AMP(BS=64) | AMP(BS=128)|
 |-----|-----|-----|-----|-----|
 |1 | 126.43 | 127.02 | 490.92 | 529.46 |
-|8 | - | - | - | -|
+|8 | - | - | 3917.36 | 4229.12 |
 |32 | - | - | - | -|
 
 
@@ -235,4 +235,22 @@ DLL 2020-12-08 07:24:29.755215 -  e2e_train_time : 7353.040309429169  training_s
 - [单卡 bs=128、FP16](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs128_gpu1_gbs65536.log)
 ```
 DLL 2020-12-08 05:21:52.802881 -  e2e_train_time : 6817.991151809692  training_sequences_per_second : 529.4654194600259  final_loss : 7.988563537597656  raw_train_time : 6807.772269010544
+```
+
+- [8卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu8_gbs65536.log)
+```
+```
+
+- [8卡 bs=64、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs64_gpu8_gbs65536.log)
+```
+```
+
+- [8卡 bs=64、FP16](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu8_gbs65536.log)
+```
+DLL 2020-12-11 09:15:54.620740 -  e2e_train_time : 934.591274023056  training_sequences_per_second : 3917.3663190851235  final_loss : 7.986091613769531  raw_train_time : 920.1283991336823
+```
+
+- [8卡 bs=128、FP16](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs128_gpu8_gbs65536.log)
+```
+DLL 2020-12-11 09:00:15.174859 -  e2e_train_time : 868.286167383194  training_sequences_per_second : 4229.124653791597  final_loss : 7.9862213134765625  raw_train_time : 852.2993042469025
 ```
