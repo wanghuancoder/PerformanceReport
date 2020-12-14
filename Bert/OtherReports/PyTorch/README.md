@@ -30,10 +30,10 @@
 
 NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚本](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/LanguageModeling/BERT/scripts/docker/build.sh)，
 
-- 镜像版本: `nvcr.io/nvidia/pytorch:20.06-py3`
-- PyTorch 版本: `1.6.0a0+9907a3e`
-- CUDA 版本: `11.0`
-- cuDnn 版本: `8.0.1`
+- **镜像版本**: `nvcr.io/nvidia/pytorch:20.06-py3`
+- **PyTorch 版本**: `1.6.0a0+9907a3e`
+- **CUDA 版本**: `11.0`
+- **cuDnn 版本**: `8.0.1`
 
 ## 二、环境搭建
 

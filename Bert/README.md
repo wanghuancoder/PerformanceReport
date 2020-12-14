@@ -67,21 +67,21 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 ## 二、环境介绍
 ### 1.物理机环境
 
-- 系统: CentOS Linux release 7.5.1804
-- GPU: Tesla V100-SXM2-32GB * 8
-- CPU: Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-- CUDA: 11
-- cuDNN: 8.0.4
-- Driver Version: 450.80.02
-- 内存: 502 GB
+- **系统**: CentOS Linux release 7.5.1804
+- **GPU**: Tesla V100-SXM2-32GB * 8
+- **CPU**: Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
+- **CUDA**: 11
+- **cuDNN**: 8.0.4
+- **Driver Version**: 450.80.02
+- **内存**: 502 GB
 
 ### 2.Docker 镜像
 > TODO(Aurelius84): 待更新Paddle开源出去的docker镜像tags
 
-- 镜像版本: `hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04`
-- Paddle 版本: `2.0rc1`
-- CUDA 版本: `10.1`
-- cuDnn 版本: `7.6.5`
+- **镜像版本**: `hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04`
+- **Paddle 版本**: `2.0rc1`
+- **CUDA 版本**: `10.1`
+- **cuDnn 版本:** `7.6.5`
 
 
 ## 三、环境搭建
