@@ -93,7 +93,7 @@
 - 下载我们编写的测试脚本，并执行该脚本
    ```bash
    wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/tf_test_all.sh
-   bash test_all.sh
+   bash tf_test_all.sh
    ```
 
 - 执行后将得到如下日志文件：

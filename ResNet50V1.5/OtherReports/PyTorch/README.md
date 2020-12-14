@@ -89,8 +89,8 @@
 
 - 下载我们编写的测试脚本，并执行该脚本
    ```bash
-   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/test_all.sh
-   bash test_all.sh
+   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/pytorch_test_all.sh
+   bash pytorch_test_all.sh
    ```
 
 - 执行后将得到如下日志文件：
@@ -105,7 +105,7 @@
    /imagenet/log/pytorch_gpu8_amp_bs256.txt
    ```
 
-在NGC报告的[Training performance benchmark](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5#training-performance-benchmark)小节，提供了其测试的参数配置。因此，我们提供的`test_all.sh`是参考了其文档中的配置。
+在NGC报告的[Training performance benchmark](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5#training-performance-benchmark)小节，提供了其测试的参数配置。因此，我们提供的`pytorch_test_all.sh`是参考了其文档中的配置。
 
 > TODO(wanghuancoder):<br>
 > 脚本路径

@@ -71,8 +71,8 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 
 Paddle Docker的基本信息如下：
 
-- Docker: hub.baidubce.com/paddlepaddle/paddle:latest-dev-cuda10.1-cudnn7-gcc82 TODO
-- Paddle：2.0.0
+- Docker: hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 TODO
+- Paddle：develop+sfdsafdsafdsafsa TODO
 - 模型代码：[PaddleClas](https://github.com/PaddlePaddle/PaddleClas)
 - CUDA：10.1
 - cuDNN：7.6.5
@@ -81,21 +81,24 @@ Paddle Docker的基本信息如下：
 
 ### 1.单机（单卡、8卡）环境搭建
 
-> TODO(wanghuancoder):<br>
-> 完成以下信息整理
-
-- 安装docker
+- 拉取docker
   ```bash
-  docker pull xxxx
+  docker pull hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
   ```
 
 - 启动docker
   ```bash
-  nvidia-docker ...
+  # 假设imagenet数据放在<path to data>目录下
+  nvidia-docker run --shm-size=64g -it -v <path to data>:/data hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 /bin/bash
   ```
 
-- 下载数据
-
+- 拉取PaddleClas
+  ```bash
+  git clone https://github.com/PaddlePaddle/PaddleClas.git
+  cd PaddleClas
+  # 本次测试是在如下版本下完成的：
+  git checkout b0904fd250715b3c040c88881395bad06eea9be6
+  ```
 
 ### 2.多机（32卡）环境搭建
 
@@ -113,21 +116,31 @@ Paddle Docker的基本信息如下：
 
 ### 1.单机（单卡、8卡）测试
 
-> TODO(wanghuancoder):<br>
-> 1. 编写一键测试脚本
-> 2. 完成以下复现说明编写
-
-请参考如下脚本搭建环境：
-```
-# 1. 安装docker
-
-# 2. 启动docker
-
-# 3. 下载数据
-
-# 4. 执行测试脚本
-```
-执行测试脚本后，即可获得性能数据，如下图所示：
+- 下载我们编写的测试脚本，并执行该脚本
+  ```bash
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/paddle_test_all.sh
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_1gpu_fp32_bs128.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_1gpu_fp32_bs256.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_1gpu_amp_bs128.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_1gpu_amp_bs256.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_fp32_bs128.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_fp32_bs256.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs128.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs256.yaml
+  bash paddle_test_all.sh
+  ```
+  
+- 执行后将得到如下日志文件：
+   ```bash
+   ./paddle_gpu1_fp32_bs128.txt
+   ./paddle_gpu1_fp32_bs256.txt
+   ./paddle_gpu1_amp_bs128.txt
+   ./paddle_gpu1_amp_bs256.txt
+   ./paddle_gpu8_fp32_bs128.txt
+   ./paddle_gpu8_fp32_bs256.txt
+   ./paddle_gpu8_amp_bs128.txt
+   ./paddle_gpu8_amp_bs256.txt
+   ```
 
 ### 2.多机（32卡）测试
 
@@ -147,9 +160,6 @@ Paddle Docker的基本信息如下：
 |1 | - | - | - | -|
 |8 | - | - | - | -|
 |32 | - | - | - | -|
-
-> TODO(wanghuancoder):<br>
-> 完成测试，将1卡、8卡数据填入表格
 
 > TODO(Distribute):<br>
 > 完成测试，将32卡数据填入表格
