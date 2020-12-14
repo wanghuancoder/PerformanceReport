@@ -1,6 +1,6 @@
-[32m[2020-12-14 15:46:34,645] [    INFO][0m - Found /root/.paddlenlp/models/bert-base-uncased/bert-base-uncased-vocab.txt[0m
-W1214 15:46:38.768363  1916 device_context.cc:320] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.0, Runtime API Version: 10.1
-W1214 15:46:38.773319  1916 device_context.cc:330] device: 0, cuDNN Version: 7.6.
+[32m[2020-12-14 19:41:53,327] [    INFO][0m - Found /root/.paddlenlp/models/bert-base-uncased/bert-base-uncased-vocab.txt[0m
+W1214 19:41:57.411834  3898 device_context.cc:320] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.0, Runtime API Version: 10.1
+W1214 19:41:57.417920  3898 device_context.cc:330] device: 0, cuDNN Version: 7.6.
 /usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /workspace/models/PaddleNLP/paddlenlp/transformers/bert/modeling.py:58
 The behavior of expression A - B has been unified with elementwise_sub(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_sub(X, Y, axis=0) instead of A - B. This transitional warning will be dropped in the future.
   op_type, op_type, EXPRESSION_MAP[method_name]))
@@ -19,28 +19,28 @@ The behavior of expression A + B has been unified with elementwise_add(X, Y, axi
 /usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /workspace/models/PaddleNLP/paddlenlp/transformers/bert/modeling.py:501
 The behavior of expression A / B has been unified with elementwise_div(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_div(X, Y, axis=0) instead of A / B. This transitional warning will be dropped in the future.
   op_type, op_type, EXPRESSION_MAP[method_name]))
-global step 20, epoch: 0, batch: 19, loss: 11.193515, speed: 2.38 step/s, ips: 152.44 sequences/s
-global step 40, epoch: 0, batch: 39, loss: 11.095941, speed: 7.33 step/s, ips: 468.84 sequences/s
-global step 60, epoch: 0, batch: 59, loss: 10.978405, speed: 7.32 step/s, ips: 468.18 sequences/s
-global step 80, epoch: 0, batch: 79, loss: 10.710381, speed: 7.31 step/s, ips: 468.02 sequences/s
-global step 100, epoch: 0, batch: 99, loss: 10.575435, speed: 7.32 step/s, ips: 468.51 sequences/s
-global step 120, epoch: 0, batch: 119, loss: 10.400787, speed: 7.31 step/s, ips: 467.86 sequences/s
-global step 140, epoch: 0, batch: 139, loss: 10.277389, speed: 7.31 step/s, ips: 468.12 sequences/s
-global step 160, epoch: 0, batch: 159, loss: 10.101267, speed: 7.30 step/s, ips: 467.15 sequences/s
-global step 180, epoch: 0, batch: 179, loss: 10.151067, speed: 7.33 step/s, ips: 469.04 sequences/s
-global step 200, epoch: 0, batch: 199, loss: 10.009148, speed: 7.32 step/s, ips: 468.63 sequences/s
-global step 220, epoch: 0, batch: 219, loss: 9.935417, speed: 7.32 step/s, ips: 468.20 sequences/s
-global step 240, epoch: 0, batch: 239, loss: 9.790760, speed: 7.31 step/s, ips: 468.08 sequences/s
-global step 260, epoch: 0, batch: 259, loss: 9.604862, speed: 7.32 step/s, ips: 468.62 sequences/s
-global step 280, epoch: 0, batch: 279, loss: 9.898273, speed: 7.31 step/s, ips: 467.84 sequences/s
-global step 300, epoch: 0, batch: 299, loss: 9.822138, speed: 7.32 step/s, ips: 468.52 sequences/s
-global step 320, epoch: 0, batch: 319, loss: 9.621010, speed: 7.33 step/s, ips: 468.91 sequences/s
-global step 340, epoch: 0, batch: 339, loss: 9.652740, speed: 7.33 step/s, ips: 468.90 sequences/s
-global step 360, epoch: 0, batch: 359, loss: 9.449191, speed: 7.31 step/s, ips: 467.92 sequences/s
-global step 380, epoch: 0, batch: 379, loss: 9.676030, speed: 7.32 step/s, ips: 468.72 sequences/s
-global step 400, epoch: 0, batch: 399, loss: 9.446019, speed: 7.32 step/s, ips: 468.26 sequences/s
-global step 420, epoch: 0, batch: 419, loss: 9.453219, speed: 7.31 step/s, ips: 467.96 sequences/s
-global step 440, epoch: 0, batch: 439, loss: 9.436239, speed: 7.33 step/s, ips: 468.89 sequences/s
-global step 460, epoch: 0, batch: 459, loss: 9.254897, speed: 7.32 step/s, ips: 468.33 sequences/s
-global step 480, epoch: 0, batch: 479, loss: 9.277801, speed: 7.32 step/s, ips: 468.37 sequences/s
-global step 500, epoch: 0, batch: 499, loss: 9.349097, speed: 7.31 step/s, ips: 468.11 sequences/s
+global step 20, epoch: 0, batch: 19, loss: 11.214621, speed: 2.38 step/s, ips: 152.57 sequences/s
+global step 40, epoch: 0, batch: 39, loss: 11.076859, speed: 7.90 step/s, ips: 505.32 sequences/s
+global step 60, epoch: 0, batch: 59, loss: 10.972242, speed: 7.89 step/s, ips: 504.67 sequences/s
+global step 80, epoch: 0, batch: 79, loss: 10.711332, speed: 7.89 step/s, ips: 504.95 sequences/s
+global step 100, epoch: 0, batch: 99, loss: 10.562442, speed: 7.89 step/s, ips: 504.88 sequences/s
+global step 120, epoch: 0, batch: 119, loss: 10.432570, speed: 7.88 step/s, ips: 504.53 sequences/s
+global step 140, epoch: 0, batch: 139, loss: 10.261184, speed: 7.89 step/s, ips: 505.07 sequences/s
+global step 160, epoch: 0, batch: 159, loss: 10.101965, speed: 7.89 step/s, ips: 504.82 sequences/s
+global step 180, epoch: 0, batch: 179, loss: 10.104379, speed: 7.89 step/s, ips: 504.79 sequences/s
+global step 200, epoch: 0, batch: 199, loss: 10.016010, speed: 7.89 step/s, ips: 504.72 sequences/s
+global step 220, epoch: 0, batch: 219, loss: 9.942328, speed: 7.88 step/s, ips: 504.48 sequences/s
+global step 240, epoch: 0, batch: 239, loss: 9.795404, speed: 7.89 step/s, ips: 504.91 sequences/s
+global step 260, epoch: 0, batch: 259, loss: 9.624068, speed: 7.90 step/s, ips: 505.50 sequences/s
+global step 280, epoch: 0, batch: 279, loss: 9.878353, speed: 7.88 step/s, ips: 504.50 sequences/s
+global step 300, epoch: 0, batch: 299, loss: 9.818404, speed: 7.90 step/s, ips: 505.66 sequences/s
+global step 320, epoch: 0, batch: 319, loss: 9.613894, speed: 7.90 step/s, ips: 505.59 sequences/s
+global step 340, epoch: 0, batch: 339, loss: 9.651575, speed: 7.89 step/s, ips: 504.73 sequences/s
+global step 360, epoch: 0, batch: 359, loss: 9.459929, speed: 7.88 step/s, ips: 504.60 sequences/s
+global step 380, epoch: 0, batch: 379, loss: 9.666413, speed: 7.89 step/s, ips: 504.85 sequences/s
+global step 400, epoch: 0, batch: 399, loss: 9.443672, speed: 7.89 step/s, ips: 504.71 sequences/s
+global step 420, epoch: 0, batch: 419, loss: 9.447943, speed: 7.88 step/s, ips: 504.22 sequences/s
+global step 440, epoch: 0, batch: 439, loss: 9.450440, speed: 7.89 step/s, ips: 504.71 sequences/s
+global step 460, epoch: 0, batch: 459, loss: 9.244391, speed: 7.88 step/s, ips: 504.39 sequences/s
+global step 480, epoch: 0, batch: 479, loss: 9.265996, speed: 7.88 step/s, ips: 504.09 sequences/s
+global step 500, epoch: 0, batch: 499, loss: 9.335044, speed: 7.89 step/s, ips: 504.92 sequences/s

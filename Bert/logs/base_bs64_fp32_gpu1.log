@@ -28,19 +28,49 @@ global step 120, epoch: 0, batch: 119, loss: 10.398668, speed: 2.25 step/s, ips:
 global step 140, epoch: 0, batch: 139, loss: 10.277477, speed: 2.24 step/s, ips: 143.60 sequences/s
 global step 160, epoch: 0, batch: 159, loss: 10.097670, speed: 2.24 step/s, ips: 143.62 sequences/s
 global step 180, epoch: 0, batch: 179, loss: 10.147157, speed: 2.24 step/s, ips: 143.47 sequences/s
-global step 200, epoch: 0, batch: 199, loss: 10.005758, speed: 2.24 step/s, ips: 143.28 sequences/s
-global step 220, epoch: 0, batch: 219, loss: 9.931476, speed: 2.24 step/s, ips: 143.21 sequences/s
-global step 240, epoch: 0, batch: 239, loss: 9.786197, speed: 2.24 step/s, ips: 143.28 sequences/s
-global step 260, epoch: 0, batch: 259, loss: 9.596667, speed: 2.24 step/s, ips: 143.18 sequences/s
-global step 280, epoch: 0, batch: 279, loss: 9.892571, speed: 2.24 step/s, ips: 143.20 sequences/s
-global step 300, epoch: 0, batch: 299, loss: 9.811921, speed: 2.24 step/s, ips: 143.23 sequences/s
-global step 320, epoch: 0, batch: 319, loss: 9.609450, speed: 2.24 step/s, ips: 143.23 sequences/s
-global step 340, epoch: 0, batch: 339, loss: 9.637657, speed: 2.24 step/s, ips: 143.17 sequences/s
-global step 360, epoch: 0, batch: 359, loss: 9.430085, speed: 2.24 step/s, ips: 143.13 sequences/s
-global step 380, epoch: 0, batch: 379, loss: 9.655180, speed: 2.24 step/s, ips: 143.45 sequences/s
-global step 400, epoch: 0, batch: 399, loss: 9.424152, speed: 2.24 step/s, ips: 143.28 sequences/s
-global step 420, epoch: 0, batch: 419, loss: 9.425868, speed: 2.24 step/s, ips: 143.38 sequences/s
-global step 440, epoch: 0, batch: 439, loss: 9.401887, speed: 2.24 step/s, ips: 143.67 sequences/s
-global step 460, epoch: 0, batch: 459, loss: 9.223997, speed: 2.24 step/s, ips: 143.59 sequences/s
-global step 480, epoch: 0, batch: 479, loss: 9.235274, speed: 2.24 step/s, ips: 143.31 sequences/s
-global step 500, epoch: 0, batch: 499, loss: 9.298173, speed: 2.24 step/s, ips: 143.61 sequences/s
+global step 200, epoch: 0, batch: 199, loss: 10.005758, speed: 2.24 step/s, ips: 143.28 sequences/s[32m[2020-12-14 19:30:47,457] [    INFO][0m - Found /root/.paddlenlp/models/bert-base-uncased/bert-base-uncased-vocab.txt[0m
+W1214 19:30:49.069319  3576 device_context.cc:320] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.0, Runtime API Version: 10.1
+W1214 19:30:49.074450  3576 device_context.cc:330] device: 0, cuDNN Version: 7.6.
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /workspace/models/PaddleNLP/paddlenlp/transformers/bert/modeling.py:58
+The behavior of expression A - B has been unified with elementwise_sub(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_sub(X, Y, axis=0) instead of A - B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /workspace/models/PaddleNLP/paddlenlp/transformers/bert/modeling.py:67
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:378
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:527
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:535
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /workspace/models/PaddleNLP/paddlenlp/transformers/bert/modeling.py:501
+The behavior of expression A / B has been unified with elementwise_div(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_div(X, Y, axis=0) instead of A / B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+global step 20, epoch: 0, batch: 19, loss: 11.214339, speed: 1.47 step/s, ips: 94.26 sequences/s
+global step 40, epoch: 0, batch: 39, loss: 11.075729, speed: 2.38 step/s, ips: 152.12 sequences/s
+global step 60, epoch: 0, batch: 59, loss: 10.970312, speed: 2.37 step/s, ips: 151.71 sequences/s
+global step 80, epoch: 0, batch: 79, loss: 10.709367, speed: 2.37 step/s, ips: 151.67 sequences/s
+global step 100, epoch: 0, batch: 99, loss: 10.559713, speed: 2.37 step/s, ips: 151.43 sequences/s
+global step 120, epoch: 0, batch: 119, loss: 10.431245, speed: 2.36 step/s, ips: 151.06 sequences/s
+global step 140, epoch: 0, batch: 139, loss: 10.259285, speed: 2.36 step/s, ips: 150.99 sequences/s
+global step 160, epoch: 0, batch: 159, loss: 10.100377, speed: 2.36 step/s, ips: 150.89 sequences/s
+global step 180, epoch: 0, batch: 179, loss: 10.101510, speed: 2.36 step/s, ips: 151.00 sequences/s
+global step 200, epoch: 0, batch: 199, loss: 10.011824, speed: 2.35 step/s, ips: 150.63 sequences/s
+global step 220, epoch: 0, batch: 219, loss: 9.936847, speed: 2.35 step/s, ips: 150.57 sequences/s
+global step 240, epoch: 0, batch: 239, loss: 9.790427, speed: 2.35 step/s, ips: 150.42 sequences/s
+global step 260, epoch: 0, batch: 259, loss: 9.618089, speed: 2.35 step/s, ips: 150.37 sequences/s
+global step 280, epoch: 0, batch: 279, loss: 9.873588, speed: 2.35 step/s, ips: 150.31 sequences/s
+global step 300, epoch: 0, batch: 299, loss: 9.808842, speed: 2.35 step/s, ips: 150.25 sequences/s
+global step 320, epoch: 0, batch: 319, loss: 9.601290, speed: 2.35 step/s, ips: 150.27 sequences/s
+global step 340, epoch: 0, batch: 339, loss: 9.635284, speed: 2.35 step/s, ips: 150.09 sequences/s
+global step 360, epoch: 0, batch: 359, loss: 9.440277, speed: 2.35 step/s, ips: 150.09 sequences/s
+global step 380, epoch: 0, batch: 379, loss: 9.642132, speed: 2.34 step/s, ips: 150.04 sequences/s
+global step 400, epoch: 0, batch: 399, loss: 9.417934, speed: 2.34 step/s, ips: 149.87 sequences/s
+global step 420, epoch: 0, batch: 419, loss: 9.418569, speed: 2.34 step/s, ips: 149.70 sequences/s
+global step 440, epoch: 0, batch: 439, loss: 9.414333, speed: 2.34 step/s, ips: 149.83 sequences/s
+global step 460, epoch: 0, batch: 459, loss: 9.209098, speed: 2.34 step/s, ips: 149.67 sequences/s
+global step 480, epoch: 0, batch: 479, loss: 9.220507, speed: 2.34 step/s, ips: 149.56 sequences/s
+global step 500, epoch: 0, batch: 499, loss: 9.282228, speed: 2.34 step/s, ips: 149.70 sequences/s
