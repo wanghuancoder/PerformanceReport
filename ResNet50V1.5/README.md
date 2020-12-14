@@ -129,6 +129,18 @@ Paddle Docker的基本信息如下：
   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs256.yaml
   bash paddle_test_all.sh
   ```
+  
+- 执行后将得到如下日志文件：
+   ```bash
+   ./paddle_gpu1_fp32_bs128.txt
+   ./paddle_gpu1_fp32_bs256.txt
+   ./paddle_gpu1_amp_bs128.txt
+   ./paddle_gpu1_amp_bs256.txt
+   ./paddle_gpu8_fp32_bs128.txt
+   ./paddle_gpu8_fp32_bs256.txt
+   ./paddle_gpu8_amp_bs128.txt
+   ./paddle_gpu8_amp_bs256.txt
+   ```
 
 ### 2.多机（32卡）测试
 
@@ -148,9 +160,6 @@ Paddle Docker的基本信息如下：
 |1 | - | - | - | -|
 |8 | - | - | - | -|
 |32 | - | - | - | -|
-
-> TODO(wanghuancoder):<br>
-> 完成测试，将1卡、8卡数据填入表格
 
 > TODO(Distribute):<br>
 > 完成测试，将32卡数据填入表格
