@@ -29,10 +29,10 @@
 
 NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚本](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/docker/build.sh)，
 
-- 镜像版本：`nvcr.io/nvidia/tensorflow:20.06-tf1-py3`
-- TensorFlow 版本：`1.15.2+nv`
-- CUDA 版本：`11`
-- cuDnn 版本： `8.0.1`
+- 镜像版本: `nvcr.io/nvidia/tensorflow:20.06-tf1-py3`
+- TensorFlow 版本: `1.15.2+nv`
+- CUDA 版本: `11.0`
+- cuDnn 版本: `8.0.1`
 
 ## 二、环境搭建
 

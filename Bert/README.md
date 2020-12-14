@@ -59,6 +59,7 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 - **优化器**
 
    > TODO(Aurelius84): 最终确认 Paddle 使用的优化器类型
+
    在 Bert Base 的 Pre-Training 任务上，各个框架使用的优化器略有不同。NGC TensorFlow、NGC PyTorch、PaddlePaddle 均支持 LAMBOptimizer，OneFlow默认仅支持了AdamOptimizer。
 
    此处我们以各个框架默认使用的优化器为准，并测试模型的吞吐性。
@@ -66,21 +67,21 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 ## 二、环境介绍
 ### 1.物理机环境
 
-- 系统：CentOS Linux release 7.5.1804
-- GPU：Tesla V100-SXM2-32GB * 8
-- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-- CUDA：11
-- cuDNN：8.0.4
+- 系统: CentOS Linux release 7.5.1804
+- GPU: Tesla V100-SXM2-32GB * 8
+- CPU: Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
+- CUDA: 11
+- cuDNN: 8.0.4
 - Driver Version: 450.80.02
-- 内存：502 GB
+- 内存: 502 GB
 
 ### 2.Docker 镜像
 > TODO(Aurelius84): 待更新Paddle开源出去的docker镜像tags
 
-- 镜像版本：`hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04`
-- Paddle 版本：`2.0rc1`
-- CUDA 版本：`10`
-- cuDnn 版本： `7.6.5`
+- 镜像版本: `hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04`
+- Paddle 版本: `2.0rc1`
+- CUDA 版本: `10.1`
+- cuDnn 版本: `7.6.5`
 
 
 ## 三、环境搭建
