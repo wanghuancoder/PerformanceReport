@@ -191,9 +191,14 @@ Paddle Docker的基本信息如下：
 > 完成测试，将32卡数据填入表格
 
 ## 六、日志数据
-- [1卡 FP32 BS=128 日志](./logs/)
-- [1卡 FP32 BS=160 日志](./logs/)
-- ...
+- [1卡 FP32 BS=128 日志](./logs/paddle_gpu1_fp32_bs128.txt)
+- [1卡 FP32 BS=128 日志](./logs/paddle_gpu1_fp32_bs256.txt)
+- [1卡 FP32 BS=128 日志](./logs/paddle_gpu1_amp_bs128.txt)
+- [1卡 FP32 BS=128 日志](./logs/paddle_gpu1_amp_bs256.txt)
+- [8卡 FP32 BS=128 日志](./logs/paddle_gpu8_fp32_bs128.txt)
+- [8卡 FP32 BS=128 日志](./logs/paddle_gpu8_fp32_bs256.txt)
+- [8卡 FP32 BS=128 日志](./logs/paddle_gpu8_amp_bs128.txt)
+- [8卡 FP32 BS=128 日志](./logs/paddle_gpu8_amp_bs256.txt)
 
 > TODO(wanghuancoder):<br>
 > 完成测试，将1卡、8卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
