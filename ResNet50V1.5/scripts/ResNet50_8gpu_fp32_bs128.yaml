@@ -15,7 +15,8 @@ topk: 5
 image_shape: [3, 224, 224]
 is_distributed: True
 print_interval: 1
-use_dali: true
+use_dali: True
+fuse_elewise_add_act_ops: True
 
 use_mix: False
 ls_epsilon: -1

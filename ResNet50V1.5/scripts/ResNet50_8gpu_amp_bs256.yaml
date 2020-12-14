@@ -14,7 +14,7 @@ topk: 5
 is_distributed: True
 use_gpu: True
 print_interval: 1
-use_dali: true
+use_dali: True
 
 # mixed precision training
 use_amp: False
