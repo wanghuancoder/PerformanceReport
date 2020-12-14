@@ -176,46 +176,17 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
 |卡数 | FP32(BS=32) | FP32(BS=64) | AMP(BS=64) | AMP(BS=128)|
 |-----|-----|-----|-----|-----|
 |1 | 141.73 | 153.94 | 452.53 | 537.82|
-|8 | - | - | - | -|
+|8 | 1067.52 | 1198.36 | 3537.45 | 4224.21|
 |32 | - | - | - | -|
 
 ## 五、日志数据
 ### 1.单机（单卡、8卡）日志
 
 - [单卡 bs=32、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs32_gpu1_gbs65536.log)
-```
-DLL 2020-12-08 10:21:53.954734 - Iteration: 41  throughput_train : 142.395 seq/s mlm_loss : 10.3715  nsp_loss : 0.6796  total_loss : 11.0512  avg_loss_step : 11.0362  learning_rate : 1.4625e-05
-LL 2020-12-08 10:29:34.337979 - Iteration: 42  throughput_train : 142.487 seq/s mlm_loss : 10.3679  nsp_loss : 0.6650  total_loss : 11.0329  avg_loss_step : 11.0335  learning_rate : 1.50000005e-05
-DLL 2020-12-08 10:37:15.950480 - Iteration: 43  throughput_train : 142.111 seq/s mlm_loss : 10.3302  nsp_loss : 0.6776  total_loss : 11.0079  avg_loss_step : 11.0296  learning_rate : 1.5375e-05
-DLL 2020-12-08 10:45:00.087771 - Iteration: 44  throughput_train : 141.334 seq/s mlm_loss : 10.3645  nsp_loss : 0.7469  total_loss : 11.1114  avg_loss_step : 11.0246  learning_rate : 1.575e-05
-DLL 2020-12-08 10:52:45.431648 - Iteration: 45  throughput_train : 140.962 seq/s mlm_loss : 10.3146  nsp_loss : 0.7337  total_loss : 11.0483  avg_loss_step : 11.0207  learning_rate : 1.6125001e-05
-D
-```
-
 - [单卡 bs=64、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs64_gpu1_gbs65536.log)
-```
-DLL 2020-12-07 16:38:37.360796 - Iteration: 41  throughput_train : 153.663 seq/s mlm_loss : 10.3616  nsp_loss : 0.6942  total_loss : 11.0558  avg_loss_step : 11.0463  learning_rate : 1.4625e-05
-DLL 2020-12-07 16:45:43.281829 - Iteration: 42  throughput_train : 153.950 seq/s mlm_loss : 10.3603  nsp_loss : 0.6873  total_loss : 11.0477  avg_loss_step : 11.0419  learning_rate : 1.50000005e-05
-DLL 2020-12-07 16:52:48.807443 - Iteration: 43  throughput_train : 154.092 seq/s mlm_loss : 10.3343  nsp_loss : 0.6519  total_loss : 10.9862  avg_loss_step : 11.0371  learning_rate : 1.5375e-05
-DLL 2020-12-07 16:59:54.246930 - Iteration: 44  throughput_train : 154.124 seq/s mlm_loss : 10.3755  nsp_loss : 0.6641  total_loss : 11.0396  avg_loss_step : 11.0336  learning_rate : 1.575e-05
-DLL 2020-12-07 17:06:59.364339 - Iteration: 45  throughput_train : 154.241 seq/s mlm_loss : 10.2902  nsp_loss : 0.6710  total_loss : 10.9612  avg_loss_step : 11.0277  learning_rate : 1.6125001e-05
-```
-
 - [单卡 bs=64、FP16](./logs/tf_bert_pretraining_lamb_base_fp16_bs64_gpu1_gbs65536.log)
-```
-DLL 2020-12-08 12:54:09.755333 - Iteration: 41  throughput_train : 453.548 seq/s mlm_loss : 10.3376  nsp_loss : 0.6920  total_loss : 11.0297  avg_loss_step : 11.0279  learning_rate : 1.4625e-05  loss_scaler : 134217728
-DLL 2020-12-08 12:56:34.528833 - Iteration: 42  throughput_train : 453.388 seq/s mlm_loss : 10.3295  nsp_loss : 0.6840  total_loss : 11.0135  avg_loss_step : 11.0239  learning_rate : 1.50000005e-05  loss_scaler : 134217728
-DLL 2020-12-08 12:58:59.693916 - Iteration: 43  throughput_train : 452.167 seq/s mlm_loss : 10.3364  nsp_loss : 0.6892  total_loss : 11.0256  avg_loss_step : 11.0183  learning_rate : 1.5375e-05  loss_scaler : 134217728
-DLL 2020-12-08 13:01:25.008703 - Iteration: 44  throughput_train : 451.705 seq/s mlm_loss : 10.3236  nsp_loss : 0.6897  total_loss : 11.0132  avg_loss_step : 11.0110  learning_rate : 1.575e-05  loss_scaler : 134217728
-DLL 2020-12-08 13:03:50.142865 - Iteration: 45  throughput_train : 452.266 seq/s mlm_loss : 10.2949  nsp_loss : 0.7061  total_loss : 11.0010  avg_loss_step : 11.0066  learning_rate : 1.6125001e-05  loss_scaler : 134217728
-```
-
 - [单卡 bs=128、FP16](./logs/tf_bert_pretraining_lamb_base_fp16_bs128_gpu1_gbs65536.log)
-
-```
-DLL 2020-12-08 04:58:55.265015 - Iteration: 41  throughput_train : 538.028 seq/s mlm_loss : 10.4172  nsp_loss : 0.6917  total_loss : 11.1089  avg_loss_step : 11.0981  learning_rate : 1.4625e-05  loss_scaler : 67108864
-DLL 2020-12-08 05:00:57.222608 - Iteration: 42  throughput_train : 537.831 seq/s mlm_loss : 10.4127  nsp_loss : 0.6824  total_loss : 11.0951  avg_loss_step : 11.0940  learning_rate : 1.50000005e-05  loss_scaler : 67108864
-DLL 2020-12-08 05:02:59.210241 - Iteration: 43  throughput_train : 537.698 seq/s mlm_loss : 10.3987  nsp_loss : 0.6798  total_loss : 11.0785  avg_loss_step : 11.0889  learning_rate : 1.5375e-05  loss_scaler : 67108864
-DLL 2020-12-08 05:05:01.346357 - Iteration: 44  throughput_train : 537.047 seq/s mlm_loss : 10.3882  nsp_loss : 0.6856  total_loss : 11.0739  avg_loss_step : 11.0839  learning_rate : 1.575e-05  loss_scaler : 67108864
-DLL 2020-12-08 05:07:03.450836 - Iteration: 45  throughput_train : 537.184 seq/s mlm_loss : 10.3898  nsp_loss : 0.6858  total_loss : 11.0756  avg_loss_step : 11.0795  learning_rate : 1.6125001e-05  loss_scaler : 67108864
-```
+- [8卡 bs=32、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs32_gpu8_gbs65536.log)
+- [8卡 bs=64、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs64_gpu8_gbs65536.log)
+- [8卡 bs=64、FP16](./logs/tf_bert_pretraining_lamb_base_fp16_bs64_gpu8_gbs65536.log)
+- [8卡 bs=128、FP16](./logs/tf_bert_pretraining_lamb_base_fp16_bs128_gpu8_gbs65536.log)
