@@ -87,7 +87,7 @@
 ### 2. Bert Base Pre-Training
 > 详细数据请见[《Paddle Bert Base 性能测试报告》](./Bert)
 
-
+- max_seq_len: 128
 - 单位：`sequences/sec`
 
 
