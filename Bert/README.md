@@ -70,12 +70,13 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
 - CUDA：11
 - cuDNN：8.0.4
+- Driver Version: 450.80.02
 - 内存：502 GB
 
 ### 2.Docker 镜像
 > TODO(Aurelius84): 待更新Paddle开源出去的docker镜像tags
 
-- 镜像版本：`paddlepaddle/paddle:latest-dev-cuda10.1-cudnn7-gcc82`
+- 镜像版本：`hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04`
 - Paddle 版本：`2.0rc1`
 - CUDA 版本：`10`
 - cuDnn 版本： `7.6.5`
@@ -92,7 +93,7 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 - **拉取代码**
   ```bash
   git clone https://github.com/PaddlePaddle/models.git
-  cd models
+  cd models && git checkout develop
   ```
 
 
@@ -215,9 +216,9 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch |
 |-----|-----|-----|-----|
 | FP32 GPU=1,BS=64 | - | 153.94 | 127.02 |
-| AMP GPU=1,BS=128 | - | 538.29 | 527.38 |
-| FP32 GPU=8,BS=64 | - | - | - |
-| AMP GPU=8,BS=128 | - | - | - |
+| AMP GPU=1,BS=128 | - | 537.82 | 529.46 |
+| FP32 GPU=8,BS=64 | - | 1210.16 | 1018.51 |
+| AMP GPU=8,BS=128 | - | 4224.21 | 4229.12|
 | FP32 GPU=32,BS=64 | - | - | - |
 | AMP GPU=32,BS=128 | - | - | - |
 

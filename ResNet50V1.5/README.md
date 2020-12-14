@@ -65,6 +65,7 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
 - CUDA：11
 - cuDNN：8.0.4
+- Driver Version: 450.80.02
 - 内存：502 GB
 
 ### 2.Docker 镜像
@@ -129,7 +130,7 @@ Paddle Docker的基本信息如下：
   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs256.yaml
   bash paddle_test_all.sh
   ```
-  
+
 - 执行后将得到如下日志文件：
    ```bash
    ./paddle_gpu1_fp32_bs128.txt
