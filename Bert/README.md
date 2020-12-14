@@ -123,9 +123,14 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 
 - **准备数据**
 
-   > TODO(Aurelius84): 待上传样本数据集，并给出下载链接和解压路径
+   Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数据集进行的训练的，原始数据集比较大。我们提供了一份小的、且已处理好的[样本数据集](https://bert-data.bj.bcebos.com/benchmark_sample%2Fbert_data.tar.gz)，大小 338M， 可以下载并解压到`models/`目录下。
 
-   Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数据集进行的训练的，原始数据集比较大。我们提供了一份小的、且已处理好的[样本数据集]()，可以下载并解压到`models/bert_data`目录里。
+   ```bash
+   # 解压数据集
+   tar -xzvf benchmark_sample_bert_data.tar.gz
+   # 放到 models/ 目录
+   mv benchmark_sample_bert_data.tar.gz models/bert_data
+   ```
 
 
 ### 2.多机（32卡）环境搭建
