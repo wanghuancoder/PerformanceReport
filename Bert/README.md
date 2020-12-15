@@ -169,11 +169,19 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
    export CUDA_VISIBLE_DEVICES=0
 
    batch_size=${1:-32}
-   use_amp=${2:-"True"}
-   max_steps=${3:-200}
-   logging_steps=${4:-100}
+   num_gpus=${2:-1}
+   use_amp=${3:-"True"}
+   max_steps=${4:-500}
+   logging_steps=${5:-20}
 
-   python3.7 ./run_pretrain_single.py \
+   if [ $num_gpus = 1 ]; then
+      CMD="python3.7 ./run_pretrain_single.py"
+   else
+      unset CUDA_VISIBLE_DEVICES
+      CMD="fleetrun --gpus 0,1,2,3,4,5,6,7 ./run_pretrain.py"
+   fi
+
+   $CMD \
       --model_type bert \
       --model_name_or_path bert-base-uncased \
       --max_predictions_per_seq 20 \
@@ -191,7 +199,21 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
       --enable_addto True
    ````
 
-> TODO: 给出单机单卡、8卡的执行命令
+- **单卡启动脚本：**
+
+  若测试单机单卡 batch_size=32、FP32 的训练性能，执行如下命令：
+
+  ```bash
+  bash run_benchmark.sh 32 1 False
+  ```
+
+- **8卡启动脚本：**
+
+  若测试单机8卡 batch_size=64、FP16 的训练性能，执行如下命令：
+
+  ```bash
+  bash run_benchmark.sh 64 8 True
+  ```
 
 
 ### 2.多机（32卡）测试
