@@ -109,9 +109,6 @@
 
 在NGC报告的[Training performance benchmark](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5#training-performance-benchmark)小节，提供了其测试的参数配置。因此，我们提供的`pytorch_test_all.sh`是参考了其文档中的配置。
 
-> TODO(wanghuancoder):<br>
-> 脚本路径
-
 ### 2.多机（32卡）测试
 
 > TODO(Distribute):<br>
