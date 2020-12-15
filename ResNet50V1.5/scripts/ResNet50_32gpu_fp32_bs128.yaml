@@ -1,7 +1,7 @@
 mode: 'train'
 ARCHITECTURE:
     name: 'ResNet50'
-    
+
 use_gpu: True
 pretrained_model: ""
 model_save_dir: "./output/"
