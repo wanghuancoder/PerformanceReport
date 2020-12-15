@@ -239,9 +239,8 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 
 说明：
 - 同等执行环境下测试
-- max_seq_len: 128
 - 单位：`sequences/sec`
-- 对于支持 `DALI/XLA` 的框架，以下测试为开启 `DALI/XLA` 的数据
+- max_seq_len: 128
 - BatchSize FP32下统一选择 32 和 64、AMP下统一选择 64、128
 
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch |
