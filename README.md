@@ -35,7 +35,7 @@
 
 ## 二、供对比的业内深度学习框架
 
-我们选择了 NGC 优化后的 TensorFlow、PyTorch、MxNet，以及国内优秀的深度学习框架 OneFlow 等代码实现，作为性能的参考。
+我们选择了 NGC 优化后的 TensorFlow、PyTorch、MxNet，作为性能的参考。
 
 对这些框架的性能测试，我们选用相同的物理机执行，并严格参照各框架官网公布的测试方法进行复现。
 
@@ -49,10 +49,6 @@
 ### 3. [NGC MxNet](https://ngc.nvidia.com/catalog/containers/nvidia:mxnet/tags)
 
 - 代码库：[DeepLearningExamples/MxNet](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet)
-
-### 4. [OneFlow](https://github.com/Oneflow-Inc/oneflow/tree/v0.2.0)
-
-- 代码库：[Oneflow-Inc/DLPerf/OneFlow/](https://github.com/Oneflow-Inc/DLPerf/tree/master/OneFlow)
 
 
 ## 三、测试结果
