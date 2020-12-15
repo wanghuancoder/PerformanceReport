@@ -117,8 +117,6 @@ Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz
 Memory： 512G
 Linux version 3.10.0_3-0-0-17
 CUDA Version: 10.1, Driver Version: 440.33.01
-OneFlow: v0.2.0
-OneFlow-Benchmark: master@6045c7b
 nvidia-smi topo -m
 GPU0    GPU1    GPU2    GPU3    GPU4    GPU5    GPU6    GPU7    mlx5_0  CPU Affinity                                             
 GPU0     X      NV2     NV2     NV1     NV1     NODE    NODE    NODE    NODE    0-19                                                     
