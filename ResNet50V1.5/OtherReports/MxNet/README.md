@@ -112,9 +112,6 @@
 
 在NGC报告的[Training performance: NVIDIA DGX-2 (16x V100 32G)](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet/Classification/RN50v1.5#training-performance-nvidia-dgx-2-16x-v100-32g)小节，提供了其测试的参数配置。因此，我们提供的`mxnet_test_all.sh`是参考了其文档中的配置。
 
-> TODO(wanghuancoder):<br>
-> 脚本路径
-
 ### 2.多机（32卡）测试
 
 > TODO(Distribute):<br>
@@ -141,7 +138,6 @@
 
 > TODO(Distribute):<br>
 > 完成测试，将32卡数据填入表格
-> 注意：MxNet不需要测FP32 BS128，因为MxNet最大支持96
 
 ## 五、日志数据
 - [1卡、8卡 FP32 BS=128 日志](./logs/mxnet_gpu1_gpu8_fp32_bs128.txt)
