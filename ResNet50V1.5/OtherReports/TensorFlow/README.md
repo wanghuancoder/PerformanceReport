@@ -112,9 +112,6 @@
 
 由于NGC TensorFlow的测试使用的是`training_perf.sh`，因此我们提供的`tf_test_all.sh`是参考了`training_perf.sh`的参数设置方法。
 
-> TODO(wanghuancoder):<br>
-> 脚本路径
-
 ### 2.多机（32卡）测试
 
 > TODO(Distribute):<br>
