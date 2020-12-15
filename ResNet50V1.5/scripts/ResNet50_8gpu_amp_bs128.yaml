@@ -44,7 +44,7 @@ OPTIMIZER:
         factor: 0.000100
 
 TRAIN:
-    batch_size: 128
+    batch_size: 1024
     num_workers: 4
     file_list: "/data/train_list.txt"
     data_dir: "/data/"
