@@ -1,0 +1,277 @@
+WARNING 2020-12-15 15:17:59,119 launch.py:314] Not found distinct arguments and compiled with cuda. Default use collective mode
+INFO 2020-12-15 15:17:59,119 launch_utils.py:582] Change selected_gpus into reletive values. --ips:0,1,2,3,4,5,6,7 will change into relative_ips:[0, 1, 2, 3, 4, 5, 6, 7] according to your CUDA_VISIBLE_DEVICES:['0', '1', '2', '3', '4', '5', '6', '7']
+INFO 2020-12-15 15:17:59,122 launch_utils.py:471] Local start 8 processes. First process distributed environment info (Only For Debug): 
+    +=======================================================================================+
+    |                        Distributed Envs                      Value                    |
+    +---------------------------------------------------------------------------------------+
+    |                       PADDLE_TRAINER_ID                        0                      |
+    |                 PADDLE_CURRENT_ENDPOINT                 127.0.0.1:55335               |
+    |                     PADDLE_TRAINERS_NUM                        8                      |
+    |                PADDLE_TRAINER_ENDPOINTS  ... 0.1:37875,127.0.0.1:44859,127.0.0.1:23199|
+    |                     FLAGS_selected_gpus                        0                      |
+    +=======================================================================================+
+
+INFO 2020-12-15 15:17:59,122 launch_utils.py:475] details abouts PADDLE_TRAINER_ENDPOINTS can be found in log/endpoints.log.
+-----------  Configuration Arguments -----------
+gpus: 0,1,2,3,4,5,6,7
+heter_worker_num: None
+heter_workers: 
+http_port: None
+ips: 127.0.0.1
+log_dir: log
+nproc_per_node: None
+server_num: None
+servers: 
+training_script: ./tools/static/train.py
+training_script_args: ['-c', 'ResNet50_8gpu_amp_bs128.yaml']
+worker_num: None
+workers: 
+------------------------------------------------
+launch train in GPU mode
+2020-12-15 15:18:00 INFO: 
+===========================================================
+==        PaddleClas is powered by PaddlePaddle !        ==
+===========================================================
+==                                                       ==
+==   For more info please go to the following website.   ==
+==                                                       ==
+==       https://github.com/PaddlePaddle/PaddleClas      ==
+===========================================================
+
+2020-12-15 15:18:00 INFO: ARCHITECTURE : 
+2020-12-15 15:18:00 INFO:     name : ResNet50
+2020-12-15 15:18:00 INFO: ------------------------------------------------------------
+2020-12-15 15:18:00 INFO: LEARNING_RATE : 
+2020-12-15 15:18:00 INFO:     function : Piecewise
+2020-12-15 15:18:00 INFO:     params : 
+2020-12-15 15:18:00 INFO:         decay_epochs : [30, 60, 90]
+2020-12-15 15:18:00 INFO:         gamma : 0.1
+2020-12-15 15:18:00 INFO:         lr : 0.1
+2020-12-15 15:18:00 INFO: ------------------------------------------------------------
+2020-12-15 15:18:00 INFO: OPTIMIZER : 
+2020-12-15 15:18:00 INFO:     function : Momentum
+2020-12-15 15:18:00 INFO:     params : 
+2020-12-15 15:18:00 INFO:         momentum : 0.9
+2020-12-15 15:18:00 INFO:     regularizer : 
+2020-12-15 15:18:00 INFO:         factor : 0.0001
+2020-12-15 15:18:00 INFO:         function : L2
+2020-12-15 15:18:00 INFO: ------------------------------------------------------------
+2020-12-15 15:18:00 INFO: TRAIN : 
+2020-12-15 15:18:00 INFO:     batch_size : 1024
+2020-12-15 15:18:00 INFO:     data_dir : /data/
+2020-12-15 15:18:00 INFO:     file_list : /data/train_list.txt
+2020-12-15 15:18:00 INFO:     num_workers : 4
+2020-12-15 15:18:00 INFO:     shuffle_seed : 0
+2020-12-15 15:18:00 INFO:     transforms : 
+2020-12-15 15:18:00 INFO:         DecodeImage : 
+2020-12-15 15:18:00 INFO:             channel_first : False
+2020-12-15 15:18:00 INFO:             to_np : False
+2020-12-15 15:18:00 INFO:             to_rgb : True
+2020-12-15 15:18:00 INFO:         RandCropImage : 
+2020-12-15 15:18:00 INFO:             size : 224
+2020-12-15 15:18:00 INFO:         RandFlipImage : 
+2020-12-15 15:18:00 INFO:             flip_code : 1
+2020-12-15 15:18:00 INFO:         NormalizeImage : 
+2020-12-15 15:18:00 INFO:             mean : [0.485, 0.456, 0.406]
+2020-12-15 15:18:00 INFO:             order : 
+2020-12-15 15:18:00 INFO:             scale : 1./255.
+2020-12-15 15:18:00 INFO:             std : [0.229, 0.224, 0.225]
+2020-12-15 15:18:00 INFO:         ToCHWImage : None
+2020-12-15 15:18:00 INFO: ------------------------------------------------------------
+2020-12-15 15:18:00 INFO: classes_num : 1000
+2020-12-15 15:18:00 INFO: data_format : NHWC
+2020-12-15 15:18:00 INFO: epochs : 1
+2020-12-15 15:18:00 INFO: image_shape : [4, 224, 224]
+2020-12-15 15:18:00 INFO: is_distributed : True
+2020-12-15 15:18:00 INFO: ls_epsilon : -1
+2020-12-15 15:18:00 INFO: mode : train
+2020-12-15 15:18:00 INFO: model_save_dir : ./output/
+2020-12-15 15:18:00 INFO: multi_precision : True
+2020-12-15 15:18:00 INFO: pretrained_model : 
+2020-12-15 15:18:00 INFO: print_interval : 1
+2020-12-15 15:18:00 INFO: save_interval : 1
+2020-12-15 15:18:00 INFO: scale_loss : 128.0
+2020-12-15 15:18:00 INFO: topk : 5
+2020-12-15 15:18:00 INFO: total_images : 1281167
+2020-12-15 15:18:00 INFO: use_amp : False
+2020-12-15 15:18:00 INFO: use_dali : True
+2020-12-15 15:18:00 INFO: use_dynamic_loss_scaling : True
+2020-12-15 15:18:00 INFO: use_gpu : True
+2020-12-15 15:18:00 INFO: use_mix : False
+2020-12-15 15:18:00 INFO: use_pure_fp16 : True
+2020-12-15 15:18:00 INFO: valid_interval : 1
+2020-12-15 15:18:00 INFO: validate : False
+Gloo init with HTTP: need_init_all: False, args: {'http.host': '127.0.0.1', 'http.port': '55335', 'store.prefix': '', 'start_http_server': True, 'http_server_d': <DictProxy object, typeid 'dict' at 0x7f8442806850>}
+to start http_server
+worker_key:_worker, size: {'_worker': 8}
+server not ready, wait 3 sec to retry...
+not ready endpoints:['127.0.0.1:55335']
+start http_server: 55335, {'_worker': 8}
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:131: UserWarning: The data type of 'x' in transpose only support float16 in GPU now. 
+  (input_name, op_name, extra_message))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:131: UserWarning: The data type of 'x' in conv2d only support float16 in GPU now. 
+  (input_name, op_name, extra_message))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:131: UserWarning: The data type of 'input' in BatchNorm only support float16 in GPU now. 
+  (input_name, op_name, extra_message))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:131: UserWarning: The data type of 'x' in max_pool2d only support float16 in GPU now. 
+  (input_name, op_name, extra_message))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:131: UserWarning: The data type of 'x' in elementwise_add only support float16 in GPU now. 
+  (input_name, op_name, extra_message))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:131: UserWarning: The data type of 'y' in elementwise_add only support float16 in GPU now. 
+  (input_name, op_name, extra_message))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:131: UserWarning: The data type of 'x' in relu only support float16 in GPU now. 
+  (input_name, op_name, extra_message))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:131: UserWarning: The data type of 'x' in adaptive_avg_pool2d only support float16 in GPU now. 
+  (input_name, op_name, extra_message))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:131: UserWarning: The data type of 'x' in reshape only support float16 in GPU now. 
+  (input_name, op_name, extra_message))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:131: UserWarning: The data type of 'x' in linear only support float16 in GPU now. 
+  (input_name, op_name, extra_message))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:131: UserWarning: The data type of 'dtype' in linear only support float16 in GPU now. 
+  (input_name, op_name, extra_message))
+/usr/local/lib/python3.7/dist-packages/paddle/distributed/fleet/base/fleet_base.py:617: UserWarning: It is recommended to use DistributedStrategy in fleet.init(). The strategy here is only for compatibility. If the strategy in fleet.distributed_optimizer() is not None, then it will overwrite the DistributedStrategy in fleet.init(), which will take effect in distributed training.
+  "It is recommended to use DistributedStrategy "
+server not ready, wait 3 sec to retry...
+not ready endpoints:['127.0.0.1:60265', '127.0.0.1:40748', '127.0.0.1:56111', '127.0.0.1:36626', '127.0.0.1:37875', '127.0.0.1:44859', '127.0.0.1:23199']
+server not ready, wait 3 sec to retry...
+not ready endpoints:['127.0.0.1:40748', '127.0.0.1:56111', '127.0.0.1:36626', '127.0.0.1:37875', '127.0.0.1:44859', '127.0.0.1:23199']
+W1215 15:18:12.556957 14782 device_context.cc:320] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.0, Runtime API Version: 10.1
+W1215 15:18:12.557027 14782 device_context.cc:330] device: 0, cuDNN Version: 7.6.
+/work/PaddleClas/tools/static/dali.py:80: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+  pad_output=pad_output)
+/work/PaddleClas/tools/static/dali.py:80: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+  pad_output=pad_output)
+/usr/local/lib/python3.7/dist-packages/nvidia/dali/plugin/base_iterator.py:124: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+  _iterator_deprecation_warning()
+I1215 15:18:22.170449 14782 graph_pattern_detector.cc:101] ---  detected 16 subgraphs
+I1215 15:18:22.239549 14782 graph_pattern_detector.cc:101] ---  detected 16 subgraphs
+W1215 15:18:22.279767 14782 fuse_all_reduce_op_pass.cc:75] Find all_reduce operators: 161. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 8.
+2020-12-15 15:18:24 INFO: epoch:0   train step:0    loss:  7.1683 top1: 0.0000 top5: 0.0000 lr: 0.100000 elapse: 5.153s ips: 24.84105 images/sec.
+2020-12-15 15:18:24 INFO: epoch:0   train step:1    loss:  7.0370 top1: 0.0000 top5: 0.0312 lr: 0.100000 elapse: 2.658s ips: 48.15365 images/sec.
+2020-12-15 15:18:25 INFO: epoch:0   train step:2    loss:  7.0438 top1: 0.0000 top5: 0.0156 lr: 0.100000 elapse: 1.816s ips: 70.50253 images/sec.
+2020-12-15 15:18:25 INFO: epoch:0   train step:3    loss:  7.1629 top1: 0.0000 top5: 0.0078 lr: 0.100000 elapse: 1.406s ips: 91.05344 images/sec.
+2020-12-15 15:18:25 INFO: epoch:0   train step:4    loss:  7.1301 top1: 0.0000 top5: 0.0078 lr: 0.100000 elapse: 1.161s ips: 110.28668 images/sec.
+2020-12-15 15:18:25 INFO: epoch:0   train step:5    loss:  7.0575 top1: 0.0000 top5: 0.0156 lr: 0.100000 elapse: 0.124s ips: 1031.39680 images/sec.
+2020-12-15 15:18:25 INFO: epoch:0   train step:6    loss:  7.1422 top1: 0.0000 top5: 0.0234 lr: 0.100000 elapse: 0.124s ips: 1034.97378 images/sec.
+2020-12-15 15:18:25 INFO: epoch:0   train step:7    loss:  7.1605 top1: 0.0000 top5: 0.0078 lr: 0.100000 elapse: 0.124s ips: 1029.74297 images/sec.
+2020-12-15 15:18:25 INFO: epoch:0   train step:8    loss:  7.0613 top1: 0.0000 top5: 0.0078 lr: 0.100000 elapse: 0.124s ips: 1030.36599 images/sec.
+2020-12-15 15:18:25 INFO: epoch:0   train step:9    loss:  7.0992 top1: 0.0000 top5: 0.0156 lr: 0.100000 elapse: 0.124s ips: 1031.24861 images/sec.
+2020-12-15 15:18:26 INFO: epoch:0   train step:10   loss:  7.0477 top1: 0.0000 top5: 0.0000 lr: 0.100000 elapse: 0.124s ips: 1028.38983 images/sec.
+2020-12-15 15:18:26 INFO: epoch:0   train step:11   loss:  7.0065 top1: 0.0000 top5: 0.0234 lr: 0.100000 elapse: 0.125s ips: 1025.84288 images/sec.
+2020-12-15 15:18:26 INFO: epoch:0   train step:12   loss:  7.0501 top1: 0.0000 top5: 0.0156 lr: 0.100000 elapse: 0.130s ips: 983.04623 images/sec.
+2020-12-15 15:18:26 INFO: epoch:0   train step:13   loss:  7.0785 top1: 0.0000 top5: 0.0156 lr: 0.100000 elapse: 0.129s ips: 989.22770 images/sec.
+2020-12-15 15:18:26 INFO: epoch:0   train step:14   loss:  7.0450 top1: 0.0000 top5: 0.0078 lr: 0.100000 elapse: 0.129s ips: 994.21478 images/sec.
+2020-12-15 15:18:26 INFO: epoch:0   train step:15   loss:  7.0717 top1: 0.0000 top5: 0.0078 lr: 0.100000 elapse: 0.128s ips: 997.45333 images/sec.
+2020-12-15 15:18:26 INFO: epoch:0   train step:16   loss:  6.9586 top1: 0.0000 top5: 0.0078 lr: 0.100000 elapse: 0.128s ips: 998.95242 images/sec.
+2020-12-15 15:18:27 INFO: epoch:0   train step:17   loss:  7.0314 top1: 0.0000 top5: 0.0078 lr: 0.100000 elapse: 0.128s ips: 1001.64180 images/sec.
+2020-12-15 15:18:27 INFO: epoch:0   train step:18   loss:  6.9324 top1: 0.0000 top5: 0.0156 lr: 0.100000 elapse: 0.128s ips: 1001.38810 images/sec.
+2020-12-15 15:18:27 INFO: epoch:0   train step:19   loss:  6.8969 top1: 0.0000 top5: 0.0234 lr: 0.100000 elapse: 0.128s ips: 1001.12664 images/sec.
+2020-12-15 15:18:27 INFO: epoch:0   train step:20   loss:  6.9624 top1: 0.0000 top5: 0.0156 lr: 0.100000 elapse: 0.128s ips: 1003.34630 images/sec.
+2020-12-15 15:18:27 INFO: epoch:0   train step:21   loss:  6.8019 top1: 0.0000 top5: 0.0156 lr: 0.100000 elapse: 0.127s ips: 1005.93794 images/sec.
+2020-12-15 15:18:27 INFO: epoch:0   train step:22   loss:  6.8156 top1: 0.0000 top5: 0.0000 lr: 0.100000 elapse: 0.127s ips: 1007.37075 images/sec.
+2020-12-15 15:18:27 INFO: epoch:0   train step:23   loss:  6.9079 top1: 0.0000 top5: 0.0078 lr: 0.100000 elapse: 0.127s ips: 1007.83165 images/sec.
+2020-12-15 15:18:27 INFO: epoch:0   train step:24   loss:  6.7782 top1: 0.0000 top5: 0.0078 lr: 0.100000 elapse: 0.127s ips: 1008.10217 images/sec.
+2020-12-15 15:18:28 INFO: epoch:0   train step:25   loss:  6.7760 top1: 0.0000 top5: 0.0469 lr: 0.100000 elapse: 0.127s ips: 1009.66547 images/sec.
+2020-12-15 15:18:28 INFO: epoch:0   train step:26   loss:  6.9564 top1: 0.0000 top5: 0.0156 lr: 0.100000 elapse: 0.127s ips: 1009.55237 images/sec.
+2020-12-15 15:18:28 INFO: epoch:0   train step:27   loss:  6.7882 top1: 0.0000 top5: 0.0000 lr: 0.100000 elapse: 0.127s ips: 1010.76104 images/sec.
+2020-12-15 15:18:28 INFO: epoch:0   train step:28   loss:  6.8316 top1: 0.0000 top5: 0.0156 lr: 0.100000 elapse: 0.126s ips: 1012.29286 images/sec.
+2020-12-15 15:18:28 INFO: epoch:0   train step:29   loss:  6.7454 top1: 0.0000 top5: 0.0469 lr: 0.100000 elapse: 0.126s ips: 1012.75998 images/sec.
+2020-12-15 15:18:28 INFO: epoch:0   train step:30   loss:  6.8285 top1: 0.0000 top5: 0.0234 lr: 0.100000 elapse: 0.126s ips: 1012.64513 images/sec.
+2020-12-15 15:18:28 INFO: epoch:0   train step:31   loss:  6.7666 top1: 0.0000 top5: 0.0312 lr: 0.100000 elapse: 0.126s ips: 1013.29332 images/sec.
+2020-12-15 15:18:28 INFO: epoch:0   train step:32   loss:  6.7992 top1: 0.0000 top5: 0.0234 lr: 0.100000 elapse: 0.126s ips: 1013.94876 images/sec.
+2020-12-15 15:18:29 INFO: epoch:0   train step:33   loss:  6.6907 top1: 0.0000 top5: 0.0391 lr: 0.100000 elapse: 0.126s ips: 1014.69438 images/sec.
+2020-12-15 15:18:29 INFO: epoch:0   train step:34   loss:  6.7787 top1: 0.0078 top5: 0.0391 lr: 0.100000 elapse: 0.126s ips: 1015.26461 images/sec.
+2020-12-15 15:18:29 INFO: epoch:0   train step:35   loss:  6.6609 top1: 0.0000 top5: 0.0234 lr: 0.100000 elapse: 0.126s ips: 1015.66170 images/sec.
+2020-12-15 15:18:29 INFO: epoch:0   train step:36   loss:  6.6663 top1: 0.0000 top5: 0.0312 lr: 0.100000 elapse: 0.126s ips: 1016.32018 images/sec.
+2020-12-15 15:18:29 INFO: epoch:0   train step:37   loss:  6.7263 top1: 0.0000 top5: 0.0000 lr: 0.100000 elapse: 0.126s ips: 1016.53103 images/sec.
+2020-12-15 15:18:29 INFO: epoch:0   train step:38   loss:  6.7704 top1: 0.0000 top5: 0.0234 lr: 0.100000 elapse: 0.126s ips: 1017.42638 images/sec.
+2020-12-15 15:18:29 INFO: epoch:0   train step:39   loss:  6.5643 top1: 0.0078 top5: 0.0469 lr: 0.100000 elapse: 0.126s ips: 1017.37616 images/sec.
+2020-12-15 15:18:29 INFO: epoch:0   train step:40   loss:  6.6194 top1: 0.0000 top5: 0.0234 lr: 0.100000 elapse: 0.126s ips: 1017.81482 images/sec.
+2020-12-15 15:18:30 INFO: epoch:0   train step:41   loss:  6.5727 top1: 0.0078 top5: 0.0469 lr: 0.100000 elapse: 0.126s ips: 1018.44954 images/sec.
+2020-12-15 15:18:30 INFO: epoch:0   train step:42   loss:  6.6049 top1: 0.0000 top5: 0.0078 lr: 0.100000 elapse: 0.126s ips: 1019.00434 images/sec.
+2020-12-15 15:18:30 INFO: epoch:0   train step:43   loss:  6.6269 top1: 0.0078 top5: 0.0234 lr: 0.100000 elapse: 0.126s ips: 1019.55454 images/sec.
+2020-12-15 15:18:30 INFO: epoch:0   train step:44   loss:  6.6726 top1: 0.0078 top5: 0.0234 lr: 0.100000 elapse: 0.125s ips: 1020.23479 images/sec.
+2020-12-15 15:18:30 INFO: epoch:0   train step:45   loss:  6.5949 top1: 0.0078 top5: 0.0391 lr: 0.100000 elapse: 0.125s ips: 1020.88214 images/sec.
+2020-12-15 15:18:30 INFO: epoch:0   train step:46   loss:  6.5735 top1: 0.0000 top5: 0.0312 lr: 0.100000 elapse: 0.125s ips: 1021.19821 images/sec.
+2020-12-15 15:18:30 INFO: epoch:0   train step:47   loss:  6.5386 top1: 0.0156 top5: 0.0547 lr: 0.100000 elapse: 0.125s ips: 1021.56530 images/sec.
+2020-12-15 15:18:30 INFO: epoch:0   train step:48   loss:  6.5515 top1: 0.0078 top5: 0.0391 lr: 0.100000 elapse: 0.125s ips: 1021.88068 images/sec.
+2020-12-15 15:18:31 INFO: epoch:0   train step:49   loss:  6.5012 top1: 0.0234 top5: 0.0703 lr: 0.100000 elapse: 0.125s ips: 1021.60859 images/sec.
+2020-12-15 15:18:31 INFO: epoch:0   train step:50   loss:  6.5138 top1: 0.0156 top5: 0.0625 lr: 0.100000 elapse: 0.125s ips: 1021.64157 images/sec.
+2020-12-15 15:18:31 INFO: epoch:0   train step:51   loss:  6.4261 top1: 0.0156 top5: 0.0625 lr: 0.100000 elapse: 0.125s ips: 1021.91669 images/sec.
+2020-12-15 15:18:31 INFO: epoch:0   train step:52   loss:  6.4106 top1: 0.0078 top5: 0.0547 lr: 0.100000 elapse: 0.125s ips: 1022.09522 images/sec.
+2020-12-15 15:18:31 INFO: epoch:0   train step:53   loss:  6.4690 top1: 0.0078 top5: 0.0312 lr: 0.100000 elapse: 0.125s ips: 1022.44119 images/sec.
+2020-12-15 15:18:31 INFO: epoch:0   train step:54   loss:  6.4499 top1: 0.0312 top5: 0.0625 lr: 0.100000 elapse: 0.125s ips: 1022.82635 images/sec.
+2020-12-15 15:18:31 INFO: epoch:0   train step:55   loss:  6.4339 top1: 0.0156 top5: 0.0469 lr: 0.100000 elapse: 0.125s ips: 1023.08798 images/sec.
+2020-12-15 15:18:31 INFO: epoch:0   train step:56   loss:  6.2984 top1: 0.0000 top5: 0.0391 lr: 0.100000 elapse: 0.125s ips: 1023.39316 images/sec.
+2020-12-15 15:18:32 INFO: epoch:0   train step:57   loss:  6.3379 top1: 0.0078 top5: 0.0625 lr: 0.100000 elapse: 0.125s ips: 1023.71489 images/sec.
+2020-12-15 15:18:32 INFO: epoch:0   train step:58   loss:  6.3035 top1: 0.0234 top5: 0.0391 lr: 0.100000 elapse: 0.125s ips: 1023.74778 images/sec.
+2020-12-15 15:18:32 INFO: epoch:0   train step:59   loss:  6.3701 top1: 0.0078 top5: 0.0469 lr: 0.100000 elapse: 0.125s ips: 1023.89145 images/sec.
+2020-12-15 15:18:32 INFO: epoch:0   train step:60   loss:  6.3803 top1: 0.0078 top5: 0.0547 lr: 0.100000 elapse: 0.125s ips: 1023.85605 images/sec.
+2020-12-15 15:18:32 INFO: epoch:0   train step:61   loss:  6.3822 top1: 0.0234 top5: 0.0391 lr: 0.100000 elapse: 0.125s ips: 1024.24811 images/sec.
+2020-12-15 15:18:32 INFO: epoch:0   train step:62   loss:  6.3502 top1: 0.0078 top5: 0.0547 lr: 0.100000 elapse: 0.125s ips: 1024.45784 images/sec.
+2020-12-15 15:18:32 INFO: epoch:0   train step:63   loss:  6.4463 top1: 0.0078 top5: 0.0312 lr: 0.100000 elapse: 0.125s ips: 1024.69807 images/sec.
+2020-12-15 15:18:32 INFO: epoch:0   train step:64   loss:  6.3916 top1: 0.0000 top5: 0.0000 lr: 0.100000 elapse: 0.125s ips: 1024.88582 images/sec.
+2020-12-15 15:18:33 INFO: epoch:0   train step:65   loss:  6.2898 top1: 0.0156 top5: 0.0312 lr: 0.100000 elapse: 0.125s ips: 1025.09072 images/sec.
+2020-12-15 15:18:33 INFO: epoch:0   train step:66   loss:  6.3201 top1: 0.0078 top5: 0.0234 lr: 0.100000 elapse: 0.125s ips: 1024.32823 images/sec.
+2020-12-15 15:18:33 INFO: epoch:0   train step:67   loss:  6.2504 top1: 0.0234 top5: 0.0391 lr: 0.100000 elapse: 0.125s ips: 1024.42962 images/sec.
+2020-12-15 15:18:33 INFO: epoch:0   train step:68   loss:  6.1867 top1: 0.0156 top5: 0.1094 lr: 0.100000 elapse: 0.125s ips: 1024.64375 images/sec.
+2020-12-15 15:18:33 INFO: epoch:0   train step:69   loss:  6.2860 top1: 0.0078 top5: 0.0469 lr: 0.100000 elapse: 0.125s ips: 1024.75834 images/sec.
+2020-12-15 15:18:33 INFO: epoch:0   train step:70   loss:  6.2923 top1: 0.0000 top5: 0.0391 lr: 0.100000 elapse: 0.125s ips: 1024.74459 images/sec.
+2020-12-15 15:18:33 INFO: epoch:0   train step:71   loss:  6.2915 top1: 0.0234 top5: 0.1016 lr: 0.100000 elapse: 0.125s ips: 1024.98538 images/sec.
+2020-12-15 15:18:33 INFO: epoch:0   train step:72   loss:  6.1486 top1: 0.0078 top5: 0.0781 lr: 0.100000 elapse: 0.125s ips: 1025.14017 images/sec.
+2020-12-15 15:18:34 INFO: epoch:0   train step:73   loss:  6.2112 top1: 0.0234 top5: 0.0391 lr: 0.100000 elapse: 0.125s ips: 1025.19447 images/sec.
+2020-12-15 15:18:34 INFO: epoch:0   train step:74   loss:  6.1690 top1: 0.0234 top5: 0.0781 lr: 0.100000 elapse: 0.125s ips: 1025.23710 images/sec.
+2020-12-15 15:18:34 INFO: epoch:0   train step:75   loss:  6.2285 top1: 0.0000 top5: 0.0391 lr: 0.100000 elapse: 0.125s ips: 1025.36750 images/sec.
+2020-12-15 15:18:34 INFO: epoch:0   train step:76   loss:  6.1761 top1: 0.0156 top5: 0.0625 lr: 0.100000 elapse: 0.125s ips: 1025.53629 images/sec.
+2020-12-15 15:18:34 INFO: epoch:0   train step:77   loss:  6.1431 top1: 0.0156 top5: 0.0938 lr: 0.100000 elapse: 0.125s ips: 1025.70924 images/sec.
+2020-12-15 15:18:34 INFO: epoch:0   train step:78   loss:  6.2089 top1: 0.0234 top5: 0.0312 lr: 0.100000 elapse: 0.125s ips: 1025.56679 images/sec.
+2020-12-15 15:18:34 INFO: epoch:0   train step:79   loss:  6.1277 top1: 0.0156 top5: 0.0703 lr: 0.100000 elapse: 0.125s ips: 1025.69967 images/sec.
+2020-12-15 15:18:34 INFO: epoch:0   train step:80   loss:  6.1273 top1: 0.0078 top5: 0.0547 lr: 0.100000 elapse: 0.125s ips: 1025.79655 images/sec.
+2020-12-15 15:18:35 INFO: epoch:0   train step:81   loss:  6.0777 top1: 0.0000 top5: 0.0391 lr: 0.100000 elapse: 0.125s ips: 1025.78069 images/sec.
+2020-12-15 15:18:35 INFO: epoch:0   train step:82   loss:  6.0630 top1: 0.0078 top5: 0.0703 lr: 0.100000 elapse: 0.125s ips: 1025.89837 images/sec.
+2020-12-15 15:18:35 INFO: epoch:0   train step:83   loss:  6.2019 top1: 0.0312 top5: 0.0703 lr: 0.100000 elapse: 0.125s ips: 1026.21237 images/sec.
+2020-12-15 15:18:35 INFO: epoch:0   train step:84   loss:  6.0994 top1: 0.0000 top5: 0.0234 lr: 0.100000 elapse: 0.125s ips: 1026.43036 images/sec.
+2020-12-15 15:18:35 INFO: epoch:0   train step:85   loss:  6.0620 top1: 0.0156 top5: 0.0625 lr: 0.100000 elapse: 0.125s ips: 1026.52919 images/sec.
+2020-12-15 15:18:35 INFO: epoch:0   train step:86   loss:  6.0398 top1: 0.0078 top5: 0.0703 lr: 0.100000 elapse: 0.125s ips: 1021.71289 images/sec.
+2020-12-15 15:18:35 INFO: epoch:0   train step:87   loss:  6.0188 top1: 0.0156 top5: 0.0547 lr: 0.100000 elapse: 0.125s ips: 1021.81285 images/sec.
+2020-12-15 15:18:35 INFO: epoch:0   train step:88   loss:  6.0606 top1: 0.0234 top5: 0.0625 lr: 0.100000 elapse: 0.125s ips: 1021.97891 images/sec.
+2020-12-15 15:18:36 INFO: epoch:0   train step:89   loss:  6.1110 top1: 0.0078 top5: 0.0625 lr: 0.100000 elapse: 0.125s ips: 1021.99985 images/sec.
+2020-12-15 15:18:36 INFO: epoch:0   train step:90   loss:  5.9524 top1: 0.0078 top5: 0.0703 lr: 0.100000 elapse: 0.125s ips: 1022.08304 images/sec.
+2020-12-15 15:18:36 INFO: epoch:0   train step:91   loss:  5.9495 top1: 0.0000 top5: 0.0625 lr: 0.100000 elapse: 0.125s ips: 1022.14599 images/sec.
+2020-12-15 15:18:36 INFO: epoch:0   train step:92   loss:  6.0186 top1: 0.0234 top5: 0.0781 lr: 0.100000 elapse: 0.125s ips: 1022.43935 images/sec.
+2020-12-15 15:18:36 INFO: epoch:0   train step:93   loss:  5.9530 top1: 0.0078 top5: 0.0781 lr: 0.100000 elapse: 0.125s ips: 1022.67246 images/sec.
+2020-12-15 15:18:36 INFO: epoch:0   train step:94   loss:  6.0557 top1: 0.0000 top5: 0.0547 lr: 0.100000 elapse: 0.125s ips: 1021.21351 images/sec.
+2020-12-15 15:18:36 INFO: epoch:0   train step:95   loss:  5.9486 top1: 0.0156 top5: 0.0391 lr: 0.100000 elapse: 0.125s ips: 1021.27867 images/sec.
+2020-12-15 15:18:36 INFO: epoch:0   train step:96   loss:  5.9677 top1: 0.0078 top5: 0.0469 lr: 0.100000 elapse: 0.125s ips: 1021.53945 images/sec.
+2020-12-15 15:18:37 INFO: epoch:0   train step:97   loss:  5.9279 top1: 0.0234 top5: 0.0625 lr: 0.100000 elapse: 0.125s ips: 1021.65644 images/sec.
+2020-12-15 15:18:37 INFO: epoch:0   train step:98   loss:  5.9914 top1: 0.0078 top5: 0.0625 lr: 0.100000 elapse: 0.125s ips: 1021.69819 images/sec.
+2020-12-15 15:18:37 INFO: epoch:0   train step:99   loss:  5.9151 top1: 0.0469 top5: 0.0781 lr: 0.100000 elapse: 0.125s ips: 1021.89140 images/sec.
+2020-12-15 15:18:37 INFO: epoch:0   train step:100  loss:  5.9299 top1: 0.0156 top5: 0.0391 lr: 0.100000 elapse: 0.125s ips: 1021.89202 images/sec.
+2020-12-15 15:18:37 INFO: epoch:0   train step:101  loss:  5.9190 top1: 0.0078 top5: 0.0469 lr: 0.100000 elapse: 0.125s ips: 1022.07934 images/sec.
+2020-12-15 15:18:37 INFO: epoch:0   train step:102  loss:  5.9074 top1: 0.0000 top5: 0.0469 lr: 0.100000 elapse: 0.125s ips: 1022.14012 images/sec.
+2020-12-15 15:18:37 INFO: epoch:0   train step:103  loss:  5.8949 top1: 0.0000 top5: 0.0547 lr: 0.100000 elapse: 0.125s ips: 1022.35632 images/sec.
+2020-12-15 15:18:37 INFO: epoch:0   train step:104  loss:  5.8481 top1: 0.0312 top5: 0.0625 lr: 0.100000 elapse: 0.125s ips: 1022.44888 images/sec.
+2020-12-15 15:18:38 INFO: epoch:0   train step:105  loss:  5.8903 top1: 0.0078 top5: 0.0469 lr: 0.100000 elapse: 0.125s ips: 1022.44075 images/sec.
+2020-12-15 15:18:38 INFO: epoch:0   train step:106  loss:  5.8627 top1: 0.0312 top5: 0.0703 lr: 0.100000 elapse: 0.125s ips: 1022.58985 images/sec.
+2020-12-15 15:18:38 INFO: epoch:0   train step:107  loss:  5.8420 top1: 0.0156 top5: 0.0547 lr: 0.100000 elapse: 0.125s ips: 1022.77986 images/sec.
+2020-12-15 15:18:38 INFO: epoch:0   train step:108  loss:  5.7766 top1: 0.0156 top5: 0.0781 lr: 0.100000 elapse: 0.125s ips: 1022.39042 images/sec.
+INFO 2020-12-15 15:18:50,392 launch.py:238] Local processes completed.
+2020-12-15 15:18:38 INFO: epoch:0   train step:109  loss:  5.8133 top1: 0.0078 top5: 0.0781 lr: 0.100000 elapse: 0.125s ips: 1022.29750 images/sec.
+2020-12-15 15:18:38 INFO: epoch:0   train step:110  loss:  5.7355 top1: 0.0000 top5: 0.0938 lr: 0.100000 elapse: 0.125s ips: 1022.29697 images/sec.
+2020-12-15 15:18:38 INFO: epoch:0   train step:111  loss:  5.9157 top1: 0.0156 top5: 0.0312 lr: 0.100000 elapse: 0.125s ips: 1022.36855 images/sec.
+2020-12-15 15:18:38 INFO: epoch:0   train step:112  loss:  5.8565 top1: 0.0312 top5: 0.0938 lr: 0.100000 elapse: 0.125s ips: 1022.49046 images/sec.
+2020-12-15 15:18:39 INFO: epoch:0   train step:113  loss:  5.7457 top1: 0.0234 top5: 0.0703 lr: 0.100000 elapse: 0.125s ips: 1022.68183 images/sec.
+2020-12-15 15:18:39 INFO: epoch:0   train step:114  loss:  5.8198 top1: 0.0156 top5: 0.0703 lr: 0.100000 elapse: 0.125s ips: 1022.89753 images/sec.
+2020-12-15 15:18:39 INFO: epoch:0   train step:115  loss:  5.7954 top1: 0.0156 top5: 0.0312 lr: 0.100000 elapse: 0.125s ips: 1023.04321 images/sec.
+2020-12-15 15:18:39 INFO: epoch:0   train step:116  loss:  5.8212 top1: 0.0234 top5: 0.0703 lr: 0.100000 elapse: 0.125s ips: 1023.14115 images/sec.
+2020-12-15 15:18:39 INFO: epoch:0   train step:117  loss:  5.8217 top1: 0.0078 top5: 0.0547 lr: 0.100000 elapse: 0.125s ips: 1023.24915 images/sec.
+2020-12-15 15:18:39 INFO: epoch:0   train step:118  loss:  5.8537 top1: 0.0078 top5: 0.0234 lr: 0.100000 elapse: 0.125s ips: 1022.80030 images/sec.
+2020-12-15 15:18:39 INFO: epoch:0   train step:119  loss:  5.7252 top1: 0.0000 top5: 0.0703 lr: 0.100000 elapse: 0.125s ips: 1022.81140 images/sec.
+2020-12-15 15:18:39 INFO: epoch:0   train step:120  loss:  5.7179 top1: 0.0078 top5: 0.0938 lr: 0.100000 elapse: 0.125s ips: 1022.62740 images/sec.
+2020-12-15 15:18:40 INFO: epoch:0   train step:121  loss:  5.7513 top1: 0.0000 top5: 0.0234 lr: 0.100000 elapse: 0.125s ips: 1022.71198 images/sec.
+2020-12-15 15:18:40 INFO: epoch:0   train step:122  loss:  5.7512 top1: 0.0156 top5: 0.0469 lr: 0.100000 elapse: 0.125s ips: 1022.56093 images/sec.
+2020-12-15 15:18:40 INFO: epoch:0   train step:123  loss:  5.7444 top1: 0.0391 top5: 0.1016 lr: 0.100000 elapse: 0.125s ips: 1022.63806 images/sec.
+2020-12-15 15:18:40 INFO: epoch:0   train step:124  loss:  5.6943 top1: 0.0078 top5: 0.0312 lr: 0.100000 elapse: 0.125s ips: 1022.77156 images/sec.
+2020-12-15 15:18:40 INFO: epoch:0   train step:125  loss:  5.8194 top1: 0.0156 top5: 0.0391 lr: 0.100000 elapse: 0.125s ips: 1022.99071 images/sec.
+2020-12-15 15:18:40 INFO: END epoch:0   train loss:  6.3789 top1: 0.0088 top5: 0.0426  elapse_sum: 15.140s ips: 1022.99071 images/sec.
+2020-12-15 15:18:43 INFO: Already save model in ./output/ResNet50/0
