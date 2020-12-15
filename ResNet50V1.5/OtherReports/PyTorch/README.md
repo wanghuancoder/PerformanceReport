@@ -28,6 +28,7 @@
 - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
 - CUDA：11
 - cuDNN：8.0.4
+- Driver Version: 450.80.02
 - 内存：502 GB
 
 ### 2.Docker 镜像
