@@ -91,7 +91,7 @@
 - 单位：`sequences/sec`
 
 
-| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch |
+| 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
 |:-----:|:-----:|:-----:|:-----:|
 | FP32 GPU=1,BS=32 | **143.58** | 141.73 | 126.43 |
 | FP32 GPU=1,BS=64 | 151.06 | **153.94** | 127.02 |
