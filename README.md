@@ -67,7 +67,7 @@
 
 > 详细数据请见[《Paddle ResNet50V1.5 性能测试报告》](./ResNet50V1.5)
 
-- 单位：`images/sec`
+- **单位**：`images/sec`
 
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
 |:-----:|:-----:|:-----:|:-----:|:-----:|
@@ -87,8 +87,8 @@
 ### 2. Bert Base Pre-Training
 > 详细数据请见[《Paddle Bert Base 性能测试报告》](./Bert)
 
-- max_seq_len: 128
-- 单位：`sequences/sec`
+- **max_seq_len**: `128`
+- **单位**：`sequences/sec`
 
 
 | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
