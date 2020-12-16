@@ -2,6 +2,7 @@ mode: 'train'
 ARCHITECTURE:
     name: 'ResNet50'
 
+use_gpu: True
 pretrained_model: ""
 model_save_dir: "./output/"
 classes_num: 1000
@@ -11,29 +12,22 @@ validate: False
 valid_interval: 1
 epochs: 1
 topk: 5
+image_shape: [3, 224, 224]
 is_distributed: False
-use_gpu: True
 print_interval: 1
 use_dali: True
-
-# mixed precision training
-use_amp: False
-use_pure_fp16: True
-multi_precision: True
-scale_loss: 128.0
-use_dynamic_loss_scaling: True
-data_format: "NHWC"
-image_shape: [4, 224, 224]
+fuse_elewise_add_act_ops: True
+enable_addto: True
 
 use_mix: False
 ls_epsilon: -1
 
 LEARNING_RATE:
-    function: 'Piecewise'
-    params:
-        lr: 0.1
-        decay_epochs: [30, 60, 90]
-        gamma: 0.1
+    function: 'Piecewise'          
+    params:                   
+        lr: 0.1               
+        decay_epochs: [30, 60, 90] 
+        gamma: 0.1 
 
 OPTIMIZER:
     function: 'Momentum'
@@ -44,10 +38,10 @@ OPTIMIZER:
         factor: 0.000100
 
 TRAIN:
-    batch_size: 256
+    batch_size: 96
     num_workers: 4
-    file_list: "./dataset/ILSVRC2012/train_list.txt"
-    data_dir: "./dataset/ILSVRC2012/"
+    file_list: "/data/train_list.txt"
+    data_dir: "/data/"
     shuffle_seed: 0
     transforms:
         - DecodeImage:
