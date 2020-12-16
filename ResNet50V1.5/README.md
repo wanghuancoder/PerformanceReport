@@ -110,6 +110,35 @@ Paddle Docker的基本信息如下：
 > 2. 注意：咱们Paddle也计划制作Docker镜像，将必要的环境安装在镜像中，如果分布式的环境搭建可以预安装到Docker中，请分布式同学联系王欢，共同制作Docker。而能够在Docker中预安装好的环境，可以在文档的环境搭建介绍中不提供具体安装方法。
 
 - 多机网络部署
+```bash
+Tesla V100-SXM2-32GB x 8
+InfiniBand 100 Gb/sec
+Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz  
+Memory： 512G
+Linux version 3.10.0_3-0-0-17
+CUDA Version: 10.1, Driver Version: 440.33.01
+nvidia-smi topo -m
+GPU0    GPU1    GPU2    GPU3    GPU4    GPU5    GPU6    GPU7    mlx5_0  CPU Affinity                                             
+GPU0     X      NV2     NV2     NV1     NV1     NODE    NODE    NODE    NODE    0-19                                                     
+GPU1    NV2      X      NV1     NV1     NODE    NV2     NODE    NODE    NODE    0-19                                                     
+GPU2    NV2     NV1      X      NV2     NODE    NODE    NV1     NODE    NODE    0-19                                                     
+GPU3    NV1     NV1     NV2      X      NODE    NODE    NODE    NV2     NODE    0-19                                                     
+GPU4    NV1     NODE    NODE    NODE     X      NV2     NV2     NV1     NODE    0-19                                                     
+GPU5    NODE    NV2     NODE    NODE    NV2      X      NV1     NV1     NODE    0-19                                                     
+GPU6    NODE    NODE    NV1     NODE    NV2     NV1      X      NV2     NODE    0-19                                                     
+GPU7    NODE    NODE    NODE    NV2     NV1     NV1     NV2      X      NODE    0-19                                                     
+mlx5_0  NODE    NODE    NODE    NODE    NODE    NODE    NODE    NODE     X                                                               
+                                                                                                                                         
+Legend:                                                                                                                                  
+                                                                                                                                         
+  X    = Self                                                                                                                            
+  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)                                   
+  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node                             
+  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)                                                    
+  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)                                           
+  PIX  = Connection traversing at most a single PCIe bridge                                                                              
+  NV#  = Connection traversing a bonded set of # NVLinks  
+  ```
 
 - 数据部署
 

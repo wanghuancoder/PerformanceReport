@@ -28,6 +28,7 @@
 - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
 - CUDA：11
 - cuDNN：8.0.4
+- Driver Version: 450.80.02
 - 内存：502 GB
 
 ### 2.Docker 镜像
@@ -46,9 +47,9 @@
 
 单机环境的搭建，我们遵循了 NGC TensorFlow 官网提供的 [Quick Start Guide](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5#quick-start-guide) 教程成功搭建了测试环境，主要过程如下：
 
-- 以ImageNet2012数据集为基础制作TF_Record格式的数据
-
-这部分不在本报告中详细展开，可参考NGC提供的[文档](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5#quick-start-guide)制作。
+- 以ImageNet2012数据集为基础制作TF_Record格式的数据。
+  
+  这部分不在本报告中详细展开，可参考NGC提供的[文档](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5#quick-start-guide)制作。
 
 - 下载NGC TensorFlow repo,并进入目录
    ```bash
@@ -110,9 +111,6 @@
    ```
 
 由于NGC TensorFlow的测试使用的是`training_perf.sh`，因此我们提供的`tf_test_all.sh`是参考了`training_perf.sh`的参数设置方法。
-
-> TODO(wanghuancoder):<br>
-> 脚本路径
 
 ### 2.多机（32卡）测试
 
