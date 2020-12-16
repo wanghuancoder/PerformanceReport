@@ -88,15 +88,15 @@
 
 | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
 |:-----:|:-----:|:-----:|:-----:|
-| FP32 GPU=1,BS=32 | 145.95 | 141.73 | 126.43 |
-| FP32 GPU=1,BS=64 | 153.22 | 153.94 | 127.02 |
-| AMP GPU=1,BS=64 | 558.62 | 452.53 | 490.92 |
-| AMP GPU=1,BS=128 | 609.98 | 537.82 | 529.46 |
-| FP32 GPU=8,BS=32 | 1134.25 | 1109.04 | 1012.09 |
-| FP32 GPU=8,BS=64 | 1190.11 | 1210.16 | 1018.51 |
-| AMP GPU=8,BS=64 | 4068.11 | 3545.29 | 3917.36|
-| AMP GPU=8,BS=128 | 4415.48 | 4224.21 | 4229.12|
+| FP32 GPU=1,BS=32 |  |  |  |
+| FP32 GPU=1,BS=48 |  |  |  |
+| AMP GPU=1,BS=64 |  |  |  |
+| AMP GPU=1,BS=96 |  |  |  |
+| FP32 GPU=8,BS=32 | |  |  |
+| FP32 GPU=8,BS=48 |  |  |  |
+| AMP GPU=8,BS=64 |  |  | |
+| AMP GPU=8,BS=96 | 4569.42 | 3519.37 | 4208.12|
 | FP32 GPU=32,BS=32 | - | - | - |
-| FP32 GPU=32,BS=64 | - | - | - |
+| FP32 GPU=32,BS=48 | - | - | - |
 | AMP GPU=32,BS=64 | - | - | - |
-| AMP GPU=32,BS=128 | - | - | - |
+| AMP GPU=32,BS=96 | - | - | - |
