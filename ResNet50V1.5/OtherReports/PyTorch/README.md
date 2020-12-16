@@ -91,7 +91,7 @@
 
 - 下载我们编写的测试脚本，并执行该脚本
    ```bash
-   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/TensorFlow/scripts/pytorch_test_all.sh
+   https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/PyTorch/scripts/pytorch_test_all.sh
    bash pytorch_test_all.sh
    ```
 
