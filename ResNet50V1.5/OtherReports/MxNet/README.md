@@ -98,7 +98,7 @@
 
 - 下载我们编写的测试脚本，并执行该脚本
    ```bash
-   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/Mxnet/scripts/mxnet_test_all.sh
+   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/OtherReports/MxNet/scripts/mxnet_test_all.sh
    bash mxnet_test_all.sh
    ```
 
