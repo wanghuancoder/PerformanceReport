@@ -61,12 +61,12 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 ### 1.物理机环境
 
 - 系统：CentOS Linux release 7.5.1804
-- GPU：Tesla V100-SXM2-32GB * 8
-- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
+- GPU：Tesla V100-SXM2-16GB * 8
+- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
 - CUDA：11
 - cuDNN：8.0.4
 - Driver Version: 450.80.02
-- 内存：502 GB
+- 内存：432 GB
 
 ### 2.Docker 镜像
 
@@ -113,31 +113,31 @@ Paddle Docker的基本信息如下：
 ```bash
 Tesla V100-SXM2-32GB x 8
 InfiniBand 100 Gb/sec
-Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz  
+Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz
 Memory： 512G
 Linux version 3.10.0_3-0-0-17
 CUDA Version: 10.1, Driver Version: 440.33.01
 nvidia-smi topo -m
-GPU0    GPU1    GPU2    GPU3    GPU4    GPU5    GPU6    GPU7    mlx5_0  CPU Affinity                                             
-GPU0     X      NV2     NV2     NV1     NV1     NODE    NODE    NODE    NODE    0-19                                                     
-GPU1    NV2      X      NV1     NV1     NODE    NV2     NODE    NODE    NODE    0-19                                                     
-GPU2    NV2     NV1      X      NV2     NODE    NODE    NV1     NODE    NODE    0-19                                                     
-GPU3    NV1     NV1     NV2      X      NODE    NODE    NODE    NV2     NODE    0-19                                                     
-GPU4    NV1     NODE    NODE    NODE     X      NV2     NV2     NV1     NODE    0-19                                                     
-GPU5    NODE    NV2     NODE    NODE    NV2      X      NV1     NV1     NODE    0-19                                                     
-GPU6    NODE    NODE    NV1     NODE    NV2     NV1      X      NV2     NODE    0-19                                                     
-GPU7    NODE    NODE    NODE    NV2     NV1     NV1     NV2      X      NODE    0-19                                                     
-mlx5_0  NODE    NODE    NODE    NODE    NODE    NODE    NODE    NODE     X                                                               
-                                                                                                                                         
-Legend:                                                                                                                                  
-                                                                                                                                         
-  X    = Self                                                                                                                            
-  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)                                   
-  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node                             
-  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)                                                    
-  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)                                           
-  PIX  = Connection traversing at most a single PCIe bridge                                                                              
-  NV#  = Connection traversing a bonded set of # NVLinks  
+GPU0    GPU1    GPU2    GPU3    GPU4    GPU5    GPU6    GPU7    mlx5_0  CPU Affinity
+GPU0     X      NV2     NV2     NV1     NV1     NODE    NODE    NODE    NODE    0-19
+GPU1    NV2      X      NV1     NV1     NODE    NV2     NODE    NODE    NODE    0-19
+GPU2    NV2     NV1      X      NV2     NODE    NODE    NV1     NODE    NODE    0-19
+GPU3    NV1     NV1     NV2      X      NODE    NODE    NODE    NV2     NODE    0-19
+GPU4    NV1     NODE    NODE    NODE     X      NV2     NV2     NV1     NODE    0-19
+GPU5    NODE    NV2     NODE    NODE    NV2      X      NV1     NV1     NODE    0-19
+GPU6    NODE    NODE    NV1     NODE    NV2     NV1      X      NV2     NODE    0-19
+GPU7    NODE    NODE    NODE    NV2     NV1     NV1     NV2      X      NODE    0-19
+mlx5_0  NODE    NODE    NODE    NODE    NODE    NODE    NODE    NODE     X
+
+Legend:
+
+  X    = Self
+  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)
+  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node
+  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)
+  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)
+  PIX  = Connection traversing at most a single PCIe bridge
+  NV#  = Connection traversing a bonded set of # NVLinks
   ```
 
 - 数据部署
