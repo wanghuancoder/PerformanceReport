@@ -180,8 +180,8 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     batch_size=$1  # batch size per gpu
     num_gpus=$2    # number of gpu
     precision=$3   # fp32 | fp16
-    gradient_accumulation_steps=$(expr 65536 \/ $batch_size \/ $num_gpus)
-    train_batch_size=$(expr 65536 \/ $num_gpus)   # total batch_size per gpu
+    gradient_accumulation_steps=$(expr 67584 \/ $batch_size \/ $num_gpus)
+    train_batch_size=$(expr 67584 \/ $num_gpus)   # total batch_size per gpu
     train_steps=${4:-250}    # max train steps
 
     # run pre-training
@@ -216,10 +216,10 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 
 > 单位： sequences/sec
 
-|卡数 | FP32(BS=32) | FP32(BS=64) | AMP(BS=64) | AMP(BS=128)|
+|卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96)|
 |:-----:|:-----:|:-----:|:-----:|:-----:|
-|1 | 126.43 | 127.02 | 490.92 | 529.46 |
-|8 | 1012.09 | 1018.51 | 3917.36 | 4229.12 |
+|1 |  |  |  |  |
+|8 |  |  |  |4208.12 |
 |32 | - | - | - | -|
 
 
@@ -227,10 +227,10 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 ### 1.单机（单卡、8卡）日志
 
 - [单卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu1_gbs65536.log)
-- [单卡 bs=64、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs64_gpu1_gbs65536.log)
+- [单卡 bs=48、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs64_gpu1_gbs65536.log)
 - [单卡 bs=64、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu1_gbs65536.log)
-- [单卡 bs=128、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs128_gpu1_gbs65536.log)
+- [单卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs128_gpu1_gbs65536.log)
 - [8卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu8_gbs65536.log)
-- [8卡 bs=64、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs64_gpu8_gbs65536.log)
+- [8卡 bs=48、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs64_gpu8_gbs65536.log)
 - [8卡 bs=64、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu8_gbs65536.log)
-- [8卡 bs=128、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs128_gpu8_gbs65536.log)
+- [8卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs128_gpu8_gbs65536.log)

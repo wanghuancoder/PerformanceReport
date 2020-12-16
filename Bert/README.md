@@ -227,21 +227,13 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 ## 五、测试结果
 
 ### 1.Paddle训练性能
-- `V100 16G` 机器上，训练吞吐率(sequences/sec)如下:
 
-   |卡数 | FP32(BS=32) | AMP(BS=48) | FP32(BS=64) | AMP(BS=96) |
+- 训练吞吐率(sequences/sec)如下:
+
+   |卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96) |
    |:-----:|:-----:|:-----:|:-----:|:-----:|
    |1 |147.14 | 153.47 | 595.49 | 628.25 |
    |8 | 1140.52 | 1186.89 | 4329.79 | 4569.42 |
-   |32 | - | - | - | - |
-
-
-- `V100 32G` 机器上，训练吞吐率(sequences/sec)如下:
-
-   |卡数 | FP32(BS=32) | AMP(BS=64) | FP32(BS=64) | AMP(BS=128) |
-   |:-----:|:-----:|:-----:|:-----:|:-----:|
-   |1 | 145.95 | 153.22 | 558.62 | 609.98 |
-   |8 | 1134.25 | 1190.11 | 4068.11 | 4415.48 |
    |32 | - | - | - | - |
 
 ### 2.与业内其它框架对比
@@ -250,39 +242,39 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 - 同等执行环境下测试
 - 单位：`sequences/sec`
 - max_seq_len: 128
-- BatchSize FP32下统一选择 32 和 64、AMP下统一选择 64、128
+- BatchSize FP32下统一选择 32 和 48、AMP下统一选择 64、96
 
 
 `V100 32G` 机器上：
 
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch |
 |:-----:|:-----:|:-----:|:-----:|
-| FP32 GPU=1,BS=32 | 145.95 | 141.73 | 126.43 |
-| FP32 GPU=1,BS=64 | 153.22 | 153.94 | 127.02 |
-| AMP GPU=1,BS=64 | 558.62 | 452.53 | 490.92 |
-| AMP GPU=1,BS=128 | 609.98 | 537.82 | 529.46 |
-| FP32 GPU=8,BS=32 | 1134.25 | 1109.04 | 1012.09 |
-| FP32 GPU=8,BS=64 | 1190.11 | 1210.16 | 1018.51 |
-| AMP GPU=8,BS=64 | 4068.11 | 3545.29 | 3917.36|
-| AMP GPU=8,BS=128 | 4415.48 | 4224.21 | 4229.12|
+| FP32 GPU=1,BS=32 |  |  |  |
+| FP32 GPU=1,BS=48 |  |  |  |
+| AMP GPU=1,BS=64 |  |  |  |
+| AMP GPU=1,BS=96 |  |  |  |
+| FP32 GPU=8,BS=32 | |  |  |
+| FP32 GPU=8,BS=48 |  |  |  |
+| AMP GPU=8,BS=64 |  |  | |
+| AMP GPU=8,BS=96 | 4569.42 | 3519.37 | 4208.12|
 | FP32 GPU=32,BS=32 | - | - | - |
-| FP32 GPU=32,BS=64 | - | - | - |
+| FP32 GPU=32,BS=48 | - | - | - |
 | AMP GPU=32,BS=64 | - | - | - |
-| AMP GPU=32,BS=128 | - | - | - |
+| AMP GPU=32,BS=96 | - | - | - |
 
 ## 六、日志数据
 ### 1.单机（单卡、8卡）日志
 
 > `V100 32G` 机器
 
-- [单卡 bs=32、FP32](./logs/V100-32G/base_bs32_fp32_gpu1.log)
-- [单卡 bs=64、FP32](./logs/V100-32G/base_bs64_fp32_gpu1.log)
-- [单卡 bs=64、AMP](./logs/V100-32G/base_bs64_fp16_gpu1.log)
-- [单卡 bs=128、AMP](./logs/V100-32G/base_bs128_fp16_gpu1.log)
-- [8卡 bs=32、FP32](./logs/V100-32G/base_bs32_fp32_gpu8.log)
-- [8卡 bs=64、FP32](./logs/V100-32G/base_bs64_fp32_gpu8.log)
-- [8卡 bs=64、AMP](./logs/V100-32G/base_bs64_fp16_gpu8.log)
-- [8卡 bs=128、AMP](./logs/V100-32G/base_bs128_fp16_gpu8.log)
+- [单卡 bs=32、FP32](./logs/base_bs32_fp32_gpu1.log)
+- [单卡 bs=48](./logs/base_bs48_fp32_gpu1.log)
+- [单卡 bs=64、AMP](./logs/base_bs64_fp16_gpu1.log)
+- [单卡 bs=96](./logs/base_bs96_fp16_gpu1.log)
+- [8卡 bs=32、FP32](./logs/base_bs32_fp32_gpu8.log)
+- [8卡 bs=48、FP32](./logs/base_bs48_fp32_gpu8.log)
+- [8卡 bs=64、AMP](./logs/base_bs64_fp16_gpu8.log)
+- [8卡 bs=96、AMP](./logs/base_bs96_fp16_gpu8.log)
 
 
 > TODO(Distribute):<br>

@@ -143,7 +143,7 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
   batch_size=$1  # batch size per gpu
   num_gpus=$2    # number of gpu
   precision=$3   # fp32 | fp16
-  num_accumulation_steps_phase1=$(expr 65536 \/ $batch_size \/ $num_gpus)
+  num_accumulation_steps_phase1=$(expr 67584 \/ $batch_size \/ $num_gpus)
   train_steps=${4:-200}        # max train steps
   bert_model=${5:-"base"}      # base | large
 
@@ -179,8 +179,8 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
 
 |卡数 | FP32(BS=32) | FP32(BS=64) | AMP(BS=64) | AMP(BS=128)|
 |:-----:|:-----:|:-----:|:-----:|:-----:|
-|1 | 141.73 | 153.94 | 452.53 | 537.82|
-|8 | 1109.04 | 1210.16 | 3545.29 | 4224.21|
+|1 |  |  |  | |
+|8 |  |  |  | 3519.37|
 |32 | - | - | - | -|
 
 ## 五、日志数据
