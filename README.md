@@ -79,7 +79,7 @@
 | AMP GPU=1,BS=256 | 1400.1(BS=208) | 978.8 | 841.6 | 1447.6(BS=192) |
 | AMP GPU=8,BS=128 | 8322.9 | 7829.9	 | 6014.7 | 9218.9 |
 | AMP GPU=8,BS=256 | 9099.5(BS=208) | 7810.8 | 6230.1(BS=248) | 9765.6(BS=192) |
-| AMP GPU=32,BS=128 | 27500.8 | - | - | - |
+| AMP GPU=32,BS=128 | 11622.56 | - | - | - |
 | AMP GPU=32,BS=256 | -(BS=208) | - | - | -(BS=192) |
 
 > 以上测试，由于显存限制，下调了部分测试的BatchSize，并在表格中注明
@@ -91,18 +91,24 @@
 - **max_seq_len**: `128`
 - **单位**：`sequences/sec`
 
+- FP32测试
 
-| 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
+| 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
 |:-----:|:-----:|:-----:|:-----:|
 | FP32 GPU=1,BS=32 | 147.14 | 142.67 |  |
 | FP32 GPU=1,BS=48 | 153.47 | 148.23 | 128.92 |
-| AMP GPU=1,BS=64 | 595.49 | 488.32 | 524.48 |
-| AMP GPU=1,BS=96 | 628.25 | 536.06 | 543.76 |
 | FP32 GPU=8,BS=32 |1140.52 |  |  |
 | FP32 GPU=8,BS=48 |1186.89  |  |  |
-| AMP GPU=8,BS=64 | 4329.79 |  | 4058.34|
-| AMP GPU=8,BS=96 | 4569.42 |  | 4208.12|
 | FP32 GPU=32,BS=32 | 3199.61 | - | - |
 | FP32 GPU=32,BS=48 | 4160.47 | - | - |
+
+- AMP测试
+
+| 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
+|:-----:|:-----:|:-----:|:-----:|
+| AMP GPU=1,BS=64 | 595.49 | 488.32 | 524.48 |
+| AMP GPU=1,BS=96 | 628.25 | 536.06 | 543.76 |
+| AMP GPU=8,BS=64 | 4329.79 |  | 4058.34|
+| AMP GPU=8,BS=96 | 4569.42 |  | 4208.12|
 | AMP GPU=32,BS=64 | 8592.30 | - | - |
 | AMP GPU=32,BS=96 | 11322.12 | - | - |
