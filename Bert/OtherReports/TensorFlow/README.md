@@ -177,20 +177,20 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
 
 ## 四、测试结果
 
-|卡数 | FP32(BS=32) | FP32(BS=64) | AMP(BS=64) | AMP(BS=128)|
+|卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96)|
 |:-----:|:-----:|:-----:|:-----:|:-----:|
-|1 |  |  |  | |
+|1 |  | 148.23 | 488.32 | 536.06 |
 |8 |  |  |  | 3519.37|
 |32 | - | - | - | -|
 
 ## 五、日志数据
 ### 1.单机（单卡、8卡）日志
 
-- [单卡 bs=32、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs32_gpu1_gbs65536.log)
-- [单卡 bs=64、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs64_gpu1_gbs65536.log)
-- [单卡 bs=64、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs64_gpu1_gbs65536.log)
-- [单卡 bs=128、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs128_gpu1_gbs65536.log)
-- [8卡 bs=32、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs32_gpu8_gbs65536.log)
-- [8卡 bs=64、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs64_gpu8_gbs65536.log)
-- [8卡 bs=64、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs64_gpu8_gbs65536.log)
-- [8卡 bs=128、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs128_gpu8_gbs65536.log)
+- [单卡 bs=32、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs32_gpu1.log)
+- [单卡 bs=48、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs48_gpu1.log)
+- [单卡 bs=64、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs64_gpu1.log)
+- [单卡 bs=96、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs96_gpu1.log)
+- [8卡 bs=32、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs32_gpu8.log)
+- [8卡 bs=48、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs48_gpu8.log)
+- [8卡 bs=64、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs64_gpu8.log)
+- [8卡 bs=96、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs96_gpu8.log)
