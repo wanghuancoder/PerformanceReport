@@ -197,6 +197,7 @@ Legend:
   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs256.yaml
   bash paddle_test_multi_node_all.sh
   ```
+  
 - 执行后将得到如下日志文件：
    ```bash
    ./paddle_gpu32_fp32_bs128.txt
