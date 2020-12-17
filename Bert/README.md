@@ -67,13 +67,21 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 ## 二、环境介绍
 ### 1.物理机环境
 
-- **系统**: CentOS Linux release 7.5.1804
-- **GPU**: Tesla V100-SXM2-16GB * 8
-- **CPU**: Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-- **CUDA**: 11
-- **cuDNN**: 8.0.4
-- **Driver Version**: 450.80.02
-- **内存**: 432 GB
+- 单机环境
+  - **系统**: CentOS Linux release 7.5.1804
+  - **GPU**: Tesla V100-SXM2-16GB * 8
+  - **CPU**: Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
+  - **CUDA**: 11
+  - **cuDNN**: 8.0.4
+  - **Driver Version**: 450.80.02
+  - **内存**: 432 GB
+
+- 多机环境
+  - **系统**: TODO @李洋
+  - **GPU**: Tesla V100-SXM2-32GB * 8
+  - **CPU**: Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
+  - **Driver Version**: 450.80.02
+  - **内存**: 502 GB
 
 ### 2.Docker 镜像
 > TODO(Aurelius84): 待更新Paddle开源出去的docker镜像tags
@@ -137,6 +145,51 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 
 
 ### 2.多机（32卡）环境搭建
+
+- **拉取代码**
+  ```bash
+  git clone https://github.com/PaddlePaddle/models.git
+  cd models && git checkout develop
+  ```
+
+
+- **构建镜像**
+
+   ```bash
+   # 拉取镜像
+   docker pull hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
+
+   # 创建并进入容器
+   nvidia-docker run --name=test_bert_paddle -it \
+    --net=host \
+    --shm-size=1g \
+    --ulimit memlock=-1 \
+    --ulimit stack=67108864 \
+    -e NVIDIA_VISIBLE_DEVICES=all \
+    -v $PWD:/workspace/models \
+    hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 /bin/bash
+   ```
+
+- **安装Paddle**
+   ```bash
+   # 安装paddle whl包 (todo: 待更新)
+   pip3.7 install -U paddlepaddle_gpu-0.0.0-cp37-cp37m-linux_x86_64.whl
+   # 安装 models 中依赖库
+   pip3.7 install -r PaddleNLP/requirements.txt
+   ```
+
+- **准备数据**
+
+   Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数据集进行的训练的，原始数据集比较大。我们提供了一份小的、且已处理好的[样本数据集](https://bert-data.bj.bcebos.com/benchmark_sample%2Fbert_data.tar.gz)，大小 338M， 可以下载并解压到`models/`目录下。
+
+   ```bash
+   # 解压数据集
+   tar -xzvf benchmark_sample_bert_data.tar.gz
+   # 放到 models/ 目录
+   mv benchmark_sample_bert_data.tar.gz models/bert_data
+   ```
+  
+TODO：可以找个物理机测试上面的过程是否有问题 @李洋
 
 > TODO(Distribute):<br>
 > 1. 提供分布式测试环境搭建的详细方法，可参考OneFlow的报告：<br>
@@ -219,10 +272,57 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 
 
 ### 2.多机（32卡）测试
-> TODO(分布式):(需包含)<br>
-> 1. 提供多机32卡可修改配置的同一个执行shell脚本，给出脚本文件链接<br>
-> 2. 对重要参数进行逐一说明<br>
-> 3. 给出多机32卡的执行命令
+为了更方便的复现我们的测试结果，我们提供一键测试 benchmark 数据的脚本 `run_multi_node_benchmark.sh` ，需放在 `benchmark/bert`目录下。
+
+- **脚本内容如下：**
+   ```bash
+   #!/bin/bash
+
+   export PYTHONPATH=/workspace/models/PaddleNLP
+   export DATA_DIR=/workspace/models/bert_data/
+   export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+   # 设置以下环境变量为您所用训练机器的IP地址
+   export TRANER_IPS="10.10.0.1,10.10.0.2,10.10.0.3,10.10.0.4"
+
+   batch_size=${1:-32}
+   use_amp=${2:-"True"}
+   max_steps=${3:-500}
+   logging_steps=${4:-20}
+
+   CMD="python3.7 -m paddle.distributed.launch --gpus 0,1,2,3,4,5,6,7 --ips $TRAINER_IPS ./run_pretrain.py"
+
+   $CMD \
+      --model_type bert \
+      --model_name_or_path bert-base-uncased \
+      --max_predictions_per_seq 20 \
+      --batch_size $batch_size   \
+      --learning_rate 1e-4 \
+      --weight_decay 1e-2 \
+      --adam_epsilon 1e-6 \
+      --warmup_steps 10000 \
+      --input_dir $DATA_DIR \
+      --output_dir ./tmp2/ \
+      --logging_steps $logging_steps \
+      --save_steps 50000 \
+      --max_steps $max_steps \
+      --use_amp $use_amp\
+      --enable_addto True
+   ````
+
+- **启动脚本：**
+
+  若测试 batch_size=32、FP32 的训练性能，执行如下命令：
+
+  ```bash
+  bash run_multi_node_benchmark.sh 32 False
+  ```
+
+  若测试 batch_size=64、FP16 的训练性能，执行如下命令：
+
+  ```bash
+  bash run_multi_node_benchmark.sh 64 True
+  ```
+TODO：验证下上面的分布式命令有没有问题 @李洋
 
 ## 五、测试结果
 

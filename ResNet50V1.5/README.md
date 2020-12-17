@@ -73,15 +73,12 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
   - Driver Version: 450.80.02
   - 内存：432 GB
 
-> TODO(Distribute):<br>
-> 请李洋提供一下多机环境
-
 - 多机（32卡）
-  - 系统：CentOS Linux release 7.5.1804  TODO
+  - 系统：TODO： 确认环境 @李洋
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-  - Driver Version: 440.33.01
-  - 内存：512 GB
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
+  - Driver Version: 450.80.02
+  - 内存：502 GB
 
 ### 2.Docker 镜像
 
@@ -118,20 +115,28 @@ Paddle Docker的基本信息如下：
 
 ### 2.多机（32卡）环境搭建
 
-> TODO(Distribute):<br>
-> 1. 提供分布式测试环境搭建的详细方法，可参考OneFlow的报告：<br>
-> https://github.com/Oneflow-Inc/DLPerf/tree/master/PaddlePaddle/resnet50v1.5#nccl <br>
-> https://github.com/Oneflow-Inc/DLPerf/tree/master/NVIDIADeepLearningExamples/TensorFlow/Classification/ConvNets/resnet50v1.5#ssh%E9%85%8D%E7%BD%AE%E5%8F%AF%E9%80%89 <br>
-> 2. 注意：咱们Paddle也计划制作Docker镜像，将必要的环境安装在镜像中，如果分布式的环境搭建可以预安装到Docker中，请分布式同学联系王欢，共同制作Docker。而能够在Docker中预安装好的环境，可以在文档的环境搭建介绍中不提供具体安装方法。
+- 拉取docker
+  ```bash
+  docker pull hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
+  ```
+
+- 启动docker
+  ```bash
+  # 假设imagenet数据放在<path to data>目录下
+  nvidia-docker run --shm-size=64g -it -v <path to data>:/data hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 /bin/bash
+  ```
+
+- 拉取PaddleClas
+  ```bash
+  git clone https://github.com/PaddlePaddle/PaddleClas.git
+  cd PaddleClas
+  # 本次测试是在如下版本下完成的：
+  git checkout b0904fd250715b3c040c88881395bad06eea9be6
+  ```
 
 - 多机网络部署
 ```bash
-Tesla V100-SXM2-32GB x 8
 InfiniBand 100 Gb/sec
-Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz
-Memory： 512G
-Linux version 3.10.0_3-0-0-17
-CUDA Version: 10.1, Driver Version: 440.33.01
 nvidia-smi topo -m
 GPU0    GPU1    GPU2    GPU3    GPU4    GPU5    GPU6    GPU7    mlx5_0  CPU Affinity
 GPU0     X      NV2     NV2     NV1     NV1     NODE    NODE    NODE    NODE    0-19
@@ -186,12 +191,26 @@ Legend:
    ```
 
 ### 2.多机（32卡）测试
-
-> TODO(Distribute):<br>
-> 1. 使用PaddleClas中的Resnet50测试32卡分布式性能数据。
-> 2. 编写一键执行的测试脚本，可参考： <br>
-> https://github.com/Oneflow-Inc/DLPerf#benchmark-test-scopes <br>
-> https://github.com/Oneflow-Inc/DLPerf#benchmark-test-scopes <br>
+- 下载我们编写的测试脚本，并执行该脚本
+  ```bash
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/paddle_test_all.sh
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_1gpu_fp32_bs128.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_1gpu_fp32_bs256.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_1gpu_amp_bs128.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_1gpu_amp_bs256.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_fp32_bs128.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_fp32_bs256.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs128.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs256.yaml
+  bash paddle_test_multi_node_all.sh
+  ```
+- 执行后将得到如下日志文件：
+   ```bash
+   ./paddle_gpu32_fp32_bs128.txt
+   ./paddle_gpu32_amp_bs128.txt
+   ./paddle_gpu32_fp32_bs256.txt
+   ./paddle_gpu32_amp_bs256.txt
+   ```
 
 ## 五、测试结果
 
