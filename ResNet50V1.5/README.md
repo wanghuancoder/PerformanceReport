@@ -238,7 +238,7 @@ Legend:
 | AMP GPU=32,BS=128 | 27500.8 | - | - | - |
 | AMP GPU=32,BS=256 | -(BS=208) | - | - | -(BS=192) |
 
-> 以上测试，由于显存限制，下调了部分测试的BatchSize，并在表格中注明
+> 以上测试，由于显存限制，下调了部分测试的BatchSize，并在表格中注明<br>
 > Pytorch AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为248
 
 > TODO(Distribute):<br>
