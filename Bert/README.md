@@ -12,8 +12,6 @@
   - [1.物理机环境](#1物理机环境)
   - [2.Docker 镜像](#2docker-镜像)
 - [三、环境搭建](#三环境搭建)
-  - [1.单机（单卡、8卡）环境搭建](#1单机单卡8卡环境搭建)
-  - [2.多机（32卡）环境搭建](#2多机32卡环境搭建)
 - [四、测试步骤](#四测试步骤)
   - [1.单机（单卡、8卡）测试](#1单机单卡8卡测试)
   - [2.多机（32卡）测试](#2多机32卡测试)
@@ -74,15 +72,12 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
   - Driver Version: 450.80.02
   - 内存：432 GB
 
-> TODO(Distribute):<br>
-> 请李洋提供一下多机环境
-
 - 多机（32卡）
-  - 系统：CentOS Linux release 7.5.1804
+  - 系统：TODO @李洋
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-  - Driver Version: 440.33.01
-  - 内存：512 GB
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
+  - Driver Version: 450.80.02
+  - 内存：502 GB
 
 ### 2.Docker 镜像
 > TODO(Aurelius84): 待更新Paddle开源出去的docker镜像tags
@@ -99,8 +94,6 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 各深度学习框架在公开的 Github 仓库中给出了详细的docker镜像和构建脚本，具体搭建流程请参考：[此处](./OtherReports)。
 
 如下是 Paddle 测试环境的具体搭建流程:
-
-### 1.单机（单卡、8卡）环境搭建
 
 - **拉取代码**
   ```bash
@@ -142,15 +135,6 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
    # 放到 models/ 目录
    mv benchmark_sample_bert_data.tar.gz models/bert_data
    ```
-
-
-### 2.多机（32卡）环境搭建
-
-> TODO(Distribute):<br>
-> 1. 提供分布式测试环境搭建的详细方法，可参考OneFlow的报告：<br>
-> https://github.com/Oneflow-Inc/DLPerf/tree/master/PaddlePaddle/bert#nccl <br>
-> https://github.com/Oneflow-Inc/DLPerf/tree/master/PaddlePaddle/bert#2%E6%9C%BA16%E5%8D%A1 <br>
-> 2. 注意：咱们Paddle也计划制作Docker镜像，将必要的环境安装在镜像中，如果分布式的环境搭建可以预安装到Docker中，请分布式同学联系王欢，共同制作Docker。而能够在Docker中预安装好的环境，可以在文档的环境搭建介绍中不提供具体安装方法。
 
 ## 四、测试步骤
 
@@ -227,10 +211,57 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 
 
 ### 2.多机（32卡）测试
-> TODO(分布式):(需包含)<br>
-> 1. 提供多机32卡可修改配置的同一个执行shell脚本，给出脚本文件链接<br>
-> 2. 对重要参数进行逐一说明<br>
-> 3. 给出多机32卡的执行命令
+为了更方便的复现我们的测试结果，我们提供一键测试 benchmark 数据的脚本 `run_multi_node_benchmark.sh` ，需放在 `benchmark/bert`目录下。
+
+- **脚本内容如下：**
+   ```bash
+   #!/bin/bash
+
+   export PYTHONPATH=/workspace/models/PaddleNLP
+   export DATA_DIR=/workspace/models/bert_data/
+   export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+   # 设置以下环境变量为您所用训练机器的IP地址
+   export TRANER_IPS="10.10.0.1,10.10.0.2,10.10.0.3,10.10.0.4"
+
+   batch_size=${1:-32}
+   use_amp=${2:-"True"}
+   max_steps=${3:-500}
+   logging_steps=${4:-20}
+
+   CMD="python3.7 -m paddle.distributed.launch --gpus 0,1,2,3,4,5,6,7 --ips $TRAINER_IPS ./run_pretrain.py"
+
+   $CMD \
+      --model_type bert \
+      --model_name_or_path bert-base-uncased \
+      --max_predictions_per_seq 20 \
+      --batch_size $batch_size   \
+      --learning_rate 1e-4 \
+      --weight_decay 1e-2 \
+      --adam_epsilon 1e-6 \
+      --warmup_steps 10000 \
+      --input_dir $DATA_DIR \
+      --output_dir ./tmp2/ \
+      --logging_steps $logging_steps \
+      --save_steps 50000 \
+      --max_steps $max_steps \
+      --use_amp $use_amp\
+      --enable_addto True
+   ````
+
+- **启动脚本：**
+
+  若测试 batch_size=32、FP32 的训练性能，执行如下命令：
+
+  ```bash
+  bash run_multi_node_benchmark.sh 32 False
+  ```
+
+  若测试 batch_size=64、FP16 的训练性能，执行如下命令：
+
+  ```bash
+  bash run_multi_node_benchmark.sh 64 True
+  ```
+TODO：验证下上面的分布式命令有没有问题 @李洋
 
 ## 五、测试结果
 
