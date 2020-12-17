@@ -312,9 +312,9 @@ TODO：验证下上面的分布式命令有没有问题 @李洋
 > `V100 32G` 机器
 
 - [单卡 bs=32、FP32](./logs/base_bs32_fp32_gpu1.log)
-- [单卡 bs=48](./logs/base_bs48_fp32_gpu1.log)
+- [单卡 bs=48、FP32](./logs/base_bs48_fp32_gpu1.log)
 - [单卡 bs=64、AMP](./logs/base_bs64_fp16_gpu1.log)
-- [单卡 bs=96](./logs/base_bs96_fp16_gpu1.log)
+- [单卡 bs=96、AMP](./logs/base_bs96_fp16_gpu1.log)
 - [8卡 bs=32、FP32](./logs/base_bs32_fp32_gpu8.log)
 - [8卡 bs=48、FP32](./logs/base_bs48_fp32_gpu8.log)
 - [8卡 bs=64、AMP](./logs/base_bs64_fp16_gpu8.log)
