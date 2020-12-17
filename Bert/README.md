@@ -98,8 +98,6 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 
 如下是 Paddle 测试环境的具体搭建流程:
 
-### 1.单机（单卡、8卡）环境搭建
-
 - **拉取代码**
   ```bash
   git clone https://github.com/PaddlePaddle/models.git
@@ -142,60 +140,6 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
    # 放到 models/ 目录
    mv benchmark_sample_bert_data.tar.gz models/bert_data
    ```
-
-
-### 2.多机（32卡）环境搭建
-
-- **拉取代码**
-  ```bash
-  git clone https://github.com/PaddlePaddle/models.git
-  cd models && git checkout develop
-  ```
-
-
-- **构建镜像**
-
-   ```bash
-   # 拉取镜像
-   docker pull hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
-
-   # 创建并进入容器
-   nvidia-docker run --name=test_bert_paddle -it \
-    --net=host \
-    --shm-size=1g \
-    --ulimit memlock=-1 \
-    --ulimit stack=67108864 \
-    -e NVIDIA_VISIBLE_DEVICES=all \
-    -v $PWD:/workspace/models \
-    hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 /bin/bash
-   ```
-
-- **安装Paddle**
-   ```bash
-   # 安装paddle whl包 (todo: 待更新)
-   pip3.7 install -U paddlepaddle_gpu-0.0.0-cp37-cp37m-linux_x86_64.whl
-   # 安装 models 中依赖库
-   pip3.7 install -r PaddleNLP/requirements.txt
-   ```
-
-- **准备数据**
-
-   Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数据集进行的训练的，原始数据集比较大。我们提供了一份小的、且已处理好的[样本数据集](https://bert-data.bj.bcebos.com/benchmark_sample%2Fbert_data.tar.gz)，大小 338M， 可以下载并解压到`models/`目录下。
-
-   ```bash
-   # 解压数据集
-   tar -xzvf benchmark_sample_bert_data.tar.gz
-   # 放到 models/ 目录
-   mv benchmark_sample_bert_data.tar.gz models/bert_data
-   ```
-  
-TODO：可以找个物理机测试上面的过程是否有问题 @李洋
-
-> TODO(Distribute):<br>
-> 1. 提供分布式测试环境搭建的详细方法，可参考OneFlow的报告：<br>
-> https://github.com/Oneflow-Inc/DLPerf/tree/master/PaddlePaddle/bert#nccl <br>
-> https://github.com/Oneflow-Inc/DLPerf/tree/master/PaddlePaddle/bert#2%E6%9C%BA16%E5%8D%A1 <br>
-> 2. 注意：咱们Paddle也计划制作Docker镜像，将必要的环境安装在镜像中，如果分布式的环境搭建可以预安装到Docker中，请分布式同学联系王欢，共同制作Docker。而能够在Docker中预安装好的环境，可以在文档的环境搭建介绍中不提供具体安装方法。
 
 ## 四、测试步骤
 

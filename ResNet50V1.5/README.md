@@ -92,29 +92,6 @@ Paddle Docker的基本信息如下：
 
 ## 三、环境搭建
 
-### 1.单机（单卡、8卡）环境搭建
-
-- 拉取docker
-  ```bash
-  docker pull hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
-  ```
-
-- 启动docker
-  ```bash
-  # 假设imagenet数据放在<path to data>目录下
-  nvidia-docker run --shm-size=64g -it -v <path to data>:/data hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 /bin/bash
-  ```
-
-- 拉取PaddleClas
-  ```bash
-  git clone https://github.com/PaddlePaddle/PaddleClas.git
-  cd PaddleClas
-  # 本次测试是在如下版本下完成的：
-  git checkout b0904fd250715b3c040c88881395bad06eea9be6
-  ```
-
-### 2.多机（32卡）环境搭建
-
 - 拉取docker
   ```bash
   docker pull hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
