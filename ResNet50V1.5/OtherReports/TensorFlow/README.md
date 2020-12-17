@@ -34,11 +34,11 @@
 > 请李洋提供一下多机环境
 
 - 多机（32卡）
-  - 系统：CentOS Linux release 7.5.1804  TODO
+  - 系统： TODO @李洋
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-  - Driver Version: 440.33.01
-  - 内存：512 GB
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
+  - Driver Version: 450.80.02
+  - 内存：502 GB
 
 ### 2.Docker 镜像
 

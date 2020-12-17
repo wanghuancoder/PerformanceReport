@@ -136,6 +136,24 @@ Legend:
   ```
 
 - 数据部署
+  ImageNet数据集位于/data目录，具有如下目录结构：
+  ```shell
+  /data
+   |---train
+   |   |---n01440764
+   |   |   |---n01440764_10026.jpeg
+   |   |   |...
+   |   |...
+   |---train_list.txt
+  ```
+  其中，train子目录下包含训练数据集，train_list.txt文件记录各训练数样本的路径和类别标签，内容如下：
+  ```shell
+  train/n01440764/n01440764_10026.jpeg 0
+  train/n01440764/n01440764_10027.jpeg 0
+  train/n01440764/n01440764_10029.jpeg 0
+  train/n01440764/n01440764_10040.jpeg 0
+  ... ...
+  ```
 
 ## 四、测试步骤
 
@@ -179,6 +197,8 @@ Legend:
   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs256.yaml
   bash paddle_test_multi_node_all.sh
   ```
+  TODO: 测试下上述脚本运行是否有问题 @李洋
+  
 - 执行后将得到如下日志文件：
    ```bash
    ./paddle_gpu32_fp32_bs128.txt
