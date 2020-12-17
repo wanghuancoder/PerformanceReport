@@ -218,16 +218,23 @@ Legend:
 - 单位：`images/sec`
 - 对于支持 `DALI/XLA` 的框架，以下测试为开启 `DALI/XLA` 的数据
 
-| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
+- FP32测试
+
+| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
 |:-----:|:-----:|:-----:|:-----:|:-----:|
 | FP32 GPU=1,BS=128 | 383(BS=96) | 408.3 | 364.2 | 387.1(BS=96) |
+| FP32 GPU=8,BS=128 | 2753.3(BS=96) | 3105.3 | 2826.8 | 2998.1(BS=96) |
+| FP32 GPU=32,BS=128 | -(BS=96) | - | - | -(BS=96) |
+
+- AMP测试
+
+| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
+|:-----:|:-----:|:-----:|:-----:|:-----:|
 | AMP GPU=1,BS=128 | 1335.1 | 954.9 | 828.7 | 1380.6 |
 | AMP GPU=1,BS=256 | 1400.1(BS=208) | 978.8 | 841.6 | 1447.6(BS=192) |
-| FP32 GPU=8,BS=128 | 2753.3(BS=96) | 3105.3 | 2826.8 | 2998.1(BS=96) |
 | AMP GPU=8,BS=128 | 8322.9 | 7829.9	 | 6014.7 | 9218.9 |
 | AMP GPU=8,BS=256 | 9099.5(BS=208) | 7810.8 | 6230.1(BS=248) | 9765.6(BS=192) |
-| FP32 GPU=32,BS=128 | -(BS=96) | - | - | -(BS=96) |
-| AMP GPU=32,BS=128 | - | - | - | - |
+| AMP GPU=32,BS=128 | 27500.8 | - | - | - |
 | AMP GPU=32,BS=256 | -(BS=208) | - | - | -(BS=192) |
 
 > 以上测试，由于显存限制，下调了部分测试的BatchSize，并在表格中注明
