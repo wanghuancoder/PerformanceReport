@@ -64,6 +64,7 @@
 - **单位**：`images/sec`
 
 - FP32测试
+
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
 |:-----:|:-----:|:-----:|:-----:|:-----:|
 | FP32 GPU=1,BS=128 | 383(BS=96) | 408.3 | 364.2 | 387.1(BS=96) |
@@ -71,6 +72,7 @@
 | FP32 GPU=32,BS=128 | -(BS=96) | - | - | -(BS=96) |
 
 - AMP测试
+
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
 |:-----:|:-----:|:-----:|:-----:|:-----:|
 | AMP GPU=1,BS=128 | 1335.1 | 954.9 | 828.7 | 1380.6 |
