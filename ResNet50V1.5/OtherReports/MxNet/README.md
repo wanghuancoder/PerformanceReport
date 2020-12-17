@@ -23,13 +23,26 @@
 
 我们使用了与Paddle测试完全相同的物理机环境：
 
-- 系统：CentOS Linux release 7.5.1804
-- GPU：Tesla V100-SXM2-32GB * 8
-- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-- CUDA：11
-- cuDNN：8.0.4
-- Driver Version: 450.80.02
-- 内存：502 GB
+- 单机（单卡、8卡）
+  - 系统：CentOS Linux release 7.5.1804
+  - GPU：Tesla V100-SXM2-16GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
+  - CUDA：11
+  - cuDNN：8.0.4
+  - Driver Version: 450.80.02
+  - 内存：432 GB
+
+> TODO(Distribute):<br>
+> 请李洋提供一下多机环境
+
+- 多机（32卡）
+  - 系统：CentOS Linux release 7.5.1804  TODO
+  - GPU：Tesla V100-SXM2-32GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
+  - CUDA：10.1
+  - cuDNN：7.6.5 TODO
+  - Driver Version: 440.33.01
+  - 内存：512 GB
 
 ### 2.Docker 镜像
 
@@ -104,10 +117,9 @@
 
 - 执行后将得到如下日志文件：
    ```bash
-   /data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu1_gpu8_fp32_bs128.txt
-   /data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu1_gpu8_fp32_bs256.txt
-   /data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu1_gpu8_amp_bs128.txt
-   /data/imagenet/train-val-recordio-passthrough/log/mxnet_gpu1_gpu8_amp_bs256.txt
+   /log/mxnet_gpu1_gpu8_fp32_bs96.txt
+   /log/mxnet_gpu1_gpu8_amp_bs128.txt
+   /log/mxnet_gpu1_gpu8_amp_bs192.txt
    ```
 
 在NGC报告的[Training performance: NVIDIA DGX-2 (16x V100 32G)](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet/Classification/RN50v1.5#training-performance-nvidia-dgx-2-16x-v100-32g)小节，提供了其测试的参数配置。因此，我们提供的`mxnet_test_all.sh`是参考了其文档中的配置。
@@ -132,7 +144,7 @@
 
 |卡数 | FP32(BS=96) | AMP(BS=128) | AMP(BS=192)|
 |:-----:|:-----:|:-----:|:-----:|
-|1 | 387.07 | 1380.6 | 1447.6 |
+|1 | 387.7 | 1380.6 | 1447.6 |
 |8 | 2998.1 | 9218.9 | 9765.6 |
 |32 | - | - | - |
 
@@ -140,10 +152,9 @@
 > 完成测试，将32卡数据填入表格
 
 ## 五、日志数据
-- [1卡、8卡 FP32 BS=128 日志](./logs/mxnet_gpu1_gpu8_fp32_bs128.txt)
-- [1卡、8卡 FP32 BS=256 日志](./logs/mxnet_gpu1_gpu8_fp32_bs256.txt)
+- [1卡、8卡 FP32 BS=96 日志](./logs/mxnet_gpu1_gpu8_fp32_bs96.txt)
 - [1卡、8卡 AMP BS=128 日志](./logs/mxnet_gpu1_gpu8_amp_bs128.txt)
-- [1卡、8卡 AMP BS=256 日志](./logs/mxnet_gpu1_gpu8_amp_bs256.txt)
+- [1卡、8卡 AMP BS=192 日志](./logs/mxnet_gpu1_gpu8_amp_bs192.txt)
 
 > TODO(Distribute):<br>
 > 完成测试，将32卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
