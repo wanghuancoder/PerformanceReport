@@ -67,27 +67,26 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 ## 二、环境介绍
 ### 1.物理机环境
 
-- 单机环境
-  - **系统**: CentOS Linux release 7.5.1804
-  - **GPU**: Tesla V100-SXM2-16GB * 8
-  - **CPU**: Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - **CUDA**: 11
-  - **cuDNN**: 8.0.4
-  - **Driver Version**: 450.80.02
-  - **内存**: 432 GB
+- 单机（单卡、8卡）
+  - 系统：CentOS Linux release 7.5.1804
+  - GPU：Tesla V100-SXM2-16GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
+  - Driver Version: 450.80.02
+  - 内存：432 GB
 
-- 多机环境
-  - **系统**: TODO @李洋
-  - **GPU**: Tesla V100-SXM2-32GB * 8
-  - **CPU**: Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
-  - **Driver Version**: 450.80.02
-  - **内存**: 502 GB
+- 多机（32卡）
+  - 系统：TODO @李洋
+  - GPU：Tesla V100-SXM2-32GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
+  - Driver Version: 450.80.02
+  - 内存：502 GB
 
 ### 2.Docker 镜像
 > TODO(Aurelius84): 待更新Paddle开源出去的docker镜像tags
 
 - **镜像版本**: `hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04`
-- **Paddle 版本**: `2.0rc1`
+- **Paddle 版本**: `develop+613c46bc0745c8069c55686aef4adc775f9e27d1`
+- **模型代码**：[PaddleNLP](https://github.com/PaddlePaddle/models/tree/develop/PaddleNLP)
 - **CUDA 版本**: `10.1`
 - **cuDnn 版本:** `7.6.5`
 
@@ -122,17 +121,15 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
     hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 /bin/bash
    ```
 
-- **安装Paddle**
+- **安装依赖**
    ```bash
-   # 安装paddle whl包 (todo: 待更新)
-   pip3.7 install -U paddlepaddle_gpu-0.0.0-cp37-cp37m-linux_x86_64.whl
-   # 安装 models 中依赖库
+   # 安装 PaddleNLP 中依赖库
    pip3.7 install -r PaddleNLP/requirements.txt
    ```
 
 - **准备数据**
 
-   Bert 模型的 Pre-Training 任务是基于 [wikipedia]() 和 [BookCorpus]() 数据集进行的训练的，原始数据集比较大。我们提供了一份小的、且已处理好的[样本数据集](https://bert-data.bj.bcebos.com/benchmark_sample%2Fbert_data.tar.gz)，大小 338M， 可以下载并解压到`models/`目录下。
+   Bert 模型的 Pre-Training 任务是基于 [wikipedia](https://dumps.wikimedia.org/) 和 [BookCorpus](http://yknzhu.wixsite.com/mbweb) 数据集进行的训练的，原始数据集比较大。我们提供了一份小的、且已处理好的[样本数据集](https://bert-data.bj.bcebos.com/benchmark_sample%2Fbert_data.tar.gz)，大小 338M， 可以下载并解压到`models/`目录下。
 
    ```bash
    # 解压数据集
@@ -293,7 +290,7 @@ TODO：验证下上面的分布式命令有没有问题 @李洋
 
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch |
 |:-----:|:-----:|:-----:|:-----:|
-| FP32 GPU=1,BS=32 | 147.14 |  |  |
+| FP32 GPU=1,BS=32 | 147.14 | 142.67 |  |
 | FP32 GPU=1,BS=48 | 153.47 | 148.23 | 128.92 |
 | AMP GPU=1,BS=64 | 595.49 | 488.32 | 524.48 |
 | AMP GPU=1,BS=96 | 628.25 | 536.06 | 543.76 |
