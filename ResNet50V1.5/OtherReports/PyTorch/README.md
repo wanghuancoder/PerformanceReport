@@ -23,13 +23,26 @@
 
 我们使用了与Paddle测试完全相同的物理机环境：
 
-- 系统：CentOS Linux release 7.5.1804
-- GPU：Tesla V100-SXM2-32GB * 8
-- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-- CUDA：11
-- cuDNN：8.0.4
-- Driver Version: 450.80.02
-- 内存：502 GB
+- 单机（单卡、8卡）
+  - 系统：CentOS Linux release 7.5.1804
+  - GPU：Tesla V100-SXM2-16GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
+  - CUDA：11
+  - cuDNN：8.0.4
+  - Driver Version: 450.80.02
+  - 内存：432 GB
+
+> TODO(Distribute):<br>
+> 请李洋提供一下多机环境
+
+- 多机（32卡）
+  - 系统：CentOS Linux release 7.5.1804  TODO
+  - GPU：Tesla V100-SXM2-32GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
+  - CUDA：10.1
+  - cuDNN：7.6.5 TODO
+  - Driver Version: 440.33.01
+  - 内存：512 GB
 
 ### 2.Docker 镜像
 
@@ -97,14 +110,12 @@
 
 - 执行后将得到如下日志文件：
    ```
-   /imagenet/log/pytorch_gpu1_fp32_bs128.txt
-   /imagenet/log/pytorch_gpu1_fp32_bs256.txt
-   /imagenet/log/pytorch_gpu1_amp_bs128.txt
-   /imagenet/log/pytorch_gpu1_amp_bs256.txt
-   /imagenet/log/pytorch_gpu8_fp32_bs128.txt
-   /imagenet/log/pytorch_gpu8_fp32_bs256.txt
-   /imagenet/log/pytorch_gpu8_amp_bs128.txt
-   /imagenet/log/pytorch_gpu8_amp_bs256.txt
+   /log/pytorch_gpu1_fp32_bs128.txt
+   /log/pytorch_gpu1_amp_bs128.txt
+   /log/pytorch_gpu1_amp_bs256.txt
+   /log/pytorch_gpu8_fp32_bs128.txt
+   /log/pytorch_gpu8_amp_bs128.txt
+   /log/pytorch_gpu8_amp_bs248.txt
    ```
 
 在NGC报告的[Training performance benchmark](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5#training-performance-benchmark)小节，提供了其测试的参数配置。因此，我们提供的`pytorch_test_all.sh`是参考了其文档中的配置。
@@ -133,18 +144,18 @@
 |8 | 2826.78 | 6014.71 | 6230.10(BS=248) |
 |32 | - | - | - |
 
+> 其中，AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为248
+
 > TODO(Distribute):<br>
 > 完成测试，将32卡数据填入表格
 
 ## 五、日志数据
 - [1卡 FP32 BS=128 日志](./logs/pytorch_gpu1_fp32_bs128.txt)
-- [1卡 FP32 BS=256 日志](./logs/pytorch_gpu1_fp32_bs256.txt)
 - [1卡 AMP BS=128 日志](./logs/pytorch_gpu1_amp_bs128.txt)
 - [1卡 AMP BS=256 日志](./logs/pytorch_gpu1_amp_bs256.txt)
 - [8卡 FP32 BS=128 日志](./logs/pytorch_gpu8_fp32_bs128.txt)
-- [8卡 FP32 BS=256 日志](./logs/pytorch_gpu8_fp32_bs256.txt)
 - [8卡 AMP BS=128 日志](./logs/pytorch_gpu8_amp_bs128.txt)
-- [8卡 AMP BS=256 日志](./logs/pytorch_gpu8_amp_bs256.txt)
+- [8卡 AMP BS=248 日志](./logs/pytorch_gpu8_amp_bs248.txt)
 
 > TODO(Distribute):<br>
 > 完成测试，将32卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
