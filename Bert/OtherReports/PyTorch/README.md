@@ -114,7 +114,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 
 ## 三、测试步骤
 
-为了更准确的复现 NGC PyTorch 公布的 [NVIDIA DGX-1 (8x V100 32GB)](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/LanguageModeling/BERT#training-performance-nvidia-dgx-1-8x-v100-32g) 性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
+为了更准确的测试 NGC PyTorch 在 `NVIDIA DGX-1 (8x V100 16GB)` 上的性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
 
 官方提供的 [scripts/run_pretraining.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/LanguageModeling/BERT/scripts/run_pretraining.sh) 执行脚本中，默认配置的是两阶段训练。我们此处统一仅执行 **第一阶段训练**，并根据日志中的输出的数据计算吞吐。
 

@@ -114,7 +114,7 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
 
 ## 三、测试步骤
 
-为了更准确的复现 NGC TensorFlow 公布的 [NVIDIA DGX-1 (8x V100 32GB)](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/LanguageModeling/BERT#pre-training-training-performance-single-node-on-dgx-1-32GB) 性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
+为了更准确的测试 NGC TensorFlow 在 `NVIDIA DGX-1 (8x V100 16GB)` 的性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
 
 官方提供的 [scripts/run_pretraining_lamb.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb.sh) 执行脚本中，默认配置的是两阶段训练。我们此处统一仅执行 **第一阶段训练**，并根据日志中的输出的数据计算吞吐。因此我们注释掉了[scripts/run_pretraining_lamb.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb.sh#L60)的60行：
 ```bash
