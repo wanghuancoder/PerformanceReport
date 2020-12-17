@@ -44,7 +44,13 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 
 - **BatchSize**
 
-   本次测试，测试了BatchSize=128和BatchSize=256时，模型的吞吐率。BatchSize=128和BatchSize=256是业内最常使用的两种BatchSize大小。
+本次测试，结合各框架具体情况，BatchSize选用如下：
+
+| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC 个MXNet |
+|:-----:|:-----:|:-----:|:-----:|:-----:|
+| FP32 | 96 | 128 | 128 | 96 |
+| AMP | 128 | 128 | 128 | 128 |
+| AMP | 208 | 256 | 256 | 192 |
 
 关于其它一些参数的说明：
 - **DALI**
@@ -60,20 +66,33 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 ## 二、环境介绍
 ### 1.物理机环境
 
-- 系统：CentOS Linux release 7.5.1804
-- GPU：Tesla V100-SXM2-16GB * 8
-- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-- CUDA：11
-- cuDNN：8.0.4
-- Driver Version: 450.80.02
-- 内存：432 GB
+- 单机（单卡、8卡）
+  - 系统：CentOS Linux release 7.5.1804
+  - GPU：Tesla V100-SXM2-16GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
+  - CUDA：11
+  - cuDNN：8.0.4
+  - Driver Version: 450.80.02
+  - 内存：432 GB
+
+> TODO(Distribute):<br>
+> 请李洋提供一下多机环境
+
+- 多机（32卡）
+  - 系统：CentOS Linux release 7.5.1804  TODO
+  - GPU：Tesla V100-SXM2-32GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
+  - CUDA：10.1
+  - cuDNN：7.6.5 TODO
+  - Driver Version: 440.33.01
+  - 内存：512 GB
 
 ### 2.Docker 镜像
 
 Paddle Docker的基本信息如下：
 
 - Docker: hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 TODO
-- Paddle：develop+sfdsafdsafdsafsa TODO
+- Paddle：develop+613c46bc0745c8069c55686aef4adc775f9e27d1
 - 模型代码：[PaddleClas](https://github.com/PaddlePaddle/PaddleClas)
 - CUDA：10.1
 - cuDNN：7.6.5
@@ -217,18 +236,18 @@ Legend:
 | AMP GPU=32,BS=128 | - | - | - | - |
 | AMP GPU=32,BS=256 | -(BS=208) | - | - | -(BS=192) |
 
+> 其中，Pytorch AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为248
+
 > TODO(Distribute):<br>
 > 完成测试，将32卡数据填入表格
 
 ## 六、日志数据
-- [1卡 FP32 BS=128 日志](./logs/paddle_gpu1_fp32_bs128.txt)
-- [1卡 FP32 BS=128 日志](./logs/paddle_gpu1_fp32_bs256.txt)
-- [1卡 FP32 BS=128 日志](./logs/paddle_gpu1_amp_bs128.txt)
-- [1卡 FP32 BS=128 日志](./logs/paddle_gpu1_amp_bs256.txt)
-- [8卡 FP32 BS=128 日志](./logs/paddle_gpu8_fp32_bs128.txt)
-- [8卡 FP32 BS=128 日志](./logs/paddle_gpu8_fp32_bs256.txt)
-- [8卡 FP32 BS=128 日志](./logs/paddle_gpu8_amp_bs128.txt)
-- [8卡 FP32 BS=128 日志](./logs/paddle_gpu8_amp_bs256.txt)
+- [1卡 FP32 BS=96 日志](./logs/paddle_gpu1_fp32_bs96.txt)
+- [1卡 AMP BS=128 日志](./logs/paddle_gpu1_amp_bs128.txt)
+- [1卡 AMP BS=208 日志](./logs/paddle_gpu1_amp_bs208.txt)
+- [8卡 FP32 BS=96 日志](./logs/paddle_gpu8_fp32_bs96.txt)
+- [8卡 AMP BS=128 日志](./logs/paddle_gpu8_amp_bs128.txt)
+- [8卡 AMP BS=208 日志](./logs/paddle_gpu8_amp_bs208.txt)
 
 > TODO(Distribute):<br>
 > 完成测试，将32卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
