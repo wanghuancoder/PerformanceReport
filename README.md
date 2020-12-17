@@ -67,7 +67,7 @@
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=128 | 383<sup>[BS=96]()</sup> | 408.3 | 364.2 | 387.1<sup>BS=96</sup> |
+  | GPU=1,BS=128 | 383<sup>[BS=96]</sup> | 408.3 | 364.2 | 387.1<sup>BS=96</sup> |
   | GPU=8,BS=128 | 2753.3<sup>BS=96</sup> | 3105.3 | 2826.8 | 2998.1<sup>BS=96</sup> |
   | GPU=32,BS=128 | -<sup>BS=96</sup> | - | - | -<sup>BS=96</sup> |
 
