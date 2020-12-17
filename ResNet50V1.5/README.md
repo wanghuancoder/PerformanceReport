@@ -70,8 +70,6 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
   - 系统：CentOS Linux release 7.5.1804
   - GPU：Tesla V100-SXM2-16GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - CUDA：11
-  - cuDNN：8.0.4
   - Driver Version: 450.80.02
   - 内存：432 GB
 
@@ -82,8 +80,6 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
   - 系统：CentOS Linux release 7.5.1804  TODO
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-  - CUDA：10.1
-  - cuDNN：7.6.5 TODO
   - Driver Version: 440.33.01
   - 内存：512 GB
 
