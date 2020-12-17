@@ -218,6 +218,7 @@ Legend:
 - 单位：`images/sec`
 - 对于支持 `DALI/XLA` 的框架，以下测试为开启 `DALI/XLA` 的数据
 
+结果：
 - FP32测试
 
 | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
