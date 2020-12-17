@@ -23,13 +23,26 @@
 
 我们使用了与Paddle测试完全相同的物理机环境：
 
-- 系统：CentOS Linux release 7.5.1804
-- GPU：Tesla V100-SXM2-32GB * 8
-- CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-- CUDA：11
-- cuDNN：8.0.4
-- Driver Version: 450.80.02
-- 内存：502 GB
+- 单机（单卡、8卡）
+  - 系统：CentOS Linux release 7.5.1804
+  - GPU：Tesla V100-SXM2-16GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
+  - CUDA：11
+  - cuDNN：8.0.4
+  - Driver Version: 450.80.02
+  - 内存：432 GB
+
+> TODO(Distribute):<br>
+> 请李洋提供一下多机环境
+
+- 多机（32卡）
+  - 系统：CentOS Linux release 7.5.1804  TODO
+  - GPU：Tesla V100-SXM2-32GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
+  - CUDA：10.1
+  - cuDNN：7.6.5 TODO
+  - Driver Version: 440.33.01
+  - 内存：512 GB
 
 ### 2.Docker 镜像
 
@@ -100,14 +113,12 @@
 
 - 执行后将得到如下日志文件：
    ```bash
-   /data/tfrecords/log/tf_gpu1_fp32_bs128.txt
-   /data/tfrecords/log/tf_gpu1_fp32_bs256.txt
-   /data/tfrecords/log/tf_gpu1_amp_bs128.txt
-   /data/tfrecords/log/tf_gpu1_amp_bs256.txt
-   /data/tfrecords/log/tf_gpu8_fp32_bs128.txt
-   /data/tfrecords/log/tf_gpu8_fp32_bs256.txt
-   /data/tfrecords/log/tf_gpu8_amp_bs128.txt
-   /data/tfrecords/log/tf_gpu8_amp_bs256.txt
+   /log/tf_gpu1_fp32_bs128.txt
+   /log/tf_gpu1_amp_bs128.txt
+   /log/tf_gpu1_amp_bs256.txt
+   /log/tf_gpu8_fp32_bs128.txt
+   /log/tf_gpu8_amp_bs128.txt
+   /log/tf_gpu8_amp_bs256.txt
    ```
 
 由于NGC TensorFlow的测试使用的是`training_perf.sh`，因此我们提供的`tf_test_all.sh`是参考了`training_perf.sh`的参数设置方法。
@@ -132,8 +143,8 @@
 
 |卡数 | FP32(BS=128) | AMP(BS=128) | AMP(BS=256)|
 |:-----:|:-----:|:-----:|:-----:|
-|1 | 408.320 | 954.940 | 978.827 |
-|8 | 3105.256 | 7829.922 | 7810.758 |
+|1 | 408.3 | 954.9 | 978.8 |
+|8 | 3105.3 | 7829.9 | 7810.8 |
 |32 | - | - | - |
 
 > TODO(Distribute):<br>
@@ -141,11 +152,9 @@
 
 ## 五、日志数据
 - [1卡 FP32 BS=128 日志](./logs/tf_gpu1_fp32_bs128.txt)
-- [1卡 FP32 BS=256 日志](./logs/tf_gpu1_fp32_bs256.txt)
 - [1卡 AMP BS=128 日志](./logs/tf_gpu1_amp_bs128.txt)
 - [1卡 AMP BS=256 日志](./logs/tf_gpu1_amp_bs256.txt)
 - [8卡 FP32 BS=128 日志](./logs/tf_gpu8_fp32_bs128.txt)
-- [8卡 FP32 BS=256 日志](./logs/tf_gpu8_fp32_bs256.txt)
 - [8卡 AMP BS=128 日志](./logs/tf_gpu8_amp_bs128.txt)
 - [8卡 AMP BS=256 日志](./logs/tf_gpu8_amp_bs256.txt)
 
