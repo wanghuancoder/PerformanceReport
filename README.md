@@ -65,22 +65,22 @@
 
 - FP32测试
 
-| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
-|:-----:|:-----:|:-----:|:-----:|:-----:|
-| FP32 GPU=1,BS=128 | 383(BS=96) | 408.3 | 364.2 | 387.1(BS=96) |
-| FP32 GPU=8,BS=128 | 2753.3(BS=96) | 3105.3 | 2826.8 | 2998.1(BS=96) |
-| FP32 GPU=32,BS=128 | -(BS=96) | - | - | -(BS=96) |
+  | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
+  |:-----:|:-----:|:-----:|:-----:|:-----:|
+  | FP32 GPU=1,BS=128 | 383(BS=96) | 408.3 | 364.2 | 387.1(BS=96) |
+  | FP32 GPU=8,BS=128 | 2753.3(BS=96) | 3105.3 | 2826.8 | 2998.1(BS=96) |
+  | FP32 GPU=32,BS=128 | -(BS=96) | - | - | -(BS=96) |
 
 - AMP测试
 
-| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
-|:-----:|:-----:|:-----:|:-----:|:-----:|
-| AMP GPU=1,BS=128 | 1335.1 | 954.9 | 828.7 | 1380.6 |
-| AMP GPU=1,BS=256 | 1400.1(BS=208) | 978.8 | 841.6 | 1447.6(BS=192) |
-| AMP GPU=8,BS=128 | 8322.9 | 7829.9	 | 6014.7 | 9218.9 |
-| AMP GPU=8,BS=256 | 9099.5(BS=208) | 7810.8 | 6230.1(BS=248) | 9765.6(BS=192) |
-| AMP GPU=32,BS=128 | 27500.8 | - | - | - |
-| AMP GPU=32,BS=256 | -(BS=208) | - | - | -(BS=192) |
+  | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
+  |:-----:|:-----:|:-----:|:-----:|:-----:|
+  | AMP GPU=1,BS=128 | 1335.1 | 954.9 | 828.7 | 1380.6 |
+  | AMP GPU=1,BS=256 | 1400.1(BS=208) | 978.8 | 841.6 | 1447.6(BS=192) |
+  | AMP GPU=8,BS=128 | 8322.9 | 7829.9	 | 6014.7 | 9218.9 |
+  | AMP GPU=8,BS=256 | 9099.5(BS=208) | 7810.8 | 6230.1(BS=248) | 9765.6(BS=192) |
+  | AMP GPU=32,BS=128 | 27500.8 | - | - | - |
+  | AMP GPU=32,BS=256 | -(BS=208) | - | - | -(BS=192) |
 
 > 以上测试，由于显存限制，下调了部分测试的BatchSize，并在表格中注明 <br>
 > Pytorch AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为248
@@ -93,22 +93,22 @@
 
 - FP32测试
 
-| 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
-|:-----:|:-----:|:-----:|:-----:|
-| FP32 GPU=1,BS=32 | 147.14 | 142.67 |  |
-| FP32 GPU=1,BS=48 | 153.47 | 148.23 | 128.92 |
-| FP32 GPU=8,BS=32 |1140.52 |  |  |
-| FP32 GPU=8,BS=48 |1186.89  |  |  |
-| FP32 GPU=32,BS=32 | 4541.76 | - | - |
-| FP32 GPU=32,BS=48 | 5026.88 | - | - |
+  | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
+  |:-----:|:-----:|:-----:|:-----:|
+  | FP32 GPU=1,BS=32 | 147.14 | 142.67 | 128.53 |
+  | FP32 GPU=1,BS=48 | 153.47 | 148.23 | 128.92 |
+  | FP32 GPU=8,BS=32 |1140.52 |  |  |
+  | FP32 GPU=8,BS=48 |1186.89  |  |  |
+  | FP32 GPU=32,BS=32 | 4541.76 | - | - |
+  | FP32 GPU=32,BS=48 | 5026.88 | - | - |
 
 - AMP测试
 
-| 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
-|:-----:|:-----:|:-----:|:-----:|
-| AMP GPU=1,BS=64 | 595.49 | 488.32 | 524.48 |
-| AMP GPU=1,BS=96 | 628.25 | 536.06 | 543.76 |
-| AMP GPU=8,BS=64 | 4329.79 |  | 4058.34|
-| AMP GPU=8,BS=96 | 4569.42 |  | 4208.12|
-| AMP GPU=32,BS=64 | 17756.8 | - | - |
-| AMP GPU=32,BS=96 | 19171.84 | - | - |
+  | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
+  |:-----:|:-----:|:-----:|:-----:|
+  | AMP GPU=1,BS=64 | 595.49 | 488.32 | 524.48 |
+  | AMP GPU=1,BS=96 | 628.25 | 536.06 | 543.76 |
+  | AMP GPU=8,BS=64 | 4329.79 |  | 4058.34|
+  | AMP GPU=8,BS=96 | 4569.42 |  | 4208.12|
+  | AMP GPU=32,BS=64 | 17756.8 | - | - |
+  | AMP GPU=32,BS=96 | 19171.84 | - | - |

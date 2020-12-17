@@ -277,29 +277,34 @@ TODO：验证下上面的分布式命令有没有问题 @李洋
 
 ### 2.与业内其它框架对比
 
-说明：
-- 同等执行环境下测试
-- 单位：`sequences/sec`
-- max_seq_len: 128
-- BatchSize FP32下统一选择 32 和 48、AMP下统一选择 64、96
+- 说明：
+  - 同等执行环境下测试
+  - 单位：`sequences/sec`
+  - max_seq_len: 128
+  - BatchSize FP32下统一选择 32 和 48、AMP下统一选择 64、96
 
 
-`V100 32G` 机器上：
+- FP32测试
 
-| 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch |
-|:-----:|:-----:|:-----:|:-----:|
-| FP32 GPU=1,BS=32 | 147.14 | 142.67 |  |
-| FP32 GPU=1,BS=48 | 153.47 | 148.23 | 128.92 |
-| AMP GPU=1,BS=64 | 595.49 | 488.32 | 524.48 |
-| AMP GPU=1,BS=96 | 628.25 | 536.06 | 543.76 |
-| FP32 GPU=8,BS=32 |1140.52 |  |  |
-| FP32 GPU=8,BS=48 |1186.89  |  |  |
-| AMP GPU=8,BS=64 | 4329.79 |  | 4058.34|
-| AMP GPU=8,BS=96 | 4569.42 |  | 4208.12|
-| FP32 GPU=32,BS=32 | - | - | - |
-| FP32 GPU=32,BS=48 | - | - | - |
-| AMP GPU=32,BS=64 | - | - | - |
-| AMP GPU=32,BS=96 | - | - | - |
+  | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
+  |:-----:|:-----:|:-----:|:-----:|
+  | FP32 GPU=1,BS=32 | 147.14 | 142.67 | 128.53 |
+  | FP32 GPU=1,BS=48 | 153.47 | 148.23 | 128.92 |
+  | FP32 GPU=8,BS=32 |1140.52 |  |  |
+  | FP32 GPU=8,BS=48 |1186.89  |  |  |
+  | FP32 GPU=32,BS=32 | 4541.76 | - | - |
+  | FP32 GPU=32,BS=48 | 5026.88 | - | - |
+
+- AMP测试
+
+  | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
+  |:-----:|:-----:|:-----:|:-----:|
+  | AMP GPU=1,BS=64 | 595.49 | 488.32 | 524.48 |
+  | AMP GPU=1,BS=96 | 628.25 | 536.06 | 543.76 |
+  | AMP GPU=8,BS=64 | 4329.79 |  | 4058.34|
+  | AMP GPU=8,BS=96 | 4569.42 |  | 4208.12|
+  | AMP GPU=32,BS=64 | 17756.8 | - | - |
+  | AMP GPU=32,BS=96 | 19171.84 | - | - |
 
 ## 六、日志数据
 ### 1.单机（单卡、8卡）日志
