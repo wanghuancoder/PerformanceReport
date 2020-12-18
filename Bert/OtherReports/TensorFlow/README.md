@@ -25,6 +25,13 @@
 
 我们使用了同一个物理机环境，对 [NGC TensorFlow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/LanguageModeling/BERT) 的 Bert 模型进行了测试，详细物理机配置，见[Paddle Bert Base 性能测试](../../README.md#1.物理机环境)。
 
+- 多机（32卡）
+  - 系统：CentOS Linux release 7.5.1804  TODO
+  - GPU：Tesla V100-SXM2-32GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
+  - Driver Version: 450.80.02
+  - 内存：502 GB
+
 ### 2.Docker 镜像
 
 NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚本](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/docker/build.sh)，
