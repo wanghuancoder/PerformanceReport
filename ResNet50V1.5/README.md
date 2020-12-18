@@ -222,9 +222,6 @@ Legend:
 
 以上数据是根据PaddleClas日志数据，去掉warmup step后，求平均得出。
 
-> TODO(Distribute):<br>
-> 完成测试，将32卡数据填入表格
-
 ### 2.与业内其它框架对比
 
 说明：
@@ -255,9 +252,6 @@ Legend:
 > 以上测试，由于显存限制，下调了部分测试的BatchSize，并在表格中注明 <br>
 > Pytorch AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为248
 
-> TODO(Distribute):<br>
-> 完成测试，将32卡数据填入表格
-
 ## 六、日志数据
 - [1卡 FP32 BS=96 日志](./logs/paddle_gpu1_fp32_bs96.txt)
 - [1卡 AMP BS=128 日志](./logs/paddle_gpu1_amp_bs128.txt)
@@ -268,6 +262,3 @@ Legend:
 - [32卡 AMP BS=208 日志](./logs/paddle_gpu32_amp_bs208.txt)
 - [32卡 AMP BS=128 日志](./logs/paddle_gpu32_amp_bs128.txt)
 - [32卡 FP32 BS=96 日志](./logs/paddle_gpu32_fp32_bs96.txt)
-
-> TODO(Distribute):<br>
-> 完成测试，将32卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
