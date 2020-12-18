@@ -258,7 +258,6 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
   ```bash
   bash run_multi_node_benchmark.sh 64 True
   ```
-TODO：验证下上面的分布式命令有没有问题 @李洋
 
 ## 五、测试结果
 
