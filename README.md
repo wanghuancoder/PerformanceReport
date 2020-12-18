@@ -73,7 +73,7 @@
 
 - AMP测试
 
-  | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
+  | 参数 | [PaddlePaddle](./ResNet50V1.5) | [NGC TensorFlow 1.15](./ResNet50V1.5/OtherReports/TensorFlow) | [NGC PyTorch](./ResNet50V1.5/OtherReports/PyTorch) | [NGC MXNet](./ResNet50V1.5/OtherReports/MxNet) |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
   | GPU=1,BS=128 | 1335.1 | 954.9 | 828.7 | 1380.6 |
   | GPU=1,BS=256 | 1400.1<sup>[BS=208]</sup> | 978.8 | 841.6 | 1447.6<sup>[BS=192]</sup> |
