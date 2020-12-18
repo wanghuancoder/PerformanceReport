@@ -19,6 +19,7 @@
 - [三、测试结果](#三测试结果)
   - [1. ResNet50V1.5](#1-resnet50v15)
   - [2. Bert Base Pre-Training](#2-bert-base-pre-training)
+  - [3. Bert Large Pre-Training](#3-bert-large-pre-training)
 
 ## 一、测试模型
 
@@ -85,18 +86,34 @@
 - **max_seq_len**: `128`
 - **单位**：`sequences/sec`
 
+- `V100 32G` 机器上
 
-| 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
-|:-----:|:-----:|:-----:|:-----:|
-| FP32 GPU=1,BS=32 | 145.95 | 141.73 | 126.43 |
-| FP32 GPU=1,BS=64 | 153.22 | 153.94 | 127.02 |
-| AMP GPU=1,BS=64 | 558.62 | 452.53 | 490.92 |
-| AMP GPU=1,BS=128 | 609.98 | 537.82 | 529.46 |
-| FP32 GPU=8,BS=32 | 1134.25 | 1109.04 | 1012.09 |
-| FP32 GPU=8,BS=64 | 1190.11 | 1210.16 | 1018.51 |
-| AMP GPU=8,BS=64 | 4068.11 | 3545.29 | 3917.36|
-| AMP GPU=8,BS=128 | 4415.48 | 4224.21 | 4229.12|
-| FP32 GPU=32,BS=32 | - | - | - |
-| FP32 GPU=32,BS=64 | - | - | - |
-| AMP GPU=32,BS=64 | - | - | - |
-| AMP GPU=32,BS=128 | - | - | - |
+  | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
+  |:-----:|:-----:|:-----:|:-----:|
+  | FP32 GPU=1,BS=32 | 145.95 | 141.73 | 126.43 |
+  | FP32 GPU=1,BS=64 | 153.22 | 153.94 | 127.02 |
+  | AMP GPU=1,BS=64 | 558.62 | 452.53 | 490.92 |
+  | AMP GPU=1,BS=128 | 609.98 | 537.82 | 529.46 |
+  | FP32 GPU=8,BS=32 | 1134.25 | 1109.04 | 1012.09 |
+  | FP32 GPU=8,BS=64 | 1190.11 | 1210.16 | 1018.51 |
+  | AMP GPU=8,BS=64 | 4068.11 | 3545.29 | 3917.36|
+  | AMP GPU=8,BS=128 | 4415.48 | 4224.21 | 4229.12|
+  | FP32 GPU=32,BS=32 | - | - | - |
+  | FP32 GPU=32,BS=64 | - | - | - |
+  | AMP GPU=32,BS=64 | - | - | - |
+  | AMP GPU=32,BS=128 | - | - | - |
+
+
+### 3. Bert Large Pre-Training
+- **max_seq_len**: `128`
+- **单位**：`sequences/sec`
+
+- `V100 16G` 机器上
+  | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
+  |:-----:|:-----:|:-----:|:-----:|
+  | FP32 GPU=1,BS=8 | 39.04 | 39.43 | 40 |
+  | FP32 GPU=8,BS=8 | 304.39 | 285.79 | 313 |
+  | AMP GPU=1,BS=16 | 153.12 | 134.34 | 164 |
+  | AMP GPU=8,BS=16 | 1170.24 | 1001.39 | 1236 |
+
+  > 注：NGC TensorFlow 和 NGC PyTorch的数据参考自Github官网。
