@@ -313,3 +313,7 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 - [8卡 bs=48、FP32](./logs/base_bs48_fp32_gpu8.log)
 - [8卡 bs=64、AMP](./logs/base_bs64_fp16_gpu8.log)
 - [8卡 bs=96、AMP](./logs/base_bs96_fp16_gpu8.log)
+- [32卡 bs=96、AMP](./logs/base_bs96_fp16_gpu32.log)
+- [32卡 bs=64、AMP](./logs/base_bs64_fp16_gpu32.log)
+- [32卡 bs=32、FP32](./logs/base_bs32_fp32_gpu32.log)
+- [32卡 bs=48、FP32](./logs/base_bs48_fp32_gpu32.log)
