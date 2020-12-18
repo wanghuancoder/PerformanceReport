@@ -184,7 +184,7 @@ Legend:
    ```
 
 ### 2.多机（32卡）测试
-- 下载我们编写的测试脚本，并执行该脚本
+- 下载我们编写的测试脚本，并执行该脚本(每台机器均需要执行)
   ```bash
   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/paddle_test_multi_node_all.sh
   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_32gpu_fp32_bs96.yaml

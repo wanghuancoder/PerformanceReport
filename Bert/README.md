@@ -208,7 +208,7 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 
 
 ### 2.多机（32卡）测试
-为了更方便的复现我们的测试结果，我们提供一键测试 benchmark 数据的脚本 `run_multi_node_benchmark.sh` ，需放在 `benchmark/bert`目录下。
+为了更方便的复现我们的测试结果，我们提供一键测试 benchmark 数据的脚本 `run_multi_node_benchmark.sh` ，需放在 `benchmark/bert`目录下(每台机器均需要执行)
 
 - **脚本内容如下：**
    ```bash
