@@ -56,8 +56,6 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
 
 - **优化器**
 
-   > TODO(Aurelius84): 最终确认 Paddle 使用的优化器类型
-
    在 Bert Base 的 Pre-Training 任务上，各个框架使用的优化器略有不同。NGC TensorFlow、NGC PyTorch 均支持 LAMBOptimizer，PaddlePaddle 默认使用的是 AdamOptimizer。
 
    此处我们以各个框架默认使用的优化器为准，并测试模型的吞吐性。
@@ -80,7 +78,6 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
   - 内存：502 GB
 
 ### 2.Docker 镜像
-> TODO(Aurelius84): 待更新Paddle开源出去的docker镜像tags
 
 - **镜像版本**: `hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04`
 - **Paddle 版本**: `develop+613c46bc0745c8069c55686aef4adc775f9e27d1`
@@ -290,8 +287,8 @@ TODO：验证下上面的分布式命令有没有问题 @李洋
   |:-----:|:-----:|:-----:|:-----:|
   | GPU=1,BS=32 | 147.14 | 142.67 | 128.53 |
   | GPU=1,BS=48 | 153.47 | 148.23 | 128.92 |
-  | GPU=8,BS=32 |1140.52 |  | 999.99 |
-  | GPU=8,BS=48 |1186.89  |  | 995.88 |
+  | GPU=8,BS=32 |1140.52 | 984.73 | 999.99 |
+  | GPU=8,BS=48 |1186.89  | 1075.27 | 995.88 |
   | GPU=32,BS=32 | 4541.76 | - | - |
   | GPU=32,BS=48 | 5026.88 | - | - |
 
