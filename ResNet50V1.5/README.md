@@ -110,30 +110,30 @@ Paddle Docker的基本信息如下：
   ```
 
 - 多机网络部署
-```bash
-InfiniBand 100 Gb/sec
-nvidia-smi topo -m
-GPU0    GPU1    GPU2    GPU3    GPU4    GPU5    GPU6    GPU7    mlx5_0  CPU Affinity
-GPU0     X      NV2     NV2     NV1     NV1     NODE    NODE    NODE    NODE    0-19
-GPU1    NV2      X      NV1     NV1     NODE    NV2     NODE    NODE    NODE    0-19
-GPU2    NV2     NV1      X      NV2     NODE    NODE    NV1     NODE    NODE    0-19
-GPU3    NV1     NV1     NV2      X      NODE    NODE    NODE    NV2     NODE    0-19
-GPU4    NV1     NODE    NODE    NODE     X      NV2     NV2     NV1     NODE    0-19
-GPU5    NODE    NV2     NODE    NODE    NV2      X      NV1     NV1     NODE    0-19
-GPU6    NODE    NODE    NV1     NODE    NV2     NV1      X      NV2     NODE    0-19
-GPU7    NODE    NODE    NODE    NV2     NV1     NV1     NV2      X      NODE    0-19
-mlx5_0  NODE    NODE    NODE    NODE    NODE    NODE    NODE    NODE     X
+  ```bash
+  InfiniBand 100 Gb/sec
+  nvidia-smi topo -m
+  GPU0    GPU1    GPU2    GPU3    GPU4    GPU5    GPU6    GPU7    mlx5_0  CPU Affinity
+  GPU0     X      NV2     NV2     NV1     NV1     NODE    NODE    NODE    NODE    0-19
+  GPU1    NV2      X      NV1     NV1     NODE    NV2     NODE    NODE    NODE    0-19
+  GPU2    NV2     NV1      X      NV2     NODE    NODE    NV1     NODE    NODE    0-19
+  GPU3    NV1     NV1     NV2      X      NODE    NODE    NODE    NV2     NODE    0-19
+  GPU4    NV1     NODE    NODE    NODE     X      NV2     NV2     NV1     NODE    0-19
+  GPU5    NODE    NV2     NODE    NODE    NV2      X      NV1     NV1     NODE    0-19
+  GPU6    NODE    NODE    NV1     NODE    NV2     NV1      X      NV2     NODE    0-19
+  GPU7    NODE    NODE    NODE    NV2     NV1     NV1     NV2      X      NODE    0-19
+  mlx5_0  NODE    NODE    NODE    NODE    NODE    NODE    NODE    NODE     X
 
-Legend:
+  Legend:
 
-  X    = Self
-  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)
-  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node
-  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)
-  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)
-  PIX  = Connection traversing at most a single PCIe bridge
-  NV#  = Connection traversing a bonded set of # NVLinks
-  ```
+    X    = Self
+    SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)
+    NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node
+    PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)
+    PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)
+    PIX  = Connection traversing at most a single PCIe bridge
+    NV#  = Connection traversing a bonded set of # NVLinks
+    ```
 
 - 数据部署
   ImageNet数据集位于/data目录，具有如下目录结构：
@@ -192,7 +192,7 @@ Legend:
   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_32gpu_amp_bs208.yaml
   bash paddle_test_multi_node_all.sh
   ```
-  
+
 - 执行后将得到如下日志文件：
    ```bash
    ./paddle_gpu32_fp32_bs128.txt
