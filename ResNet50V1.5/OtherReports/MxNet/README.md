@@ -84,20 +84,7 @@
 
 ### 2.多机（32卡）环境搭建
 
-对于32卡性能测试，由于NGC并未提供测试环境和测试方法，我们参考[XXX]()搭建了测试环境，完成了测试。
-
-> TODO(Distribute):<br>
-> 找到一个TF或NGC官方的、关于分布式使用的文档，放在XXX位置，并提供链接。后续的测试，也真正参考这个文档进行测试。
-
-
-> TODO(Distribute):<br>
-> 1. 提供分布式测试环境搭建的详细方法，这里最好先确定是否能够使用NGC提供的官方docker `NGC 20.03`，完成分布式测试。否则，需要详细给出环境的搭建方法。参考材料如下： <br>
-> https://github.com/Oneflow-Inc/DLPerf/tree/master/PaddlePaddle/resnet50v1.5#nccl <br>
-> https://github.com/Oneflow-Inc/DLPerf/tree/master/NVIDIADeepLearningExamples/TensorFlow/Classification/ConvNets/resnet50v1.5#ssh%E9%85%8D%E7%BD%AE%E5%8F%AF%E9%80%89 <br>
-
-- SSH
-- BI
-- IP
+待后续测试。
 
 ## 三、测试步骤
 
@@ -122,17 +109,7 @@
 
 ### 2.多机（32卡）测试
 
-> TODO(Distribute):<br>
-> 1. 之后，进行测试，给出测试脚本。测试脚本最好是一键执行的。可参考NGC提供的`resnet50v1.5/training/training_perf.sh`脚本。也可以参考： <br>
-> https://github.com/Oneflow-Inc/DLPerf#benchmark-test-scopes <br>
-> https://github.com/Oneflow-Inc/DLPerf#benchmark-test-scopes <br>
-> 2. 得出32卡数据，并保留日志文件。
-> 3. 最好能够找到NGC/TF官方公布的多卡性能数据做对比，原则上我们复现的性能数据该与对方公布的数据基本接近，否则应认真检查我们的复现是否存在问题。OneFlow公开的TF 32卡数据参考如下： <br>
-> https://github.com/Oneflow-Inc/DLPerf/tree/master/NVIDIADeepLearningExamples/TensorFlow/Classification/ConvNets/resnet50v1.5#resnet50-v15-fp32  <br>
-
-请参考如下脚本搭建环境：
-```
-```
+待后续测试。
 
 ## 四、测试结果
 
@@ -144,13 +121,8 @@
 |8 | 2998.1 | 9218.9 | 9765.6 |
 |32 | - | - | - |
 
-> TODO(Distribute):<br>
-> 完成测试，将32卡数据填入表格
-
 ## 五、日志数据
 - [1卡、8卡 FP32 BS=96 日志](./logs/mxnet_gpu1_gpu8_fp32_bs96.txt)
 - [1卡、8卡 AMP BS=128 日志](./logs/mxnet_gpu1_gpu8_amp_bs128.txt)
 - [1卡、8卡 AMP BS=192 日志](./logs/mxnet_gpu1_gpu8_amp_bs192.txt)
 
-> TODO(Distribute):<br>
-> 完成测试，将32卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
