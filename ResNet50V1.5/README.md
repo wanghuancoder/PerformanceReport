@@ -186,15 +186,10 @@ Legend:
 ### 2.多机（32卡）测试
 - 下载我们编写的测试脚本，并执行该脚本
   ```bash
-  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/paddle_test_all.sh
-  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_1gpu_fp32_bs128.yaml
-  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_1gpu_fp32_bs256.yaml
-  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_1gpu_amp_bs128.yaml
-  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_1gpu_amp_bs256.yaml
-  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_fp32_bs128.yaml
-  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_fp32_bs256.yaml
-  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs128.yaml
-  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs256.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/paddle_test_multi_node_all.sh
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_32gpu_fp32_bs96.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_32gpu_amp_bs128.yaml
+  wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_32gpu_amp_bs208.yaml
   bash paddle_test_multi_node_all.sh
   ```
   TODO: 测试下上述脚本运行是否有问题 @李洋
