@@ -72,7 +72,7 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
   - 内存：432 GB
 
 - 多机（32卡）
-  - 系统：TODO： 确认环境 @李洋
+  - 系统：CentOS release 6.3 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
   - Driver Version: 450.80.02
@@ -82,7 +82,7 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 
 Paddle Docker的基本信息如下：
 
-- Docker: hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 TODO
+- Docker: hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
 - Paddle：develop+613c46bc0745c8069c55686aef4adc775f9e27d1
 - 模型代码：[PaddleClas](https://github.com/PaddlePaddle/PaddleClas)
 - CUDA：10.1
@@ -192,7 +192,6 @@ Legend:
   wget https://raw.githubusercontent.com/wanghuancoder/PerformanceReport/main/ResNet50V1.5/scripts/ResNet50_32gpu_amp_bs208.yaml
   bash paddle_test_multi_node_all.sh
   ```
-  TODO: 测试下上述脚本运行是否有问题 @李洋
   
 - 执行后将得到如下日志文件：
    ```bash

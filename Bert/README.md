@@ -71,7 +71,7 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
   - 内存：432 GB
 
 - 多机（32卡）
-  - 系统：TODO @李洋
+  - 系统：CentOS release 6.3 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
   - Driver Version: 450.80.02
@@ -259,7 +259,6 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
   ```bash
   bash run_multi_node_benchmark.sh 64 True
   ```
-TODO：验证下上面的分布式命令有没有问题 @李洋
 
 ## 五、测试结果
 
@@ -271,7 +270,7 @@ TODO：验证下上面的分布式命令有没有问题 @李洋
    |:-----:|:-----:|:-----:|:-----:|:-----:|
    |1 |147.14 | 153.47 | 595.49 | 628.25 |
    |8 | 1140.52 | 1186.89 | 4329.79 | 4569.42 |
-   |32 | - | - | - | - |
+   |32 | 4541.76 | 5026.88 | 17756.8 | 19171.84 |
 
 ### 2.与业内其它框架对比
 
@@ -315,3 +314,7 @@ TODO：验证下上面的分布式命令有没有问题 @李洋
 - [8卡 bs=48、FP32](./logs/base_bs48_fp32_gpu8.log)
 - [8卡 bs=64、AMP](./logs/base_bs64_fp16_gpu8.log)
 - [8卡 bs=96、AMP](./logs/base_bs96_fp16_gpu8.log)
+- [32卡 bs=96、AMP](./logs/base_bs96_fp16_gpu32.log)
+- [32卡 bs=64、AMP](./logs/base_bs64_fp16_gpu32.log)
+- [32卡 bs=32、FP32](./logs/base_bs32_fp32_gpu32.log)
+- [32卡 bs=48、FP32](./logs/base_bs48_fp32_gpu32.log)

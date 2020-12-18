@@ -30,11 +30,8 @@
   - Driver Version: 450.80.02
   - 内存：432 GB
 
-> TODO(Distribute):<br>
-> 请李洋提供一下多机环境
-
 - 多机（32卡）
-  - 系统： TODO @李洋
+  - 系统：CentOS release 6.3 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
   - Driver Version: 450.80.02
