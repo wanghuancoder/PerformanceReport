@@ -72,9 +72,9 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
   - 内存：432 GB
 
 - 多机（32卡）
-  - 系统：TODO： 确认环境 @李洋
+  - 系统：CentOS release 6.3 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 40
   - Driver Version: 450.80.02
   - 内存：502 GB
 
