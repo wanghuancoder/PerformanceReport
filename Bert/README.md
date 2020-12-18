@@ -219,6 +219,7 @@ Bert Base 模型是自研语言处理领域极具代表性的模型，包括 Pre
    export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
    # 设置以下环境变量为您所用训练机器的IP地址
    export TRANER_IPS="10.10.0.1,10.10.0.2,10.10.0.3,10.10.0.4"
+   export PADDLE_WITH_GLOO=0
 
    batch_size=${1:-32}
    use_amp=${2:-"True"}
