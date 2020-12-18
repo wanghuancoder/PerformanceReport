@@ -54,7 +54,7 @@
 单机环境的搭建，我们遵循了 NGC TensorFlow 官网提供的 [Quick Start Guide](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5#quick-start-guide) 教程成功搭建了测试环境，主要过程如下：
 
 - 以ImageNet2012数据集为基础制作TF_Record格式的数据。
-  
+
   这部分不在本报告中详细展开，可参考NGC提供的[文档](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5#quick-start-guide)制作。
 
 - 下载NGC TensorFlow repo,并进入目录
@@ -78,7 +78,7 @@
 
 ### 2.多机（32卡）环境搭建
 
-待后续测试。
+> 我们会后续补充此内容。
 
 ## 三、测试步骤
 
@@ -106,7 +106,7 @@
 
 ### 2.多机（32卡）测试
 
-待后续测试。
+> 我们会后续补充此内容。
 
 ## 四、测试结果
 
