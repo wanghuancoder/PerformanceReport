@@ -17,6 +17,7 @@ is_distributed: False
 print_interval: 1
 use_dali: True
 fuse_elewise_add_act_ops: True
+enable_addto: True
 
 use_mix: False
 ls_epsilon: -1
