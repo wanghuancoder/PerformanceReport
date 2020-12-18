@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Paddle Performance Report——Paddle框架性能测试报告
+# Paddle Perf——Paddle框架性能测试
 
 
 本 repo 用于公开 PaddlePaddle 开源实现的各个学术界、工业界前沿模型，在训练期间的性能数据，同时提供了各模型性能测试的详细复现流程，以供参考。
