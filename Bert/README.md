@@ -315,7 +315,3 @@ TODO：验证下上面的分布式命令有没有问题 @李洋
 - [8卡 bs=48、FP32](./logs/base_bs48_fp32_gpu8.log)
 - [8卡 bs=64、AMP](./logs/base_bs64_fp16_gpu8.log)
 - [8卡 bs=96、AMP](./logs/base_bs96_fp16_gpu8.log)
-
-
-> TODO(Distribute):<br>
-> 完成测试，将32卡 与 公布性能数据 一致的原始日志文件提交到log目录下，并更新链接
